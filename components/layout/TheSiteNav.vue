@@ -1,10 +1,10 @@
 <template>
 	<nav class="nav">
-		<nuxt-link :to="localePath('exhibitions')" tag="a" class="nav__item">{{ $t('exhibitions') }}</nuxt-link>
-		<nuxt-link to="sanatcilar" tag="a" class="nav__item">Sanatçılar</nuxt-link>
-		<nuxt-link to="hakkimizda" tag="a" class="nav__item">Hakkımızda</nuxt-link>
-		<nuxt-link to="contact" tag="a" class="nav__item">İletişim</nuxt-link>
-		<nuxt-link to="magaza" tag="a" class="nav__item">Mağaza</nuxt-link>
+		<nuxt-link :to="localePath('exhibitions')" tag="a" class="nav__item">{{ $t('nav.exhibitions') }}</nuxt-link>
+		<nuxt-link to="/" tag="a" class="nav__item">{{ $t('nav.artists') }}</nuxt-link>
+		<nuxt-link to="/" tag="a" class="nav__item">{{ $t('nav.about') }}</nuxt-link>
+		<nuxt-link to="/" tag="a" class="nav__item">{{ $t('nav.contact') }}</nuxt-link>
+		<nuxt-link to="/" tag="a" class="nav__item">{{ $t('nav.store') }}</nuxt-link>
 	</nav>
 </template>
 

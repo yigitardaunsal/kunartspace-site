@@ -69,19 +69,18 @@ export default {
 	},
 
 	i18n: {
-		locales: ['tr', 'en'],
-		defaultLocale: 'tr',
-		vueI18n: {
-			fallbackLocale: 'tr',
-			messages: {
-				tr: {
-					exhibitions: 'Sergiler'
-				},
-				en: {
-					exhibitions: 'Exhibitions'
-				}
+		locales: [
+			{
+				code: 'tr',
+				file: 'tr-TR.js'
+			},
+			{
+				code: 'en',
+				file: 'en-US.js'
 			}
-		}
+		],
+		defaultLocale: 'tr',
+		langDir: 'lang/'
 	},
 
 	// Build Configuration: https://go.nuxtjs.dev/config-build

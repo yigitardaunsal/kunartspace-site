@@ -6,20 +6,14 @@
 		<slot name="nav" />
 		<div class="language" :class="{ last: !$slots.social }">
 			<button
+				v-for="(locale, index) in locales"
+				:key="index"
 				type="button"
 				class="language__item"
-				:class="{ active: currentLocale === 'tr' }"
-				@click="changeLocale('tr')"
+				:class="{ active: currentLocale === locale }"
+				@click="changeLocale(locale)"
 			>
-				TR
-			</button>
-			<button
-				type="button"
-				class="language__item"
-				:class="{ active: currentLocale === 'en' }"
-				@click="changeLocale('en')"
-			>
-				EN
+				{{ locale.toLocaleUpperCase() }}
 			</button>
 		</div>
 		<slot name="social" />
@@ -37,6 +31,9 @@ export default {
 	computed: {
 		currentLocale() {
 			return this.$i18n.locale
+		},
+		locales() {
+			return this.$i18n.localeCodes
 		}
 	},
 	methods: {
