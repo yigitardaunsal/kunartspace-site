@@ -8,25 +8,37 @@ export default {
 			{ hid: 'description', name: 'description', content: '' },
 			{ name: 'format-detection', content: 'telephone=no' }
 		],
-		link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+		link: [
+			{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+			{ rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+			{ rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
+			{
+				rel: 'stylesheet',
+				href: 'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap',
+				crossorigin: ''
+			}
+		]
 	},
 
 	// Global CSS: https://go.nuxtjs.dev/config-css
-	css: ['@/assets/css/main.css'],
+	css: ['@/assets/scss/main.scss'],
 
 	// Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
 	plugins: [],
 
 	// Auto import components: https://go.nuxtjs.dev/config-components
-	components: true,
+	components: [
+		{
+			path: '~/components',
+			pathPrefix: false
+		}
+	],
 
 	// Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
 	buildModules: [
 		// https://go.nuxtjs.dev/eslint
-		'@nuxtjs/eslint-module',
+		'@nuxtjs/eslint-module'
 		// https://go.nuxtjs.dev/tailwindcss
-		'@nuxtjs/tailwindcss',
-		'@nuxt/postcss8'
 	],
 
 	// Modules: https://go.nuxtjs.dev/config-modules
@@ -34,7 +46,9 @@ export default {
 		// https://go.nuxtjs.dev/axios
 		'@nuxtjs/axios',
 		// https://go.nuxtjs.dev/pwa
-		'@nuxtjs/pwa'
+		'@nuxtjs/pwa',
+		'@nuxtjs/style-resources',
+		'@nuxtjs/i18n'
 	],
 
 	// Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -50,13 +64,37 @@ export default {
 		}
 	},
 
+	styleResources: {
+		scss: ['./assets/scss/abstracts/*.scss']
+	},
+
+	i18n: {
+		locales: ['tr', 'en'],
+		defaultLocale: 'tr',
+		vueI18n: {
+			fallbackLocale: 'tr',
+			messages: {
+				tr: {
+					exhibitions: 'Sergiler'
+				},
+				en: {
+					exhibitions: 'Exhibitions'
+				}
+			}
+		}
+	},
+
 	// Build Configuration: https://go.nuxtjs.dev/config-build
 	build: {
-		postcss: {
-			plugins: {
-				tailwindcss: {},
-				autoprefixer: {}
-			}
+		extend: (config) => {
+			const svgRule = config.module.rules.find((rule) => rule.test.test('.svg'))
+
+			svgRule.test = /\.(png|jpe?g|gif|webp)$/
+
+			config.module.rules.push({
+				test: /\.svg$/,
+				use: ['babel-loader', 'vue-svg-loader']
+			})
 		}
 	}
 }
