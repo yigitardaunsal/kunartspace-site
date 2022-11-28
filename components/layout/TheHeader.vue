@@ -39,7 +39,6 @@ export default {
 	methods: {
 		changeLocale(localeCode) {
 			this.$i18n.setLocale(localeCode)
-			console.log(this.$i18n)
 		}
 	}
 }
