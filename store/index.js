@@ -1,9 +1,27 @@
 export const state = () => ({
-	language: 'tr'
+	exhibitionList: []
 })
 
 export const getters = {}
 
-export const mutations = {}
+export const mutations = {
+	SET_EXHIBITION_LIST(state, payload) {
+		state.exhibitionList = payload
+	}
+}
 
-export const actions = {}
+export const actions = {
+	async fetchExhibitionList({ commit }) {
+		this.$axios.setHeader('lang', this.$i18n.locale)
+		const data = await this.$axios.$get('exhibitions/get-list')
+		const mappedData = data.map((exhibition) => {
+			const dates = exhibition.date.split(' - ')
+			return {
+				...exhibition,
+				startDate: this.$moment(dates[0]).locale(this.$i18n.locale).format('DD MMMM'),
+				endDate: this.$moment(dates[1]).locale(this.$i18n.locale).format('DD MMMM YYYY')
+			}
+		})
+		commit('SET_EXHIBITION_LIST', mappedData)
+	}
+}

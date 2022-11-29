@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="footerless-layout">
 		<TheHeader>
 			<template #nav>
 				<TheSiteNav />
@@ -8,7 +8,9 @@
 				<SocialMedia />
 			</template>
 		</TheHeader>
-		<Nuxt />
+		<main class="main">
+			<Nuxt />
+		</main>
 	</div>
 </template>
 

@@ -1,26 +1,147 @@
 <template>
-	<div>
-		<h2>Lorem Ipsum Nedir?</h2>
-		<p>
-			<strong>Lorem Ipsum</strong>, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir. Lorem Ipsum, adı
-			bilinmeyen bir matbaacının bir hurufat numune kitabı oluşturmak üzere bir yazı galerisini alarak karıştırdığı
-			1500'lerden beri endüstri standardı sahte metinler olarak kullanılmıştır. Beşyüz yıl boyunca varlığını sürdürmekle
-			kalmamış, aynı zamanda pek değişmeden elektronik dizgiye de sıçramıştır. 1960'larda Lorem Ipsum pasajları da
-			içeren Letraset yapraklarının yayınlanması ile ve yakın zamanda Aldus PageMaker gibi Lorem Ipsum sürümleri içeren
-			masaüstü yayıncılık yazılımları ile popüler olmuştur.
-		</p>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-6">sol</div>
-				<div class="col-md-6">sağ</div>
+	<client-only>
+		<div class="hero">
+			<VueSlickCarousel ref="heroSlider" :arrows="false" :dots="false">
+				<div v-for="(exhibition, index) in exhibitionList" :key="index" class="hero__item">
+					<div class="exhibition">
+						<div class="exhibition__picture">
+							<img :src="exhibition.image" alt="Family Tree" />
+						</div>
+						<div class="exhibition__content">
+							<h1 class="exhibition__title">
+								{{ exhibition.name
+								}}<template v-if="exhibition.artist"
+									>, <span>{{ exhibition.artist }}</span></template
+								>
+							</h1>
+							<span class="exhibition__date">{{ exhibition.startDate }} - {{ exhibition.endDate }}</span>
+							<p class="exhibition__text" v-html="exhibition.description" />
+						</div>
+					</div>
+				</div>
+			</VueSlickCarousel>
+			<div v-if="exhibitionList.length" class="hero__nav">
+				<button type="button" class="hero__nav-button --prev" @click="prevSlide">
+					<ArrowLeftSvg width="40" />
+				</button>
+				<button type="button" class="hero__nav-button --next" @click="nextSlide">
+					<ArrowRightSvg width="40" />
+				</button>
 			</div>
 		</div>
-	</div>
+	</client-only>
 </template>
 
 <script>
+import 'vue-slick-carousel/dist/vue-slick-carousel.css'
+import ArrowLeftSvg from '@/assets/svg/arrow-left.svg'
+import ArrowRightSvg from '@/assets/svg/arrow-right.svg'
+
 export default {
 	name: 'IndexPage',
-	layout: 'Footerless'
+	components: {
+		ArrowLeftSvg,
+		ArrowRightSvg
+	},
+	layout: 'Footerless',
+	async asyncData({ store }) {
+		await store.dispatch('fetchExhibitionList')
+	},
+	computed: {
+		exhibitionList() {
+			return this.$store.state.exhibitionList
+		}
+	},
+	methods: {
+		prevSlide() {
+			this.$refs.heroSlider.prev()
+		},
+		nextSlide() {
+			this.$refs.heroSlider.next()
+		}
+	}
 }
 </script>
+
+<style lang="scss" scoped>
+.hero {
+	position: relative;
+	margin: 0 auto;
+
+	@include respond-to('large') {
+		max-width: 1780px;
+		padding: 12vh px2rem(12) px2rem(62);
+	}
+
+	&__item {
+		.exhibition {
+			display: flex;
+			height: 100%;
+
+			&__picture {
+				flex-shrink: 0;
+				margin-right: 6%;
+				width: 50%;
+				height: auto;
+
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+					pointer-events: none;
+				}
+			}
+
+			&__content {
+				display: flex;
+				flex-direction: column;
+			}
+
+			&__title {
+				margin: 0 0 px2rem(24);
+				line-height: px2rem(54);
+				font-size: px2rem(36);
+				font-weight: 600;
+
+				span {
+					font-weight: 400;
+				}
+			}
+
+			&__date {
+				line-height: px2rem(30);
+				font-size: px2rem(20);
+				color: $dark-gray;
+			}
+
+			&__text {
+				margin: auto 0 0;
+				max-width: 420px;
+				line-height: px2rem(21);
+				font-size: px2rem(14);
+				color: $dark-gray;
+			}
+		}
+	}
+
+	&__nav {
+		position: absolute;
+		bottom: px2rem(62);
+		right: px2rem(12);
+		display: grid;
+		grid-template-columns: repeat(2, px2rem(40));
+		column-gap: px2rem(15);
+
+		&-button {
+			border: none;
+			height: px2rem(40);
+			background-color: transparent;
+			color: $dark-gray;
+
+			&:hover {
+				color: $darklighten;
+			}
+		}
+	}
+}
+</style>

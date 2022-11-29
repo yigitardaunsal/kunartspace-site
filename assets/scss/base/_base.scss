@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: Poppins, sans-serif;
   font-weight: 400;
@@ -6,4 +10,9 @@ body {
 a {
   transition: 250ms all;
   text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  transition: 250ms all;
 }
