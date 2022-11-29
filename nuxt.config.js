@@ -24,7 +24,7 @@ export default {
 	css: ['@/assets/scss/main.scss'],
 
 	// Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-	plugins: [],
+	plugins: ['@/plugins/vue-slick-carousel.js'],
 
 	// Auto import components: https://go.nuxtjs.dev/config-components
 	components: [
@@ -37,8 +37,9 @@ export default {
 	// Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
 	buildModules: [
 		// https://go.nuxtjs.dev/eslint
-		'@nuxtjs/eslint-module'
-		// https://go.nuxtjs.dev/tailwindcss
+		'@nuxtjs/eslint-module',
+		'@nuxtjs/dotenv',
+		'@nuxtjs/moment'
 	],
 
 	// Modules: https://go.nuxtjs.dev/config-modules
@@ -51,10 +52,15 @@ export default {
 		'@nuxtjs/i18n'
 	],
 
+	loading: {
+		color: 'black',
+		height: '5px'
+	},
+
 	// Axios module configuration: https://go.nuxtjs.dev/config-axios
 	axios: {
 		// Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-		baseURL: '/'
+		baseURL: 'http://localhost:3001'
 	},
 
 	// PWA module configuration: https://go.nuxtjs.dev/pwa
@@ -81,6 +87,11 @@ export default {
 		],
 		defaultLocale: 'tr',
 		langDir: 'lang/'
+	},
+
+	moment: {
+		defaultLocale: 'tr',
+		locales: ['tr']
 	},
 
 	// Build Configuration: https://go.nuxtjs.dev/config-build
