@@ -5,5 +5,8 @@ export default {
 		about: 'Hakkımızda',
 		contact: 'İletişim',
 		store: 'Mağaza'
+	},
+	footer: {
+		copyright: 'TÜM HAKLARI SAKLIDIR'
 	}
 }

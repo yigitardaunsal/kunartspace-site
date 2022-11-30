@@ -4,7 +4,7 @@
 			<div class="row align-items-center">
 				<div class="col-md-8">
 					<div class="footer__texts">
-						<span class="footer__text">2022 KUN ART SPACE ALL RIGHTS RESERVED</span>
+						<span class="footer__text">{{ year }} KUN ART SPACE {{ $t('footer.copyright') }}</span>
 						<span class="footer__text">SITE BY AZ AJANS</span>
 					</div>
 				</div>
@@ -22,7 +22,12 @@
 </template>
 <script>
 export default {
-	name: 'TheSiteFooter'
+	name: 'TheSiteFooter',
+	computed: {
+		year() {
+			return new Date().getFullYear()
+		}
+	}
 }
 </script>
 

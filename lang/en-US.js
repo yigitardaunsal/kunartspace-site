@@ -5,5 +5,8 @@ export default {
 		about: 'About',
 		contact: 'Contact',
 		store: 'Store'
+	},
+	footer: {
+		copyright: 'ALL RIGHTS RESERVED'
 	}
 }
