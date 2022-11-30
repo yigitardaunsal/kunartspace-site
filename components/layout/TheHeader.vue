@@ -46,11 +46,13 @@ export default {
 
 <style lang="scss" scoped>
 .header {
+	flex-shrink: 0;
 	display: flex;
 	align-items: center;
 	margin: 0 auto;
 
 	@include respond-to('large') {
+		width: 100%;
 		max-width: 1780px;
 		height: 158px;
 		padding: 0 px2rem(12);

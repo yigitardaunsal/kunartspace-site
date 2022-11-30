@@ -29,7 +29,7 @@ export default {
 
 <style lang="scss" scoped>
 .social-media {
-	display: grid;
+	display: inline-grid;
 	grid-template-columns: repeat(3, px2rem(24));
 	column-gap: px2rem(18);
 
