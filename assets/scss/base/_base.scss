@@ -10,6 +10,11 @@ body {
 a {
   transition: 250ms all;
   text-decoration: none;
+  color: $mild-gray;
+
+  &:hover {
+    color: $darklighten;
+  }
 }
 
 button {
@@ -25,4 +30,11 @@ button {
   .main {
     flex: 1;
   }
+}
+
+.img-fluid {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
 }

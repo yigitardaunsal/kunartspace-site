@@ -5,7 +5,7 @@
 				<div v-for="(exhibition, index) in exhibitionList" :key="index" class="hero__item">
 					<div class="exhibition">
 						<div class="exhibition__picture">
-							<img :src="exhibition.image" alt="Family Tree" />
+							<img :src="exhibition.image" :alt="exhibition.name" />
 						</div>
 						<div class="exhibition__content">
 							<h1 class="exhibition__title">
@@ -15,7 +15,7 @@
 								>
 							</h1>
 							<span class="exhibition__date">{{ exhibition.startDate }} - {{ exhibition.endDate }}</span>
-							<p class="exhibition__text" v-html="exhibition.description" />
+							<p class="exhibition__text">{{ exhibition.description }}</p>
 						</div>
 					</div>
 				</div>
@@ -116,8 +116,8 @@ export default {
 
 			&__text {
 				margin: auto 0 0;
-				max-width: 420px;
-				line-height: px2rem(21);
+				max-width: px2rem(420);
+				line-height: px2rem(22);
 				font-size: px2rem(14);
 				color: $dark-gray;
 			}

@@ -8,5 +8,10 @@ export default {
 	},
 	footer: {
 		copyright: 'ALL RIGHTS RESERVED'
-	}
+	},
+	exhibitionPage: {
+		currentExhibition: 'CURRENT EXHIBITION',
+		pastExhibitions: 'PAST EXHIBITIONS'
+	},
+	readMore: 'read more'
 }

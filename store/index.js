@@ -2,7 +2,14 @@ export const state = () => ({
 	exhibitionList: []
 })
 
-export const getters = {}
+export const getters = {
+	getCurrentExhibition(state) {
+		return state.exhibitionList.find((exhibition) => exhibition.isCurrent)
+	},
+	getExhibitionListWithoutCurrent(state) {
+		return state.exhibitionList.filter((exhibition) => !exhibition.isCurrent)
+	}
+}
 
 export const mutations = {
 	SET_EXHIBITION_LIST(state, payload) {

@@ -8,5 +8,10 @@ export default {
 	},
 	footer: {
 		copyright: 'TÜM HAKLARI SAKLIDIR'
-	}
+	},
+	exhibitionPage: {
+		currentExhibition: 'AKTİF SERGİ',
+		pastExhibitions: 'GEÇMİŞ SERGİLER'
+	},
+	readMore: 'daha fazla'
 }
