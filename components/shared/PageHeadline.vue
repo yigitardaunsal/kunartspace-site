@@ -61,5 +61,10 @@ export default {
 		font-size: px2rem(24);
 		line-height: px2rem(36);
 	}
+
+	&.--md {
+		font-size: px2rem(28);
+		line-height: px2rem(40);
+	}
 }
 </style>

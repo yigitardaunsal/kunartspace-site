@@ -13,5 +13,7 @@ export default {
 		currentExhibition: 'AKTİF SERGİ',
 		pastExhibitions: 'GEÇMİŞ SERGİLER'
 	},
-	readMore: 'daha fazla'
+	readMore: 'daha fazla',
+	artists: 'SANATÇILAR',
+	works: 'ESERLER'
 }

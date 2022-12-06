@@ -13,5 +13,7 @@ export default {
 		currentExhibition: 'CURRENT EXHIBITION',
 		pastExhibitions: 'PAST EXHIBITIONS'
 	},
-	readMore: 'read more'
+	readMore: 'read more',
+	artists: 'ARTISTS',
+	works: 'WORKS'
 }
