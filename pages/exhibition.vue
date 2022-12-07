@@ -24,7 +24,7 @@
 			<PageHeadline tag="h2" size="md">{{ $t('works') }}</PageHeadline>
 			<div class="row">
 				<div v-for="(work, index) in exhibition.works" :key="index" class="col-md-4">
-					<ExhibitionWorkCard :work="work" />
+					<WorkCard :work="work" />
 				</div>
 			</div>
 		</div>
@@ -33,7 +33,7 @@
 
 <script>
 export default {
-	name: 'ExhibitionDetail',
+	name: 'ExhibitionPage',
 	async asyncData({ params, $axios, i18n, $moment }) {
 		$axios.setHeader('lang', i18n.locale)
 		const { data } = await $axios.get(`/exhibitions/get-detail/${params.slug}`)

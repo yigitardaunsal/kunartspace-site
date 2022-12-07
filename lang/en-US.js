@@ -13,6 +13,11 @@ export default {
 		currentExhibition: 'CURRENT EXHIBITION',
 		pastExhibitions: 'PAST EXHIBITIONS'
 	},
+	artistPage: {
+		overview: 'OVERVİEW',
+		works: 'WORKS',
+		exhibitions: 'EXHIBITIONS'
+	},
 	readMore: 'read more',
 	artists: 'ARTISTS',
 	works: 'WORKS'

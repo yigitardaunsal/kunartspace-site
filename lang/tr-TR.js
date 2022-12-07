@@ -13,6 +13,11 @@ export default {
 		currentExhibition: 'AKTİF SERGİ',
 		pastExhibitions: 'GEÇMİŞ SERGİLER'
 	},
+	artistPage: {
+		overview: 'GENEL BAKIŞ',
+		works: 'ESERLER',
+		exhibitions: 'SERGİLER'
+	},
 	readMore: 'daha fazla',
 	artists: 'SANATÇILAR',
 	works: 'ESERLER'

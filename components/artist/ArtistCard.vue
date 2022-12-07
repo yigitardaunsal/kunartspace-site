@@ -1,5 +1,5 @@
 <template>
-	<nuxt-link :to="`/sanatcilar/${artist.link}`" tag="a" class="artist">
+	<nuxt-link :to="localePath({ name: 'artist', params: { slug: artist.link } })" tag="a" class="artist">
 		<img :src="artist.image" :alt="artist.name" class="artist__picture" />
 		<span class="artist__name">{{ artist.name }}</span>
 	</nuxt-link>
