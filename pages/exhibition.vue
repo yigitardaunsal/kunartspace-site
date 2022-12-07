@@ -34,10 +34,15 @@
 <script>
 export default {
 	name: 'ExhibitionPage',
-	async asyncData({ params, $axios, i18n, $moment }) {
+	async asyncData({ params, $axios, i18n, store, $moment }) {
 		$axios.setHeader('lang', i18n.locale)
 		const { data } = await $axios.get(`/exhibitions/get-detail/${params.slug}`)
 		const dates = data.date.split(' - ')
+
+		await store.dispatch('i18n/setRouteParams', {
+			tr: { slug: data.link },
+			en: { slug: data.enLink }
+		})
 
 		return {
 			exhibition: data,

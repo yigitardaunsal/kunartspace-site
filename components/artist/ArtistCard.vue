@@ -31,8 +31,9 @@ export default {
 
 	&__picture {
 		flex-shrink: 0;
-		max-width: px2rem(154);
-		height: auto;
+		width: px2rem(154);
+		height: px2rem(150);
+		object-fit: cover;
 	}
 
 	&__name {
