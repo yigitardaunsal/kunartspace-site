@@ -16,7 +16,8 @@ export default {
 	artistPage: {
 		overview: 'GENEL BAKIŞ',
 		works: 'ESERLER',
-		exhibitions: 'SERGİLER'
+		exhibitions: 'SERGİLER',
+		exhibitedArtists: 'SERGİSİ OLAN SANATÇILAR'
 	},
 	readMore: 'daha fazla',
 	artists: 'SANATÇILAR',

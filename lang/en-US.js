@@ -16,7 +16,8 @@ export default {
 	artistPage: {
 		overview: 'OVERVİEW',
 		works: 'WORKS',
-		exhibitions: 'EXHIBITIONS'
+		exhibitions: 'EXHIBITIONS',
+		exhibitedArtists: 'EXHIBITED ARTISTS'
 	},
 	readMore: 'read more',
 	artists: 'ARTISTS',
