@@ -6,6 +6,9 @@ export default {
 		contact: 'İletişim',
 		store: 'Mağaza'
 	},
+	constantPageLinks: {
+		about: 'hakkimizda'
+	},
 	footer: {
 		copyright: 'TÜM HAKLARI SAKLIDIR'
 	},
@@ -18,6 +21,9 @@ export default {
 		works: 'ESERLER',
 		exhibitions: 'SERGİLER',
 		exhibitedArtists: 'SERGİSİ OLAN SANATÇILAR'
+	},
+	constantPage: {
+		photosFromGallery: 'GALERİMİZDEN FOTOĞRAFLAR'
 	},
 	readMore: 'daha fazla',
 	artists: 'SANATÇILAR',

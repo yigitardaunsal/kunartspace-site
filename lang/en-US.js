@@ -6,6 +6,9 @@ export default {
 		contact: 'Contact',
 		store: 'Store'
 	},
+	constantPageLinks: {
+		about: 'about-us'
+	},
 	footer: {
 		copyright: 'ALL RIGHTS RESERVED'
 	},
@@ -18,6 +21,9 @@ export default {
 		works: 'WORKS',
 		exhibitions: 'EXHIBITIONS',
 		exhibitedArtists: 'EXHIBITED ARTISTS'
+	},
+	constantPage: {
+		photosFromGallery: 'PHOTOS FROM GALLERY'
 	},
 	readMore: 'read more',
 	artists: 'ARTISTS',
