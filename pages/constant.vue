@@ -14,8 +14,8 @@
 		<div class="constant-page__gallery">
 			<PageHeadline v-if="isAbout" tag="h2">{{ $t('constantPage.photosFromGallery') }}</PageHeadline>
 			<div class="row">
-				<div v-for="(image, index) in page.gallery" :key="index" class="col-md-4">
-					<a :href="image" class="constant-page__gallery-item" @click.prevent="showGallerySlider(index)">
+				<div v-for="(image, indx) in page.gallery" :key="indx" class="col-md-4">
+					<a :href="image" class="constant-page__gallery-item" @click.prevent="showGallerySlider(indx)">
 						<img :src="image" :alt="image" class="img-contain" />
 					</a>
 				</div>
@@ -23,8 +23,8 @@
 		</div>
 		<client-only>
 			<vue-easy-lightbox
-				escDisabled
-				moveDisabled
+				esc-disabled
+				move-disabled
 				:visible="visible"
 				:imgs="page.gallery"
 				:index="index"
@@ -39,6 +39,9 @@ import VueEasyLightbox from 'vue-easy-lightbox'
 
 export default {
 	name: 'ConstantPage',
+	components: {
+		VueEasyLightbox
+	},
 	async asyncData({ params, $axios, i18n, store }) {
 		$axios.setHeader('lang', i18n.locale)
 		const { data } = await $axios.get(`/pages/get-detail/${params.slug}`)
@@ -57,9 +60,6 @@ export default {
 			tr: '/:slug',
 			en: '/:slug'
 		}
-	},
-	components: {
-		VueEasyLightbox
 	},
 	data() {
 		return {
