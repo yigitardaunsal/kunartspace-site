@@ -3,7 +3,7 @@
 		<a href="https://www.facebook.com/kuzgunartspace/" target="_blank" class="social-media__link">
 			<FacebookIcon width="24" />
 		</a>
-		<a href="https://mobile.twitter.com/kunartspace" target="_blank" class="social-media__link">
+		<a href="https://twitter.com/kunartspace" target="_blank" class="social-media__link">
 			<TwitterIcon width="24" />
 		</a>
 		<a href="https://www.instagram.com/kunartspace/" target="_blank" class="social-media__link">

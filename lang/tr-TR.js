@@ -25,7 +25,12 @@ export default {
 	constantPage: {
 		photosFromGallery: 'GALERİMİZDEN FOTOĞRAFLAR'
 	},
+	contactPage: {
+		visit: 'ZİYARET BİLGİLERİ',
+		application: 'BAŞVURU'
+	},
 	readMore: 'daha fazla',
 	artists: 'SANATÇILAR',
-	works: 'ESERLER'
+	works: 'ESERLER',
+	contact: 'İLETİŞİM'
 }

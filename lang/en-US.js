@@ -25,7 +25,12 @@ export default {
 	constantPage: {
 		photosFromGallery: 'PHOTOS FROM GALLERY'
 	},
+	contactPage: {
+		visit: 'VISIT',
+		application: 'APPLICATION'
+	},
 	readMore: 'read more',
 	artists: 'ARTISTS',
-	works: 'WORKS'
+	works: 'WORKS',
+	contact: 'CONTACT'
 }
