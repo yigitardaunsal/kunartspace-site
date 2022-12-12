@@ -4,25 +4,88 @@
 			<TabPane :title="$t('contact')">
 				<div class="row">
 					<div class="col-md-6">
-						<div class="contact__form"></div>
+						<ValidationObserver v-slot="{ handleSubmit }">
+							<form class="contact__form row" @submit.prevent="handleSubmit(sendMsg)">
+								<div class="col-md-6">
+									<FormGroup>
+										<Textbox
+											v-model="contactForm.name"
+											type="text"
+											name="name"
+											:placeholder="$t('contactPage.form.name')"
+											:rules="{ required: 'requied', regex: /^[a-zA-Z\s]*$/ }"
+										/>
+									</FormGroup>
+								</div>
+								<div class="col-md-6">
+									<FormGroup>
+										<Textbox
+											v-model="contactForm.surname"
+											type="text"
+											name="surname"
+											:placeholder="$t('contactPage.form.surname')"
+											:rules="{ required: 'required', regex: /^[a-zA-Z\s]*$/ }"
+										/>
+									</FormGroup>
+								</div>
+								<div class="col-md-12">
+									<FormGroup>
+										<Textbox
+											v-model="contactForm.email"
+											type="email"
+											name="email"
+											:placeholder="$t('contactPage.form.email')"
+											rules="required|email"
+										/>
+									</FormGroup>
+								</div>
+								<div class="col-md-12">
+									<FormGroup>
+										<Textbox
+											v-model="contactForm.phone"
+											type="phone"
+											name="phone"
+											:placeholder="$t('contactPage.form.phone')"
+											rules="required"
+										/>
+									</FormGroup>
+								</div>
+								<div class="col-md-12">
+									<FormGroup>
+										<Textarea
+											v-model="contactForm.message"
+											name="message"
+											:placeholder="$t('contactPage.form.message')"
+											rows="13"
+											rules="required|min:5"
+										/>
+									</FormGroup>
+								</div>
+								<div class="col-md-12">
+									<Button type="submit" block>{{ $t('send') }}</Button>
+								</div>
+							</form>
+						</ValidationObserver>
 					</div>
 					<div class="col-md-6">
-						<div class="contact__map">
-							<iframe
-								src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1593.1387847151982!2d35.329071!3d37.003174!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd9fbae09b89a768b!2sKUN%20Art%20Space%20%2F%20Kuzgun!5e0!3m2!1str!2str!4v1670785904360!5m2!1str!2str"
-								width="100%"
-								height="100%"
-								style="border: 0"
-								allowfullscreen=""
-								loading="lazy"
-								referrerpolicy="no-referrer-when-downgrade"
-							></iframe>
-						</div>
+						<iframe
+							src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1593.1387847151982!2d35.329071!3d37.003174!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd9fbae09b89a768b!2sKUN%20Art%20Space%20%2F%20Kuzgun!5e0!3m2!1str!2str!4v1670785904360!5m2!1str!2str"
+							width="100%"
+							height="100%"
+							style="border: 0"
+							allowfullscreen=""
+							loading="lazy"
+							referrerpolicy="no-referrer-when-downgrade"
+						></iframe>
 					</div>
 				</div>
 			</TabPane>
-			<TabPane :title="$t('contactPage.visit')">visit</TabPane>
-			<TabPane :title="$t('contactPage.application')">başvuru</TabPane>
+			<TabPane :title="$t('contactPage.visit')">
+				<VisitInfo />
+			</TabPane>
+			<TabPane :title="$t('contactPage.application')">
+				<Application />
+			</TabPane>
 		</TabContainer>
 		<div class="contact__footer">
 			<div class="row">
@@ -97,6 +160,7 @@
 </template>
 
 <script>
+import { ValidationObserver } from 'vee-validate'
 import PhoneSvg from '@/assets/svg/phone.svg'
 import EnvelopeSvg from '@/assets/svg/envelope.svg'
 import LocationSvg from '@/assets/svg/location.svg'
@@ -107,6 +171,7 @@ import TwitterSvg from '@/assets/svg/twitter.svg'
 export default {
 	name: 'ContactPage',
 	components: {
+		ValidationObserver,
 		PhoneSvg,
 		EnvelopeSvg,
 		LocationSvg,
@@ -118,6 +183,22 @@ export default {
 		paths: {
 			tr: '/iletisim',
 			en: '/contact'
+		}
+	},
+	data() {
+		return {
+			contactForm: {
+				name: '',
+				surname: '',
+				email: '',
+				phone: '',
+				message: ''
+			}
+		}
+	},
+	methods: {
+		sendMsg() {
+			console.log('sent')
 		}
 	}
 }

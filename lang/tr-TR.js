@@ -27,10 +27,32 @@ export default {
 	},
 	contactPage: {
 		visit: 'ZİYARET BİLGİLERİ',
-		application: 'BAŞVURU'
+		application: 'BAŞVURU',
+		form: {
+			name: 'Ad',
+			surname: 'Soyad',
+			email: 'E-Posta',
+			phone: 'Telefon',
+			message: 'Mesaj'
+		},
+		visitTitle: 'ZİYARET BİLGİLERİ',
+		entranceIsFree: 'Giriş Ücretsiz',
+		applicationTitle: 'SANATÇI BAŞVURUSU',
+		applicationForm: {
+			name: 'Ad',
+			surname: 'Soyad',
+			email: 'E-Posta',
+			phone: 'Telefon',
+			branch: 'Sanat Dalı',
+			about: 'Hakkında'
+		}
 	},
 	readMore: 'daha fazla',
 	artists: 'SANATÇILAR',
 	works: 'ESERLER',
-	contact: 'İLETİŞİM'
+	contact: 'İLETİŞİM',
+	send: 'Gönder',
+	monday: 'Pazartesi',
+	saturday: 'Cumartesi',
+	sunday: 'Pazar'
 }

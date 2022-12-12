@@ -58,3 +58,10 @@ button {
 svg {
   vertical-align: middle;
 }
+
+.validate-error {
+  display: block;
+  margin-top: px2rem(8);
+  font-size: px2rem(12);
+  color: $alizarin;
+}

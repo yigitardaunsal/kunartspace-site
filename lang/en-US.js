@@ -27,10 +27,32 @@ export default {
 	},
 	contactPage: {
 		visit: 'VISIT',
-		application: 'APPLICATION'
+		application: 'APPLICATION',
+		form: {
+			name: 'Name',
+			surname: 'Surname',
+			email: 'E-Mail Address',
+			phone: 'Phone',
+			message: 'Your Message'
+		},
+		visitTitle: 'VISITING INFORMATION',
+		entranceIsFree: 'Entrance is Free',
+		applicationTitle: 'ARTIST APPLICATION',
+		applicationForm: {
+			name: 'Name',
+			surname: 'Surname',
+			email: 'E-Mail Address',
+			phone: 'Phpne',
+			branch: 'Your Branch',
+			about: 'Tell little about yourself...'
+		}
 	},
 	readMore: 'read more',
 	artists: 'ARTISTS',
 	works: 'WORKS',
-	contact: 'CONTACT'
+	contact: 'CONTACT',
+	send: 'Send',
+	monday: 'Pazartesi',
+	saturday: 'Cumartesi',
+	sunday: 'Pazar'
 }
