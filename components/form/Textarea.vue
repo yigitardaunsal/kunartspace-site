@@ -40,7 +40,8 @@ export default {
 		},
 		value: {
 			type: String,
-			required: false
+			required: false,
+			default: ''
 		},
 		rules: {
 			type: [String, Object],
