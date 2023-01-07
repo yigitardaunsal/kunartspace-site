@@ -6,7 +6,8 @@ export default {
 		contact: 'İletişim',
 		store: 'Mağaza',
 		atelier: 'Atölye',
-		works: 'Eserler'
+		works: 'Eserler',
+		corporate: 'Kurumsal'
 	},
 	constantPageLinks: {
 		about: 'hakkimizda'
@@ -52,12 +53,16 @@ export default {
 	readMore: 'daha fazla',
 	artists: 'SANATÇILAR',
 	works: 'ESERLER',
-	contact: 'İLETİŞİM',
+	contact: 'İletişim',
 	send: 'Gönder',
 	monday: 'Pazartesi',
 	saturday: 'Cumartesi',
 	sunday: 'Pazar',
 	miniBasket: {
 		noItem: 'Sepetiniz boş'
+	},
+	newsletter: {
+		title: 'En son haberleri almak için kaydolun',
+		placeholder: 'E-posta adresinizi girin'
 	}
 }

@@ -68,6 +68,7 @@ export default {
 			margin: 0;
 			padding: 0;
 			line-height: px2rem(24);
+			text-transform: uppercase;
 			cursor: pointer;
 
 			&.--active {

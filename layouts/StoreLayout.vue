@@ -11,7 +11,7 @@
 		<main class="main">
 			<Nuxt />
 		</main>
-		<TheSiteFooter />
+		<TheStoreFooter />
 	</div>
 </template>
 

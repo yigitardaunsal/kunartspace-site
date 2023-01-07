@@ -6,7 +6,8 @@ export default {
 		contact: 'Contact',
 		store: 'Store',
 		atelier: 'Atelier',
-		works: 'Works'
+		works: 'Works',
+		corporate: 'Corporate'
 	},
 	constantPageLinks: {
 		about: 'about-us'
@@ -59,5 +60,9 @@ export default {
 	sunday: 'Pazar',
 	miniBasket: {
 		noItem: 'Your basket is empty'
+	},
+	newsletter: {
+		title: 'Sign up to receive the latest news',
+		placeholder: 'Enter your e-mail'
 	}
 }

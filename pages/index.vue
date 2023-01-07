@@ -34,8 +34,8 @@
 
 <script>
 import 'vue-slick-carousel/dist/vue-slick-carousel.css'
-import ArrowLeftSvg from '@/assets/svg/arrow-left.svg'
-import ArrowRightSvg from '@/assets/svg/arrow-right.svg'
+import ArrowLeftSvg from '@/assets/svg/angle-arrow-left.svg'
+import ArrowRightSvg from '@/assets/svg/angle-arrow-right.svg'
 
 export default {
 	name: 'IndexPage',
