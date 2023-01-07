@@ -4,7 +4,9 @@ export default {
 		artists: 'Artists',
 		about: 'About',
 		contact: 'Contact',
-		store: 'Store'
+		store: 'Store',
+		atelier: 'Atelier',
+		works: 'Works'
 	},
 	constantPageLinks: {
 		about: 'about-us'
@@ -54,5 +56,8 @@ export default {
 	send: 'Send',
 	monday: 'Pazartesi',
 	saturday: 'Cumartesi',
-	sunday: 'Pazar'
+	sunday: 'Pazar',
+	miniBasket: {
+		noItem: 'Your basket is empty'
+	}
 }

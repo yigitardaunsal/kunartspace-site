@@ -4,6 +4,7 @@
 			<Logo height="30" />
 		</nuxt-link>
 		<slot name="nav" />
+		<slot name="account" />
 		<div class="language" :class="{ last: !$slots.social }">
 			<button
 				v-for="(locale, index) in locales"

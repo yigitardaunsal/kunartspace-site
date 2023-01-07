@@ -8,3 +8,28 @@
         + "Available breakpoints are: #{map-keys($breakpoints)}.";
   }
 }
+
+
+@mixin nav($justify: 'flex-end') {
+  .nav {
+    flex: 1;
+    display: flex;
+    justify-content: $justify;
+    gap: px2rem(45);
+    margin: 0 px2rem(50);
+
+    &__item {
+      font-size: px2rem(18);
+      line-height: px2rem(26);
+      color: $darklighten;
+
+      &.nuxt-link-active {
+        font-weight: 600;
+      }
+
+      &:hover {
+        color: $mild-gray;
+      }
+    }
+  }
+}

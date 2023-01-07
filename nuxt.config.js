@@ -103,7 +103,17 @@ export default {
 
 			config.module.rules.push({
 				test: /\.svg$/,
-				use: ['babel-loader', 'vue-svg-loader']
+				use: ['babel-loader']
+			})
+
+			config.module.rules.push({
+				test: /\.svg$/,
+				loader: 'vue-svg-loader',
+				options: {
+					svgo: {
+						plugins: [{ cleanupIDs: false }]
+					}
+				}
 			})
 		},
 		transpile: ['vee-validate/dist/rules']

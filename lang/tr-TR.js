@@ -4,7 +4,9 @@ export default {
 		artists: 'Sanatçılar',
 		about: 'Hakkımızda',
 		contact: 'İletişim',
-		store: 'Mağaza'
+		store: 'Mağaza',
+		atelier: 'Atölye',
+		works: 'Eserler'
 	},
 	constantPageLinks: {
 		about: 'hakkimizda'
@@ -54,5 +56,8 @@ export default {
 	send: 'Gönder',
 	monday: 'Pazartesi',
 	saturday: 'Cumartesi',
-	sunday: 'Pazar'
+	sunday: 'Pazar',
+	miniBasket: {
+		noItem: 'Sepetiniz boş'
+	}
 }
