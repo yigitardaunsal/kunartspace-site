@@ -1,0 +1,41 @@
+.btn {
+  display: inline-block;
+  height: px2rem(50);
+  border-radius: px2rem(5);
+  padding: 0 px2rem(22);
+  font-size: px2rem(15);
+  line-height: px2rem(50);
+  font-weight: 400;
+
+  &.--primary {
+    border: none;
+    background-color: $darklighten;
+    color: $enlighten;
+
+    &:hover {
+      color: $enlighten;
+      background-color: $dark-gray;
+    }
+  }
+
+  &.--secondary {
+    border: 1px solid $b-gray;
+    background-color: $enlighten;
+    color: $b-gray;
+
+    &:hover {
+      border: 1px solid $darklighten;
+      color: $darklighten;
+    }
+  }
+
+  &.--sm {
+    height: px2rem(40);
+    line-height: px2rem(40);
+  }
+
+  &.--block {
+    display: block;
+    width: 100%;
+  }
+}

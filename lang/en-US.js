@@ -64,5 +64,8 @@ export default {
 	newsletter: {
 		title: 'Sign up to receive the latest news',
 		placeholder: 'Enter your e-mail'
-	}
+	},
+	explore: 'Explore',
+	currentWorks: 'CURRENT WORKS',
+	viewAll: 'View All'
 }

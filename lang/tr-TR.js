@@ -64,5 +64,8 @@ export default {
 	newsletter: {
 		title: 'En son haberleri almak için kaydolun',
 		placeholder: 'E-posta adresinizi girin'
-	}
+	},
+	explore: 'Keşfet',
+	currentWorks: 'ÖNE ÇIKAN ESERLER',
+	viewAll: 'Tümünü Gör'
 }

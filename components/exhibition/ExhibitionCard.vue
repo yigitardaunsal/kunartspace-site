@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import ArrowRightSvg from '@/assets/svg/arrow-right.svg'
+import ArrowRightSvg from '@/assets/svg/angle-arrow-right.svg'
 
 export default {
 	name: 'ExhibitionCard',
