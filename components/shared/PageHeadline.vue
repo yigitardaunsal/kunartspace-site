@@ -2,7 +2,7 @@
 	<component
 		:is="tag"
 		class="page-headline"
-		:class="[{ '--bordered': bordered, [`--${size}`]: !!size }, `--${position}`]"
+		:class="[{ '--bordered': bordered, [`--${size}`]: !!size, [`--${variant}`]: !!variant }, `--${position}`]"
 	>
 		<slot />
 	</component>
@@ -31,6 +31,11 @@ export default {
 			type: String,
 			required: false,
 			default: () => 'left'
+		},
+		variant: {
+			type: String,
+			required: false,
+			default: () => ''
 		}
 	}
 }
@@ -65,6 +70,14 @@ export default {
 	&.--md {
 		font-size: px2rem(28);
 		line-height: px2rem(40);
+	}
+
+	&.--customer {
+		margin-bottom: px2rem(44);
+		font-size: px2rem(56);
+		line-height: px2rem(84);
+		font-weight: 600;
+		color: $darklighten;
 	}
 }
 </style>

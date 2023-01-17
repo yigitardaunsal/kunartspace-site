@@ -16,13 +16,8 @@
 </template>
 
 <script>
-import { ValidationProvider } from 'vee-validate/dist/vee-validate.full.esm'
-
 export default {
 	name: 'AppTextarea',
-	components: {
-		ValidationProvider
-	},
 	props: {
 		name: {
 			type: String,

@@ -1,5 +1,5 @@
 <template>
-	<div class="layout --default">
+	<div class="layout --store">
 		<TheHeader>
 			<template #nav>
 				<TheStoreNav />

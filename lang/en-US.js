@@ -1,4 +1,7 @@
 export default {
+	messages: {
+		general: 'An unexpected error has occurred. Please try again!'
+	},
 	nav: {
 		exhibitions: 'Exhibitions',
 		artists: 'Artists',
@@ -67,5 +70,66 @@ export default {
 	},
 	explore: 'Explore',
 	currentWorks: 'CURRENT WORKS',
-	viewAll: 'View All'
+	viewAll: 'View All',
+	customer: {
+		loginButton: 'Login',
+		registerButton: 'Create an Account',
+		login: {
+			title: 'Login',
+			form: {
+				email: 'E-Mail',
+				password: 'Password'
+			},
+			forgotPassword: 'Forgot your password ?',
+			footerText: 'This site is protected by reCAPTCHA and Google. Privacy Policy and Terms of Service apply.',
+			notFound: 'Email or password is incorrect!'
+		},
+		register: {
+			title: 'Create an Account',
+			form: {
+				firstName: 'First Name',
+				lastName: 'Last Name',
+				email: 'E-Mail',
+				password: 'Password',
+				contactPermissionText:
+					'I want to be informed about your campaigns. I allow commercial electronic messages to be sent to me.',
+				contractPermissionText:
+					'I have read and approved the membership agreement and the express consent text for personalized marketing.'
+			},
+			footerText: 'This site is protected by reCAPTCHA and Google. Privacy Policy and Terms of Service apply.',
+			messages: {
+				conflict: 'There is an account registered with this email'
+			}
+		},
+		forgot: {
+			title: 'I Forgot My Password',
+			form: {
+				email: 'E-Mail'
+			},
+			messages: {
+				notFound: 'There is no account registered with this email!'
+			}
+		},
+		resetPassword: {
+			title: 'Reset Password',
+			form: {
+				code: 'Reset code',
+				password: 'New password'
+			},
+			messages: {
+				wrongCode: 'Wrong reset code!',
+				timeout: 'Your reset code has expired. Please get the code again!',
+				success: 'Your password has been changed!'
+			}
+		},
+		nav: {
+			orders: 'Orders',
+			addresses: 'Addressess',
+			favourites: 'Favourites'
+		},
+		accountTitle: 'Account',
+		defaultAddress: 'Default Address',
+		resetMyPassword: 'Reset my Password',
+		logoutButton: 'Exit from Site'
+	}
 }

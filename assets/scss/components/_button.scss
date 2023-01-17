@@ -1,20 +1,50 @@
 .btn {
+  position: relative;
   display: inline-block;
-  height: px2rem(50);
   border-radius: px2rem(5);
+  height: px2rem(50);
   padding: 0 px2rem(22);
   font-size: px2rem(15);
   line-height: px2rem(50);
   font-weight: 400;
+
+  &:disabled {
+    background-color: rgba($darklighten, .3);
+    cursor: not-allowed;
+  }
+
+  &__text {
+    &.--hidden {
+      opacity: 0;
+    }
+  }
+
+  &__loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    border: 2px dashed;
+    border-radius: 50%;
+    margin-top: px2rem(-15);
+    margin-left: px2rem(-15);
+    width: px2rem(30);
+    height: px2rem(30);
+    animation: turn 1500ms infinite;
+  }
 
   &.--primary {
     border: none;
     background-color: $darklighten;
     color: $enlighten;
 
-    &:hover {
+    &:not(:disabled):hover {
       color: $enlighten;
       background-color: $dark-gray;
+    }
+
+    &:disabled {
+      background-color: rgba($darklighten, .3);
     }
   }
 
@@ -23,8 +53,40 @@
     background-color: $enlighten;
     color: $b-gray;
 
-    &:hover {
+    &:not(:disabled):hover {
       border: 1px solid $darklighten;
+      color: $darklighten;
+    }
+  }
+
+  &.--tertiary {
+    border: 1px solid $dark-gray;
+    background-color: $enlighten;
+    color: $dark-gray;
+
+    &:not(:disabled):hover {
+      border: 1px solid $darklighten;
+      color: $darklighten;
+    }
+
+    &:disabled {
+      border: 1px solid $b-gray;
+      color: $b-gray;
+    }
+  }
+
+  &.--text {
+    border: none;
+    border-radius: 0;
+    height: auto;
+    padding: 0;
+    background-color: transparent;
+    font-size: inherit;
+    line-height: inherit;
+    text-decoration: underline;
+    color: $mild-gray;
+
+    &:hover {
       color: $darklighten;
     }
   }
@@ -37,5 +99,17 @@
   &.--block {
     display: block;
     width: 100%;
+    text-align: center;
+  }
+}
+
+@keyframes turn {
+  from {
+
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
   }
 }

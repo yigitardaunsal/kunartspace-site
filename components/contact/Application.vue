@@ -82,13 +82,8 @@
 </template>
 
 <script>
-import { ValidationObserver } from 'vee-validate'
-
 export default {
 	name: 'ArtistApplication',
-	components: {
-		ValidationObserver
-	},
 	data() {
 		return {
 			name: '',

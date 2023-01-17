@@ -160,7 +160,6 @@
 </template>
 
 <script>
-import { ValidationObserver } from 'vee-validate'
 import PhoneSvg from '@/assets/svg/phone.svg'
 import EnvelopeSvg from '@/assets/svg/envelope.svg'
 import LocationSvg from '@/assets/svg/location.svg'
@@ -171,7 +170,6 @@ import TwitterSvg from '@/assets/svg/twitter.svg'
 export default {
 	name: 'ContactPage',
 	components: {
-		ValidationObserver,
 		PhoneSvg,
 		EnvelopeSvg,
 		LocationSvg,

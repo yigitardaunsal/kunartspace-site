@@ -1,6 +1,15 @@
 <template>
-	<button v-bind="$attrs" class="btn" :class="[`--${variant}`, { '--block': block }]" @click="$emit('click')">
-		<slot />
+	<button
+		v-bind="$attrs"
+		class="btn"
+		:class="[`--${variant}`, { '--block': block }]"
+		:disabled="disabled || loading"
+		@click="$emit('click')"
+	>
+		<span class="btn__text" :class="{ '--hidden': loading }">
+			<slot />
+		</span>
+		<span v-if="loading" class="btn__loader"></span>
 	</button>
 </template>
 
@@ -14,6 +23,16 @@ export default {
 			default: 'primary'
 		},
 		block: {
+			type: Boolean,
+			required: false,
+			default: false
+		},
+		disabled: {
+			type: Boolean,
+			required: false,
+			default: false
+		},
+		loading: {
 			type: Boolean,
 			required: false,
 			default: false

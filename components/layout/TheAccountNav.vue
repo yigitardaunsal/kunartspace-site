@@ -3,9 +3,9 @@
 		<a href="#" class="account-nav__item">
 			<SearchIcon width="25" height="25" />
 		</a>
-		<a href="#" class="account-nav__item">
+		<nuxt-link :to="customerUrl" tag="a" class="account-nav__item" :class="{ '--active': inCustomerPages }">
 			<AccountIcon width="25" height="25" />
-		</a>
+		</nuxt-link>
 		<div class="account-nav__item --basket" :class="{ '--open': isMiniBasketOpen, '--active': isMiniBasketOpen }">
 			<button class="account-nav__button" @click="toggleMiniBasketOpen">
 				<BasketIcon width="25" height="25" />
@@ -30,6 +30,16 @@ export default {
 	data() {
 		return {
 			isMiniBasketOpen: false
+		}
+	},
+	computed: {
+		customerUrl() {
+			return this.$store.getters.getIsAuthenticated
+				? '/store/customer'
+				: `/store/customer/login?returnUrl=${this.$route.path}`
+		},
+		inCustomerPages() {
+			return this.$route.path.includes('customer')
 		}
 	},
 	mounted() {
@@ -70,7 +80,7 @@ export default {
 
 		&:hover,
 		&.--active {
-			color: initial;
+			color: $darklighten;
 		}
 
 		&.--basket {

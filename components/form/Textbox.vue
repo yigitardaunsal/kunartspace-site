@@ -6,6 +6,7 @@
 			:placeholder="placeholder"
 			class="textbox"
 			:class="{ '--invalid': invalid && validated }"
+			:disabled="disabled"
 			:value="value"
 			@input="$emit('input', $event.target.value)"
 		/>
@@ -16,13 +17,8 @@
 </template>
 
 <script>
-import { ValidationProvider } from 'vee-validate/dist/vee-validate.full.esm'
-
 export default {
 	name: 'AppTextbox',
-	components: {
-		ValidationProvider
-	},
 	props: {
 		type: {
 			type: String,
@@ -37,6 +33,11 @@ export default {
 			type: String,
 			required: true,
 			default: ''
+		},
+		disabled: {
+			type: Boolean,
+			required: false,
+			default: false
 		},
 		value: {
 			type: String,

@@ -1,0 +1,33 @@
+.customer-auth {
+  padding: px2rem(50) 0;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: px2rem(20);
+
+    &-row {
+      &.--high-gap {
+        margin-bottom: px2rem(30);
+      }
+    }
+  }
+
+  &__link {
+    font-size: px2rem(16);
+    line-height: px2rem(24);
+    text-decoration: underline;
+    color: $dark-gray;
+
+    &:hover {
+      color: initial;
+    }
+  }
+
+  &__footer {
+    margin-top: px2rem(58);
+    font-size: px2rem(12);
+    line-height: px2rem(18);
+    color: $mild-gray;
+  }
+}
