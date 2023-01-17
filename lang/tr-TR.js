@@ -134,6 +134,20 @@ export default {
 		accountTitle: 'Hesap Bilgileri',
 		defaultAddress: 'Varsayılan Adress',
 		resetMyPassword: 'Şifremi Değiştir',
-		logoutButton: 'Çıkış Yap'
+		logoutButton: 'Çıkış Yap',
+		orders: {
+			title: 'Siparişlerim'
+		},
+		changePassword: {
+			title: 'Şifremi Değiştir',
+			form: {
+				oldPassword: 'Mevcut şifreniz',
+				newPassword: 'Yeni şifreniz'
+			},
+			messages: {
+				notAcceptable: 'Mevcut şifreniz yanlış!',
+				success: 'Şifreniz değiştirildi!'
+			}
+		}
 	}
 }

@@ -1,5 +1,7 @@
 <template>
-	<div>selam</div>
+	<div class="customer-page">
+		<PageHeadline variant="customer" :bordered="false">{{ $t('customer.orders.title') }}</PageHeadline>
+	</div>
 </template>
 
 <script>

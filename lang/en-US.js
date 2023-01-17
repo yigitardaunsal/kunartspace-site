@@ -130,6 +130,20 @@ export default {
 		accountTitle: 'Account',
 		defaultAddress: 'Default Address',
 		resetMyPassword: 'Reset my Password',
-		logoutButton: 'Exit from Site'
+		logoutButton: 'Exit from Site',
+		orders: {
+			title: 'Orders'
+		},
+		changePassword: {
+			title: 'Reset My Password',
+			form: {
+				oldPassword: 'Current Password',
+				newPassword: 'New Password'
+			},
+			messages: {
+				notAcceptable: 'Your current password is wrong!',
+				success: 'Your password has been changed!'
+			}
+		}
 	}
 }

@@ -19,14 +19,22 @@
 				<div class="account__row">
 					{{ customer.email }}
 				</div>
-				<div class="account__row --title">
-					{{ $t('customer.defaultAddress') }}
-				</div>
-				<div class="account__row">Hürriyet mah. Bosna sk. No: 26 B2 Blok Daire: 31 Kartal / İstanbul</div>
+				<template v-if="customer.defaultAddress">
+					<div class="account__row --title">
+						{{ $t('customer.defaultAddress') }}
+					</div>
+					<div class="account__row">
+						{{ customer.defaultAddress.address }}
+						<br />
+						{{ customer.defaultAddress.country }} / {{ customer.defaultAddress.city }}
+					</div>
+				</template>
 			</div>
 		</div>
 		<div class="change-password">
-			<nuxt-link to="#" tag="a" class="change-password__link">{{ $t('customer.resetMyPassword') }}</nuxt-link>
+			<nuxt-link to="/store/customer/change-password" tag="a" class="change-password__link">{{
+				$t('customer.resetMyPassword')
+			}}</nuxt-link>
 		</div>
 		<div class="logout">
 			<Button type="button" variant="tertiary" block @click="logout">{{ $t('customer.logoutButton') }}</Button>

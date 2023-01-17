@@ -162,5 +162,15 @@ export const actions = {
 				return 200
 			})
 			.catch(({ response }) => response.status)
+	},
+	changePassword({ state }, payload) {
+		return this.$axios
+			.post('/customers/reset-password', payload, {
+				headers: {
+					Authorization: `Bearer ${state.accessToken}`
+				}
+			})
+			.then(() => 200)
+			.catch(({ response }) => response.status)
 	}
 }

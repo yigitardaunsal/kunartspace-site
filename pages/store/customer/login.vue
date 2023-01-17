@@ -19,7 +19,7 @@
 							<Textbox
 								v-model="password"
 								type="password"
-								:name="$t('customer.login.form.email')"
+								:name="$t('customer.login.form.password')"
 								:placeholder="$t('customer.login.form.password')"
 								rules="required"
 							/>
