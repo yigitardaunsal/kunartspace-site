@@ -1,7 +1,9 @@
 <template>
 	<div class="sidebar">
 		<div class="nav">
-			<nuxt-link to="/store/customer" tag="a" class="nav__item">{{ $t('customer.nav.orders') }}</nuxt-link>
+			<nuxt-link :to="localePath('/store/customer')" tag="a" class="nav__item">{{
+				$t('customer.nav.orders')
+			}}</nuxt-link>
 			<nuxt-link to="#" tag="a" class="nav__item">{{ $t('customer.nav.addresses') }}</nuxt-link>
 			<nuxt-link to="#" tag="a" class="nav__item">{{ $t('customer.nav.favourites') }}</nuxt-link>
 		</div>

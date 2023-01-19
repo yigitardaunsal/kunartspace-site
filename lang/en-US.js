@@ -132,7 +132,10 @@ export default {
 		resetMyPassword: 'Reset my Password',
 		logoutButton: 'Exit from Site',
 		orders: {
-			title: 'Orders'
+			title: 'Orders',
+			orderDate: 'Order Date',
+			receivedBy: 'Received By',
+			amount: 'Amount'
 		},
 		changePassword: {
 			title: 'Reset My Password',

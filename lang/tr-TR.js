@@ -136,7 +136,10 @@ export default {
 		resetMyPassword: 'Şifremi Değiştir',
 		logoutButton: 'Çıkış Yap',
 		orders: {
-			title: 'Siparişlerim'
+			title: 'Siparişlerim',
+			orderDate: 'Sipariş Tarihi',
+			receivedBy: 'Satın Alan',
+			amount: 'Tutar'
 		},
 		changePassword: {
 			title: 'Şifremi Değiştir',
