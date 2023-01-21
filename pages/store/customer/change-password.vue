@@ -1,29 +1,33 @@
 <template>
 	<div class="customer-page">
-		<PageHeadline variant="customer" :bordered="false">{{ $t('customer.changePassword.title') }}</PageHeadline>
-		<Form @submit="handleSubmit">
-			<FormRow>
-				<Textbox
-					v-model="formModel.oldPassword"
-					type="password"
-					:name="$t('customer.changePassword.form.oldPassword')"
-					:placeholder="$t('customer.changePassword.form.oldPassword')"
-					rules="required|min:8|max:16|password"
-				/>
-			</FormRow>
-			<FormRow>
-				<Textbox
-					v-model="formModel.newPassword"
-					type="password"
-					:name="$t('customer.changePassword.form.newPassword')"
-					:placeholder="$t('customer.changePassword.form.newPassword')"
-					rules="required|min:8|max:16|password"
-				/>
-			</FormRow>
-			<FormRow>
-				<Button type="submit" block :loading="loading">Gönder</Button>
-			</FormRow>
-		</Form>
+		<div class="customer-page__header">
+			<PageHeadline variant="customer" :bordered="false">{{ $t('customer.changePassword.title') }}</PageHeadline>
+		</div>
+		<div class="customer-page__body">
+			<Form @submit="handleSubmit">
+				<FormRow>
+					<Textbox
+						v-model="formModel.oldPassword"
+						type="password"
+						:name="$t('customer.changePassword.form.oldPassword')"
+						:placeholder="$t('customer.changePassword.form.oldPassword')"
+						rules="required|min:8|max:16|password"
+					/>
+				</FormRow>
+				<FormRow>
+					<Textbox
+						v-model="formModel.newPassword"
+						type="password"
+						:name="$t('customer.changePassword.form.newPassword')"
+						:placeholder="$t('customer.changePassword.form.newPassword')"
+						rules="required|min:8|max:16|password"
+					/>
+				</FormRow>
+				<FormRow>
+					<Button type="submit" block :loading="loading">{{ $t('send') }}</Button>
+				</FormRow>
+			</Form>
+		</div>
 	</div>
 </template>
 

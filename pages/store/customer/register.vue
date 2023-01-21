@@ -2,9 +2,11 @@
 	<div class="customer-auth container">
 		<div class="row justify-content-center">
 			<div class="col-md-6">
-				<PageHeadline variant="customer" position="center" :bordered="false">{{
-					$t('customer.register.title')
-				}}</PageHeadline>
+				<div class="customer-auth__header">
+					<PageHeadline variant="customer" position="center" :bordered="false">{{
+						$t('customer.register.title')
+					}}</PageHeadline>
+				</div>
 				<ValidationObserver v-slot="{ handleSubmit }">
 					<form class="customer-auth__form" @submit.prevent="handleSubmit(register)">
 						<div class="customer-auth__form-row">
@@ -42,7 +44,11 @@
 						</div>
 						<div class="customer-auth__form-row">
 							<div class="permission">
-								<Checkbox v-model="contactPermission" name="contact-permission" placeholder="İletişim İzni">
+								<Checkbox
+									v-model="contactPermission"
+									name="contact-permission"
+									:placeholder="$('customer.register.form.contactPermission')"
+								>
 									{{ $t('customer.register.form.contactPermissionText') }}
 								</Checkbox>
 							</div>
@@ -52,7 +58,7 @@
 								<Checkbox
 									v-model="contractPermission"
 									name="contract-permission"
-									placeholder="Sözleşme İzni"
+									:placeholder="$('customer.register.form.contractPermission')"
 									:rules="{ required: { allowFalse: false } }"
 								>
 									{{ $t('customer.register.form.contractPermissionText') }}
@@ -81,12 +87,12 @@ export default {
 	data() {
 		return {
 			loading: false,
-			firstName: 'Yiğit Arda',
-			lastName: 'Ünsal',
-			email: 'yigit@ardaunsal.com',
-			password: 'Yigit1202!',
+			firstName: '',
+			lastName: '',
+			email: '',
+			password: '',
 			contactPermission: false,
-			contractPermission: true
+			contractPermission: false
 		}
 	},
 	methods: {

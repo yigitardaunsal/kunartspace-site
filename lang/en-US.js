@@ -91,8 +91,10 @@ export default {
 				lastName: 'Last Name',
 				email: 'E-Mail',
 				password: 'Password',
+				contactPermission: 'Contact Permission',
 				contactPermissionText:
 					'I want to be informed about your campaigns. I allow commercial electronic messages to be sent to me.',
+				contractPermission: 'Contract',
 				contractPermissionText:
 					'I have read and approved the membership agreement and the express consent text for personalized marketing.'
 			},
@@ -137,6 +139,31 @@ export default {
 			receivedBy: 'Received By',
 			amount: 'Amount'
 		},
+		addresses: {
+			title: 'Addresses',
+			newButton: 'New Address',
+			modal: {
+				newTitle: 'New Address',
+				editTitle: 'Edit The Address'
+			},
+			form: {
+				title: 'Title',
+				fullName: 'Full Name',
+				phone: 'Phone',
+				city: 'City',
+				district: 'District',
+				address: 'Address',
+				makeDefault: 'Make this address my default'
+			},
+			messages: {
+				createSuccessful: 'The address has been added!',
+				updateSuccessful: 'The address has been updated!',
+				deletingSuccessful: 'The address has been deleted!'
+			}
+		},
+		favourites: {
+			title: 'Favourites'
+		},
 		changePassword: {
 			title: 'Reset My Password',
 			form: {
@@ -148,5 +175,8 @@ export default {
 				success: 'Your password has been changed!'
 			}
 		}
-	}
+	},
+	edit: 'Edit',
+	delete: 'Delete',
+	save: 'Save'
 }

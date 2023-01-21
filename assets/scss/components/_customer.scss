@@ -1,6 +1,10 @@
 .customer-auth {
   padding: px2rem(50) 0;
 
+  &__header {
+    margin-bottom: px2rem(44);
+  }
+
   &__form {
     display: flex;
     flex-direction: column;
@@ -29,5 +33,14 @@
     font-size: px2rem(12);
     line-height: px2rem(18);
     color: $mild-gray;
+  }
+}
+
+.customer-page {
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: px2rem(44);
   }
 }

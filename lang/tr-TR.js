@@ -94,8 +94,10 @@ export default {
 				lastName: 'Soyisim',
 				email: 'E-Posta',
 				password: 'Şifre',
+				contactPermission: 'İletişim İzni',
 				contactPermissionText:
 					'Kampanyalarından haberdar olmak istiyorum. Tarafıma ticari elektronik ileti gönderilmesine izin veriyorum.',
+				contractPermission: 'Sözleşme',
 				contractPermissionText:
 					'Üyelik sözleşmesini, kişiselleştirilmiş pazarlamaya ilişkin açık rıza metnini okudum, onaylıyorum.'
 			},
@@ -141,6 +143,31 @@ export default {
 			receivedBy: 'Satın Alan',
 			amount: 'Tutar'
 		},
+		addresses: {
+			title: 'Adreslerim',
+			newButton: 'Yeni Adres',
+			modal: {
+				newTitle: 'Yeni Adres',
+				editTitle: 'Adresi Düzenle'
+			},
+			form: {
+				title: 'Adres Başlığı',
+				fullName: 'Ad Soyad',
+				phone: 'Telefon',
+				city: 'İl',
+				district: 'İlçe',
+				address: 'Adres',
+				makeDefault: 'Bunu varsayılan adresim yap'
+			},
+			messages: {
+				createSuccessful: 'Addres eklendi!',
+				updateSuccessful: 'Addres düzenlendi!',
+				deletingSuccessful: 'Adres silindi!'
+			}
+		},
+		favourites: {
+			title: 'Favorilerim'
+		},
 		changePassword: {
 			title: 'Şifremi Değiştir',
 			form: {
@@ -152,5 +179,8 @@ export default {
 				success: 'Şifreniz değiştirildi!'
 			}
 		}
-	}
+	},
+	edit: 'Düzenle',
+	delete: 'Sil',
+	save: 'Kaydet'
 }

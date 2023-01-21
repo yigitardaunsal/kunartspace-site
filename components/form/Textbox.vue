@@ -1,15 +1,30 @@
 <template>
 	<ValidationProvider v-slot="{ invalid, validated, errors }" :name="placeholder" :rules="rules" tag="div">
-		<input
-			:type="type"
-			:name="name"
-			:placeholder="placeholder"
-			class="textbox"
-			:class="{ '--invalid': invalid && validated }"
-			:disabled="disabled"
-			:value="value"
-			@input="$emit('input', $event.target.value)"
-		/>
+		<template v-if="!!mask">
+			<input
+				:type="type"
+				:name="name"
+				:placeholder="placeholder"
+				v-mask="mask"
+				class="textbox"
+				:class="{ '--invalid': invalid && validated }"
+				:disabled="disabled"
+				:value="value"
+				@input="$emit('input', $event.target.value)"
+			/>
+		</template>
+		<template v-else>
+			<input
+				:type="type"
+				:name="name"
+				:placeholder="placeholder"
+				class="textbox"
+				:class="{ '--invalid': invalid && validated }"
+				:disabled="disabled"
+				:value="value"
+				@input="$emit('input', $event.target.value)"
+			/>
+		</template>
 		<span v-if="errors[0]" class="validate-error">
 			{{ errors[0] }}
 		</span>
@@ -17,8 +32,11 @@
 </template>
 
 <script>
+import { mask } from 'vue-the-mask'
+
 export default {
 	name: 'AppTextbox',
+	directives: { mask },
 	props: {
 		type: {
 			type: String,
@@ -40,14 +58,19 @@ export default {
 			default: false
 		},
 		value: {
-			type: String,
+			type: [String, Number],
 			required: false,
 			default: ''
 		},
 		rules: {
 			type: [String, Object],
 			required: false,
-			default: () => ''
+			default: ''
+		},
+		mask: {
+			type: String,
+			required: false,
+			default: ''
 		}
 	}
 }

@@ -4,8 +4,12 @@
 			<nuxt-link :to="localePath('/store/customer')" tag="a" class="nav__item">{{
 				$t('customer.nav.orders')
 			}}</nuxt-link>
-			<nuxt-link to="#" tag="a" class="nav__item">{{ $t('customer.nav.addresses') }}</nuxt-link>
-			<nuxt-link to="#" tag="a" class="nav__item">{{ $t('customer.nav.favourites') }}</nuxt-link>
+			<nuxt-link :to="localePath('/store/customer/addresses')" tag="a" class="nav__item">{{
+				$t('customer.nav.addresses')
+			}}</nuxt-link>
+			<nuxt-link :to="localePath('/store/customer/favourites')" tag="a" class="nav__item">{{
+				$t('customer.nav.favourites')
+			}}</nuxt-link>
 		</div>
 		<div class="account">
 			<div class="account__header">
@@ -28,7 +32,7 @@
 					<div class="account__row">
 						{{ customer.defaultAddress.address }}
 						<br />
-						{{ customer.defaultAddress.country }} / {{ customer.defaultAddress.city }}
+						{{ customer.defaultAddress.district }} / {{ customer.defaultAddress.city }}
 					</div>
 				</template>
 			</div>

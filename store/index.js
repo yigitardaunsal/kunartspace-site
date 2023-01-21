@@ -4,20 +4,9 @@ export const state = () => ({
 	exhibitionList: [],
 	accessToken: null,
 	customer: null,
-	forgotPasswordEmail: ''
+	forgotPasswordEmail: '',
+	addresses: []
 })
-
-export const getters = {
-	getIsAuthenticated(state) {
-		return !!state.accessToken
-	},
-	getCurrentExhibition(state) {
-		return state.exhibitionList.find((exhibition) => exhibition.isCurrent)
-	},
-	getExhibitionListWithoutCurrent(state) {
-		return state.exhibitionList.filter((exhibition) => !exhibition.isCurrent)
-	}
-}
 
 export const mutations = {
 	SET_EXHIBITION_LIST(state, payload) {
@@ -31,6 +20,9 @@ export const mutations = {
 	},
 	SET_FORGOT_PASSWORD_EMAIL(state, payload) {
 		state.forgotPasswordEmail = payload
+	},
+	SET_ADDRESSES(state, payload) {
+		state.addresses = payload
 	}
 }
 
@@ -138,7 +130,7 @@ export const actions = {
 
 		setTimeout(() => {
 			commit('SET_CUSTOMER', null)
-		}, 1001)
+		}, 2000)
 	},
 	forgotPassword({ state, commit }, email) {
 		email = email || state.forgotPasswordEmail
@@ -172,5 +164,69 @@ export const actions = {
 			})
 			.then(() => 200)
 			.catch(({ response }) => response.status)
+	},
+	fetchAddresses({ state, commit }) {
+		return this.$axios
+			.get('/customers/get-addresses', {
+				headers: {
+					Authorization: `Bearer ${state.accessToken}`
+				}
+			})
+			.then(({ data }) => commit('SET_ADDRESSES', data))
+			.catch(({ response }) => console.log(response))
+	},
+	createAddress({ state, dispatch }, payload) {
+		return this.$axios
+			.post('/customers/add-address', payload, {
+				headers: {
+					Authorization: `Berar ${state.accessToken}`
+				}
+			})
+			.then(() => {
+				dispatch('fetchAddresses')
+				return 201
+			})
+			.catch(({ response }) => response.status)
+	},
+	updateAddress({ state, dispatch }, payload) {
+		const id = payload._id
+		delete payload._id
+
+		return this.$axios
+			.patch(`/customers/update-address/${id}`, payload, {
+				headers: {
+					Authorization: `Berar ${state.accessToken}`
+				}
+			})
+			.then(() => {
+				dispatch('fetchAddresses')
+				return 200
+			})
+			.catch(({ response }) => response.status)
+	},
+	deleteAddress({ state, dispatch }, id) {
+		return this.$axios
+			.delete(`/customers/remove-address/${id}`, {
+				headers: {
+					Authorization: `Bearer ${state.accessToken}`
+				}
+			})
+			.then(() => {
+				dispatch('fetchAddresses')
+				return 200
+			})
+			.catch(({ response }) => response.status)
+	}
+}
+
+export const getters = {
+	getIsAuthenticated(state) {
+		return !!state.accessToken
+	},
+	getCurrentExhibition(state) {
+		return state.exhibitionList.find((exhibition) => exhibition.isCurrent)
+	},
+	getExhibitionListWithoutCurrent(state) {
+		return state.exhibitionList.filter((exhibition) => !exhibition.isCurrent)
 	}
 }

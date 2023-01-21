@@ -1,15 +1,19 @@
 <template>
 	<div class="customer-page">
-		<PageHeadline variant="customer" :bordered="false">{{ $t('customer.orders.title') }}</PageHeadline>
-		<div v-for="(order, index) in orders" :key="index" class="order">
-			<OrderCard :order="order" />
+		<div class="customer-page__header">
+			<PageHeadline variant="customer" :bordered="false">{{ $t('customer.orders.title') }}</PageHeadline>
+		</div>
+		<div class="customer-page__body">
+			<div v-for="(order, index) in orders" :key="index" class="order">
+				<OrderCard :order="order" />
+			</div>
 		</div>
 	</div>
 </template>
 
 <script>
 export default {
-	name: 'CustomerPage',
+	name: 'CustomerOrders',
 	layout: 'CustomerLayout',
 	asyncData({ $moment, i18n }) {
 		const data = [

@@ -73,7 +73,7 @@ export default {
 	}
 
 	&.--customer {
-		margin-bottom: px2rem(44);
+		margin-bottom: 0;
 		font-size: px2rem(56);
 		line-height: px2rem(84);
 		font-weight: 600;

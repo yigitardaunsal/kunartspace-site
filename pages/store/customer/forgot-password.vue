@@ -2,9 +2,11 @@
 	<div class="customer-auth container">
 		<div class="row justify-content-center">
 			<div class="col-md-6">
-				<PageHeadline variant="customer" position="center" :bordered="false">{{
-					$t('customer.forgot.title')
-				}}</PageHeadline>
+				<div class="customer-auth__header">
+					<PageHeadline variant="customer" position="center" :bordered="false">{{
+						$t('customer.forgot.title')
+					}}</PageHeadline>
+				</div>
 				<ValidationObserver v-slot="{ handleSubmit }">
 					<form class="customer-auth__form" @submit.prevent="handleSubmit(submit)">
 						<div class="customer-auth__form-row">
