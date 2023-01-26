@@ -182,5 +182,19 @@ export default {
 	},
 	edit: 'Düzenle',
 	delete: 'Sil',
-	save: 'Kaydet'
+	save: 'Kaydet',
+	worksPage: {
+		filter: 'FİLTRELE'
+	},
+	apply: 'UYGULA',
+	sortingItems: {
+		bestSellers: 'En Çok Satanlar',
+		default: 'Varsayılan',
+		aToZ: "A'dan Z'ye",
+		zToA: "Z'den A'ya",
+		priceIncreasing: 'Fiyat Artan',
+		priceDecreasing: 'Fiyat Azalan',
+		oldest: 'Eskiden Yeniye',
+		latest: 'Yeniden Eskiye'
+	}
 }

@@ -12,7 +12,7 @@
 			</div>
 			<div class="artist__works row">
 				<div v-for="(work, workIndex) in artist.works" :key="workIndex" class="col-md-4">
-					<nuxt-link tag="a" :to="localePath({ name: 'work', params: { slug: work.link } })" class="work">
+					<nuxt-link tag="a" to="#" class="work">
 						<div class="work__picture">
 							<img :src="work.picture" alt="work name" />
 						</div>

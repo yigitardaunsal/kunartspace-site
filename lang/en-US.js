@@ -178,5 +178,19 @@ export default {
 	},
 	edit: 'Edit',
 	delete: 'Delete',
-	save: 'Save'
+	save: 'Save',
+	worksPage: {
+		filter: 'FILTER'
+	},
+	apply: 'APPLY',
+	sortingItems: {
+		bestSellers: 'Best Sellers',
+		default: 'Default',
+		aToZ: 'A to Z',
+		zToA: 'Z to A',
+		priceIncreasing: 'Low to High Price',
+		priceDecreasing: 'High to Low Price',
+		oldest: 'Old to New',
+		latest: 'New to Old'
+	}
 }

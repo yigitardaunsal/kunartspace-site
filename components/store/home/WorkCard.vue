@@ -1,5 +1,5 @@
 <template>
-	<nuxt-link tag="a" :to="localePath({ name: 'work', params: { slug: work.link } })" class="work" draggable="false">
+	<nuxt-link tag="a" to="#" class="work" draggable="false">
 		<div class="work__picture">
 			<img :src="work.picture" :alt="work.name" />
 		</div>
