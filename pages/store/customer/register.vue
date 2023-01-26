@@ -37,7 +37,7 @@
 							<Textbox
 								v-model="password"
 								type="password"
-								:name="$t('customer.register.form.email')"
+								:name="$t('customer.register.form.pasword')"
 								:placeholder="$t('customer.register.form.password')"
 								rules="required|min:8|max:16|password"
 							/>
@@ -47,7 +47,7 @@
 								<Checkbox
 									v-model="contactPermission"
 									name="contact-permission"
-									:placeholder="$('customer.register.form.contactPermission')"
+									:placeholder="$t('customer.register.form.contactPermission')"
 								>
 									{{ $t('customer.register.form.contactPermissionText') }}
 								</Checkbox>
@@ -58,7 +58,7 @@
 								<Checkbox
 									v-model="contractPermission"
 									name="contract-permission"
-									:placeholder="$('customer.register.form.contractPermission')"
+									:placeholder="$t('customer.register.form.contractPermission')"
 									:rules="{ required: { allowFalse: false } }"
 								>
 									{{ $t('customer.register.form.contractPermissionText') }}
@@ -73,7 +73,6 @@
 				<div class="customer-auth__footer">
 					{{ $t('customer.register.footerText') }}
 				</div>
-				<div></div>
 			</div>
 		</div>
 	</div>
@@ -97,26 +96,23 @@ export default {
 	},
 	methods: {
 		async register() {
-			this.loading = true
-
-			const payload = {
-				fullName: `${this.firstName} ${this.lastName}`,
-				email: this.email,
-				password: this.password,
-				contactPermission: this.contactPermission
-			}
-			const status = await this.$store.dispatch('register', payload)
-
-			if (status !== 200) {
-				this.loading = false
-			}
-
-			if (status === 409) {
-				this.$toast.open({
-					message: this.$t('customer.register.messages.conflict'),
-					type: 'error'
-				})
-			}
+			// this.loading = true
+			// const payload = {
+			// 	fullName: `${this.firstName} ${this.lastName}`,
+			// 	email: this.email,
+			// 	password: this.password,
+			// 	contactPermission: this.contactPermission
+			// }
+			// const status = await this.$store.dispatch('register', payload)
+			// if (status !== 200) {
+			// 	this.loading = false
+			// }
+			// if (status === 409) {
+			// 	this.$toast.open({
+			// 		message: this.$t('customer.register.messages.conflict'),
+			// 		type: 'error'
+			// 	})
+			// }
 		}
 	}
 }
