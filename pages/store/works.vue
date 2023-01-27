@@ -57,10 +57,12 @@ export default {
 	async asyncData({ $axios, query, error }) {
 		const params = {
 			page: query?.page || 1,
-			filters: query?.filters || null
+			filters: query?.filters || null,
+			sorting: query?.sorting || null
 		}
 
 		if (!params.filters) delete params.filters
+		if (!params.sorting) delete params.sorting
 
 		try {
 			const { data } = await $axios.get('/works/get-list', { params })

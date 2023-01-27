@@ -41,12 +41,16 @@ export default {
 			this.$emit('close')
 		},
 		handleSelectItem(val) {
+			const query = {
+				...this.$route.query,
+				sorting: val
+			}
+
+			delete query?.page
+
 			this.$router.push({
 				name: this.$route.name,
-				query: {
-					...this.$route.query,
-					sorting: val
-				}
+				query
 			})
 
 			this.close()
