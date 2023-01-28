@@ -1,4 +1,5 @@
 .btn {
+  $self: &;
   position: relative;
   display: inline-block;
   border-radius: px2rem(5);
@@ -72,6 +73,27 @@
     &:disabled {
       border: 1px solid $b-gray;
       color: $b-gray;
+    }
+  }
+
+  &.--cart {
+    @extend .--secondary;
+    font-size: px2rem(18);
+    line-height: 1;
+
+    #{$self} {
+      &__text {
+        display: inline-flex;
+        align-items: center;
+        gap: px2rem(24);
+        height: px2rem(28);
+      }
+    }
+
+    .icon {
+      border-right: 1px solid $b-gray;
+      height: px2rem(28);
+      padding-right: px2rem(24);
     }
   }
 

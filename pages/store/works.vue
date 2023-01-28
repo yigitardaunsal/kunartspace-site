@@ -1,5 +1,5 @@
 <template>
-	<div class="works">
+	<div class="works container-xxxl">
 		<div class="works__header">
 			<button
 				v-if="filters.length"
@@ -54,7 +54,7 @@ export default {
 			en: '/store/works'
 		}
 	},
-	async asyncData({ $axios, query, error }) {
+	async asyncData({ i18n, $axios, query, error }) {
 		const params = {
 			page: query?.page || 1,
 			filters: query?.filters || null,
@@ -65,6 +65,7 @@ export default {
 		if (!params.sorting) delete params.sorting
 
 		try {
+			$axios.setHeader('lang', i18n.locale)
 			const { data } = await $axios.get('/works/get-list', { params })
 			const { data: filters } = await $axios.get('/filters/get-list')
 
@@ -110,12 +111,6 @@ export default {
 <style lang="scss" scoped>
 .works {
 	margin: px2rem(50) auto 0;
-
-	@include respond-to('large') {
-		width: 100%;
-		max-width: 1780px;
-		padding: 0 px2rem(12);
-	}
 
 	&__header {
 		display: flex;

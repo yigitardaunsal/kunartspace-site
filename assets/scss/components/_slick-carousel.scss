@@ -1,0 +1,27 @@
+.slick-dots {
+  position: absolute;
+  bottom: px2rem(30);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex !important;
+  gap: px2rem(8);
+  list-style: none;
+
+  li {
+    button {
+      overflow: hidden;
+      border: none;
+      border-radius: 50%;
+      width: px2rem(12);
+      height: px2rem(12);
+      background-color: $b-gray;
+      text-indent: px2rem(-24);
+    }
+
+    &.slick-active {
+      button {
+        background-color: $enlighten;
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
 <template>
-	<header ref="header" class="header">
+	<header ref="header" class="header container-xxxl">
 		<nuxt-link :to="localePath('index')" tag="a" class="logo">
 			<Logo height="30" />
 		</nuxt-link>
@@ -51,13 +51,7 @@ export default {
 	display: flex;
 	align-items: center;
 	margin: 0 auto;
-
-	@include respond-to('large') {
-		width: 100%;
-		max-width: 1780px;
-		height: 158px;
-		padding: 0 px2rem(12);
-	}
+	height: 158px;
 
 	.logo {
 		color: $darklighten;

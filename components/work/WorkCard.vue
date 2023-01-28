@@ -1,5 +1,10 @@
 <template>
-	<nuxt-link :to="`/urun/${work.link}`" tag="a" class="work" :class="`--${page}`">
+	<nuxt-link
+		:to="localePath({ name: 'store-work', params: { slug: work.link } })"
+		tag="a"
+		class="work"
+		:class="`--${page}`"
+	>
 		<div class="work__canvas">
 			<img :src="work.image" :alt="work.name" class="work__picture" />
 		</div>

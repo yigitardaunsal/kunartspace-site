@@ -192,5 +192,13 @@ export default {
 		priceDecreasing: 'High to Low Price',
 		oldest: 'Old to New',
 		latest: 'New to Old'
-	}
+	},
+	workPage: {
+		stockCode: 'Stock Code',
+		whatsappText: 'Ask About Art Piece',
+		contactText: 'If you need any help feel free to call us from our numbers'
+	},
+	vat: 'VAT',
+	addToCart: 'Add to Cart',
+	buyNow: 'Buy Now'
 }

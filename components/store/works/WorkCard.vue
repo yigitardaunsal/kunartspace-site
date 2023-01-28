@@ -1,5 +1,10 @@
 <template>
-	<nuxt-link to="#" tag="a" class="work" :class="{ [`--${size}`]: !!size }">
+	<nuxt-link
+		:to="localePath({ name: 'store-work', params: { slug: work.link } })"
+		tag="a"
+		class="work"
+		:class="{ [`--${size}`]: !!size }"
+	>
 		<div class="work__wrapper">
 			<div class="work__picture">
 				<img :src="work.picture" :alt="work.name" />

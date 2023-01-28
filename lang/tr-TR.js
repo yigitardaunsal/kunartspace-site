@@ -196,5 +196,13 @@ export default {
 		priceDecreasing: 'Fiyat Azalan',
 		oldest: 'Eskiden Yeniye',
 		latest: 'Yeniden Eskiye'
-	}
+	},
+	workPage: {
+		stockCode: 'Stok Kodu',
+		whatsappText: 'Sanat Eseri Hakkında Soru Sor',
+		contactText: 'Herhangi bir yardıma ihtiyacınız olursa, bizi numaralarımızdan aramaktan çekinmeyin'
+	},
+	vat: 'KDV',
+	addToCart: 'Sepete Ekle',
+	buyNow: 'Hemen Satın Al'
 }
