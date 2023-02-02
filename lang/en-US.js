@@ -196,7 +196,11 @@ export default {
 	workPage: {
 		stockCode: 'Stock Code',
 		whatsappText: 'Ask About Art Piece',
-		contactText: 'If you need any help feel free to call us from our numbers'
+		contactText: 'If you need any help feel free to call us from our numbers',
+		messages: {
+			success: 'The work has been added to the cart!',
+			notAcceptable: 'The work is already in your cart!'
+		}
 	},
 	vat: 'VAT',
 	addToCart: 'Add to Cart',

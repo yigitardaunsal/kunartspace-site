@@ -5,7 +5,8 @@ export const state = () => ({
 	accessToken: null,
 	customer: null,
 	forgotPasswordEmail: '',
-	addresses: []
+	addresses: [],
+	cart: []
 })
 
 export const mutations = {
@@ -215,6 +216,29 @@ export const actions = {
 				dispatch('fetchAddresses')
 				return 200
 			})
+			.catch(({ response }) => response.status)
+	},
+	addToCart({ state }, payload) {
+		if (!state.accessToken) {
+			const cart = JSON.parse(Cookie.get('cart') || '[]')
+			const productInCart = cart.find((item) => item.productId === payload.productId)
+
+			if (productInCart) {
+				return 406
+			}
+
+			cart.push({
+				productId: payload.productId,
+				onMode: payload.onModel
+			})
+			Cookie.set('cart', JSON.stringify(cart), { expires: 1 })
+			return 200
+		}
+
+		this.$axios.setHeader('Authorization', `Berar ${state.accessToken}`)
+		return this.$axios
+			.post('/customers/add-to-cart', payload)
+			.then(() => 200)
 			.catch(({ response }) => response.status)
 	}
 }

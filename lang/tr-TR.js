@@ -200,7 +200,11 @@ export default {
 	workPage: {
 		stockCode: 'Stok Kodu',
 		whatsappText: 'Sanat Eseri Hakkında Soru Sor',
-		contactText: 'Herhangi bir yardıma ihtiyacınız olursa, bizi numaralarımızdan aramaktan çekinmeyin'
+		contactText: 'Herhangi bir yardıma ihtiyacınız olursa, bizi numaralarımızdan aramaktan çekinmeyin',
+		messages: {
+			success: 'Eser sepete eklendi!',
+			notAcceptable: 'Bu ürün zaten sepetinizde mevcut!'
+		}
 	},
 	vat: 'KDV',
 	addToCart: 'Sepete Ekle',

@@ -1,5 +1,5 @@
 <template>
-	<Button variant="cart">
+	<Button variant="cart" v-bind="$attrs" @click="$emit('click')">
 		<span class="icon">
 			<BasketIcon width="25" height="25" />
 		</span>

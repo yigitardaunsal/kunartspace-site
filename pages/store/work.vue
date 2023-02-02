@@ -18,7 +18,7 @@
 						>{{ work.price | currency }} <template v-if="work.hasVat">(+{{ $t('vat') }})</template></span
 					>
 					<div class="work__buttons">
-						<AddToCartButton />
+						<AddToCartButton :loading="addToCartLoading" @click="addToCart" />
 						<Button
 							variant="text"
 							class="work__favorite"
@@ -31,7 +31,7 @@
 						</Button>
 					</div>
 					<div class="work__buttons">
-						<Button block>{{ $t('buyNow') }}</Button>
+						<Button block :disabled="addToCartLoading">{{ $t('buyNow') }}</Button>
 					</div>
 					<div class="work__contact">
 						<a href="https://wa.me/905383883838" target="_blank" class="whatsapp">
@@ -87,7 +87,8 @@ export default {
 	},
 	data() {
 		return {
-			favoriteLoading: false
+			favoriteLoading: false,
+			addToCartLoading: false
 		}
 	},
 	computed: {
@@ -125,6 +126,26 @@ export default {
 					type: 'error'
 				})
 			}
+		},
+		async addToCart() {
+			this.addToCartLoading = true
+			const status = await this.$store.dispatch('addToCart', {
+				productId: this.work._id,
+				onModel: 'work'
+			})
+
+			if (status === 200) {
+				this.$toast.open(this.$t('workPage.messages.success'))
+			}
+
+			if (status === 406) {
+				this.$toast.open({
+					message: this.$t('workPage.messages.notAcceptable'),
+					type: 'error'
+				})
+			}
+
+			this.addToCartLoading = false
 		}
 	}
 }
