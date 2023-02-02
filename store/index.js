@@ -112,13 +112,25 @@ export const actions = {
 				return response.status
 			})
 	},
-	setAuthData({ commit }, payload) {
+	setAuthData({ commit, dispatch }, payload) {
 		Cookie.set('accessToken', payload.accessToken, { expires: 1 })
 		localStorage.setItem('accessToken', payload.accessToken)
 		commit('SET_ACCESS_TOKEN', payload.accessToken)
 		delete payload.accessToken
 		delete payload.refreshToken
 		commit('SET_CUSTOMER', payload)
+		dispatch('mergeCart')
+	},
+	mergeCart({ state }) {
+		const cart = JSON.parse(Cookie.get('cart') || '[]')
+
+		if (!cart.length) return
+
+		this.$axios.setHeader('Authorization', `Berar ${state.accessToken}`)
+		this.$axios
+			.post('/cart/merge', { products: cart })
+			.then(() => Cookie.remove('cart'))
+			.catch((e) => console.log(e))
 	},
 	logout({ commit }) {
 		Cookie.remove('accessToken')
@@ -229,7 +241,7 @@ export const actions = {
 
 			cart.push({
 				productId: payload.productId,
-				onMode: payload.onModel
+				onModel: payload.onModel
 			})
 			Cookie.set('cart', JSON.stringify(cart), { expires: 1 })
 			return 200
