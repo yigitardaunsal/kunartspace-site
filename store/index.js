@@ -6,7 +6,10 @@ export const state = () => ({
 	customer: null,
 	forgotPasswordEmail: '',
 	addresses: [],
-	cart: []
+	cart: {
+		loading: true,
+		products: []
+	}
 })
 
 export const mutations = {
@@ -24,6 +27,12 @@ export const mutations = {
 	},
 	SET_ADDRESSES(state, payload) {
 		state.addresses = payload
+	},
+	SET_CART(state, payload) {
+		state.cart = {
+			...state.cart,
+			...payload
+		}
 	}
 }
 
@@ -252,6 +261,33 @@ export const actions = {
 			.post('/customers/add-to-cart', payload)
 			.then(() => 200)
 			.catch(({ response }) => response.status)
+	},
+	async getCart({ state, commit }) {
+		commit('SET_CART', { loading: true, products: [] })
+		this.$axios.setHeader('lang', this.$i18n.locale)
+
+		let response = {}
+
+		try {
+			if (!state.accessToken) {
+				const cart = JSON.parse(Cookie.get('cart') || '[]')
+
+				if (!cart.length) {
+					commit('SET_CART', { loading: false })
+					return
+				}
+
+				const works = cart.map((p) => p.productId)
+				response = await this.$axios.post('/cart/get-guest-cart', { works })
+			} else {
+				this.$axios.setHeader('Authorization', `Berar ${state.accessToken}`)
+				response = await this.$axios.get('/customers/get-cart')
+			}
+
+			commit('SET_CART', { loading: false, products: response?.data?.products || [] })
+		} catch (e) {
+			console.log(e)
+		}
 	}
 }
 

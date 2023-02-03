@@ -62,7 +62,10 @@ export default {
 	saturday: 'Cumartesi',
 	sunday: 'Pazar',
 	miniBasket: {
-		noItem: 'Your basket is empty'
+		noItem: 'Your basket is empty',
+		showCart: 'Show Cart',
+		proceedPay: 'Proceed to Pay',
+		keepShopping: 'Keep Shopping'
 	},
 	newsletter: {
 		title: 'Sign up to receive the latest news',

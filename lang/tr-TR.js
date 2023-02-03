@@ -62,7 +62,10 @@ export default {
 	saturday: 'Cumartesi',
 	sunday: 'Pazar',
 	miniBasket: {
-		noItem: 'Sepetiniz boş'
+		noItem: 'Sepetiniz boş',
+		showCart: 'Sepeti Görüntüle',
+		proceedPay: 'Ödemeye Devam Et',
+		keepShopping: 'Alışverişe Devam Et'
 	},
 	newsletter: {
 		title: 'En son haberleri almak için kaydolun',

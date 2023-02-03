@@ -9,7 +9,7 @@
 		<span class="btn__text" :class="{ '--hidden': loading }">
 			<slot />
 		</span>
-		<span v-if="loading" class="btn__loader"></span>
+		<CircleLoader v-if="loading" class="btn__loader" />
 	</button>
 </template>
 

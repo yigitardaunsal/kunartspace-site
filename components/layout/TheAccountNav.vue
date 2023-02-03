@@ -50,18 +50,17 @@ export default {
 	},
 	methods: {
 		toggleMiniBasketOpen() {
-			this.isMiniBasketOpen = !this.isMiniBasketOpen
-		},
-		onClickOutsideFromMiniBasket({ path }) {
-			const isOutside = path
-				.filter((item) => !!item.className && typeof item.className === 'string')
-				.find((item) => item.className.includes('--basket'))
-
-			if (isOutside) {
-				return
+			if (!this.isMiniBasketOpen) {
+				this.$store.dispatch('getCart')
 			}
 
-			this.isMiniBasketOpen = false
+			this.isMiniBasketOpen = !this.isMiniBasketOpen
+		},
+		onClickOutsideFromMiniBasket({ target }) {
+			const closestDiv = target.closest('div')
+			if (!closestDiv.classList.contains('--basket') && !closestDiv.classList.contains('mini-basket')) {
+				this.isMiniBasketOpen = false
+			}
 		}
 	}
 }

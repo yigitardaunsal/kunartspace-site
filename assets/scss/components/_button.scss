@@ -20,20 +20,6 @@
     }
   }
 
-  &__loader {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    display: block;
-    border: 2px dashed;
-    border-radius: 50%;
-    margin-top: px2rem(-15);
-    margin-left: px2rem(-15);
-    width: px2rem(30);
-    height: px2rem(30);
-    animation: turn 1500ms infinite;
-  }
-
   &.--primary {
     border: none;
     background-color: $darklighten;
@@ -51,7 +37,7 @@
 
   &.--secondary {
     border: 1px solid $b-gray;
-    background-color: $enlighten;
+    background-color: transparent;
     color: $b-gray;
 
     &:not(:disabled):hover {
@@ -62,7 +48,7 @@
 
   &.--tertiary {
     border: 1px solid $dark-gray;
-    background-color: $enlighten;
+    background-color: transparent;
     color: $dark-gray;
 
     &:not(:disabled):hover {
@@ -122,16 +108,5 @@
     display: block;
     width: 100%;
     text-align: center;
-  }
-}
-
-@keyframes turn {
-  from {
-
-    transform: rotate(0);
-  }
-
-  to {
-    transform: rotate(360deg);
   }
 }
