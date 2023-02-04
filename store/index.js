@@ -8,7 +8,11 @@ export const state = () => ({
 	addresses: [],
 	cart: {
 		loading: true,
-		products: []
+		products: [],
+		totalAmount: 0,
+		totalDiscountedAmount: 0,
+		totalPayabeAmount: 0,
+		totalVatAmount: 0
 	}
 })
 
@@ -29,6 +33,18 @@ export const mutations = {
 		state.addresses = payload
 	},
 	SET_CART(state, payload) {
+		if (!payload) {
+			state.cart = {
+				loading: true,
+				products: [],
+				totalAmount: 0,
+				totalDiscountedAmount: 0,
+				totalPayabeAmount: 0,
+				totalVatAmount: 0
+			}
+			return
+		}
+
 		state.cart = {
 			...state.cart,
 			...payload
@@ -248,7 +264,8 @@ export const actions = {
 
 			cart.push({
 				productId: payload.productId,
-				onModel: payload.onModel
+				onModel: payload.onModel,
+				quantity: 1
 			})
 			Cookie.set('cart', JSON.stringify(cart), { expires: 1 })
 			return 200
@@ -260,7 +277,7 @@ export const actions = {
 			.catch(({ response }) => response.status)
 	},
 	async getCart({ state, commit }) {
-		commit('SET_CART', { loading: true, products: [] })
+		commit('SET_CART')
 
 		let response = {}
 
@@ -273,13 +290,12 @@ export const actions = {
 					return
 				}
 
-				const works = cart.map((p) => p.productId)
-				response = await this.$api.post('/cart/get-guest-cart', { works })
+				response = await this.$api.post('/cart/guest', { products: cart })
 			} else {
 				response = await this.$api.get('/customers/get-cart')
 			}
 
-			commit('SET_CART', { loading: false, products: response?.data?.products || [] })
+			commit('SET_CART', { loading: false, ...response?.data })
 		} catch (e) {
 			console.log(e)
 		}
