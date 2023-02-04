@@ -22,8 +22,8 @@
 <script>
 export default {
 	name: 'ArtistsPage',
-	async asyncData({ $axios }) {
-		const { data } = await $axios.get('/artists/get-list')
+	async asyncData({ $api }) {
+		const { data } = await $api.get('/artists/get-list')
 
 		return {
 			exhibitedArtists: data.filter((artist) => artist.hasExhibition),

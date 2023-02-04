@@ -33,11 +33,10 @@
 <script>
 export default {
 	name: 'ArtistPage',
-	async asyncData({ store, params, $axios, i18n, $moment }) {
+	async asyncData({ store, params, $api, i18n, $moment }) {
 		await store.dispatch('i18n/setRouteParams', {})
 
-		$axios.setHeader('lang', i18n.locale)
-		const { data } = await $axios.get(`/artists/get-detail/${params.slug}`)
+		const { data } = await $api.get(`/artists/get-detail/${params.slug}`)
 		const exhibitions = data.exhibitions.map((exhibition) => {
 			const dates = exhibition.date.split(' - ')
 			return {

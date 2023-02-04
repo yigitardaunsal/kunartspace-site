@@ -25,12 +25,11 @@ export default {
 			en: '/store'
 		}
 	},
-	async asyncData({ store, $axios, i18n }) {
+	async asyncData({ store, $api }) {
 		await store.dispatch('fetchExhibitionList')
-		$axios.setHeader('lang', i18n.locale)
-		const currentWorks = await $axios.get('/fields/get/current-works')
-		const selectedArtists = await $axios.get('/fields/get/selected-artists')
-		const selectedWorks = await $axios.get('/fields/get/selected-works')
+		const currentWorks = await $api.get('/fields/get/current-works')
+		const selectedArtists = await $api.get('/fields/get/selected-artists')
+		const selectedWorks = await $api.get('/fields/get/selected-works')
 		return {
 			currentWorks: currentWorks.data.items,
 			selectedArtists: selectedArtists.data.items,

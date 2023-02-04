@@ -42,9 +42,8 @@ export default {
 	components: {
 		VueEasyLightbox
 	},
-	async asyncData({ params, $axios, i18n, store }) {
-		$axios.setHeader('lang', i18n.locale)
-		const { data } = await $axios.get(`/pages/get-detail/${params.slug}`)
+	async asyncData({ params, $api, store }) {
+		const { data } = await $api.get(`/pages/get-detail/${params.slug}`)
 
 		await store.dispatch('i18n/setRouteParams', {
 			tr: { slug: data.link },

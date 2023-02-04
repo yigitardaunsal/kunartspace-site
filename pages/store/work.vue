@@ -70,13 +70,9 @@ export default {
 			en: '/store/work/:slug'
 		}
 	},
-	async asyncData({ i18n, $axios, store, error, params }) {
+	async asyncData({ $api, error, params }) {
 		try {
-			if (store.getters.getIsAuthenticated) {
-				$axios.setHeader('Authorization', `Bearer ${store.state.accessToken}`)
-			}
-			$axios.setHeader('lang', i18n.locale)
-			const { data } = await $axios.get(`/works/get-detail/${params.slug}`)
+			const { data } = await $api.get(`/works/get-detail/${params.slug}`)
 
 			return {
 				work: data
@@ -107,15 +103,14 @@ export default {
 			}
 
 			this.favoriteLoading = true
-			this.$axios.setHeader('Authorization', `Bearer ${this.accessToken}`)
 
 			try {
 				if (!this.work.inFavorite) {
-					await this.$axios.post('/customers/add-to-favorites', {
+					await this.$api.post('/customers/add-to-favorites', {
 						workId: this.work._id
 					})
 				} else {
-					await this.$axios.delete(`/customers/remove-from-favorites/${this.work._id}`)
+					await this.$api.delete(`/customers/remove-from-favorites/${this.work._id}`)
 				}
 
 				this.work.inFavorite = !this.work.inFavorite

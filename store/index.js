@@ -47,7 +47,7 @@ export const actions = {
 			token = token.split('=')[1]
 			commit('SET_ACCESS_TOKEN', token)
 			commit('SET_CUSTOMER', token)
-			return this.$axios
+			return this.$api
 				.get('/customers/get-info', {
 					headers: {
 						Authorization: `Bearer ${token}`
@@ -81,8 +81,7 @@ export const actions = {
 		commit('SET_ACCESS_TOKEN', token)
 	},
 	async fetchExhibitionList({ commit }) {
-		this.$axios.setHeader('lang', this.$i18n.locale)
-		const data = await this.$axios.$get('exhibitions/get-list')
+		const { data } = await this.$api.get('exhibitions/get-list')
 		const mappedData = data.map((exhibition) => {
 			const dates = exhibition.date.split(' - ')
 			return {
@@ -94,7 +93,7 @@ export const actions = {
 		commit('SET_EXHIBITION_LIST', mappedData)
 	},
 	register({ dispatch }, payload) {
-		return this.$axios
+		return this.$api
 			.post('/customers/register', payload)
 			.then(({ data }) => {
 				dispatch('setAuthData', data)
@@ -106,7 +105,7 @@ export const actions = {
 			})
 	},
 	login({ dispatch }, payload) {
-		return this.$axios
+		return this.$api
 			.post('/customers/login', payload)
 			.then(({ data }) => {
 				dispatch('setAuthData', data)
@@ -135,8 +134,7 @@ export const actions = {
 
 		if (!cart.length) return
 
-		this.$axios.setHeader('Authorization', `Berar ${state.accessToken}`)
-		this.$axios
+		this.$api
 			.post('/cart/merge', { products: cart })
 			.then(() => Cookie.remove('cart'))
 			.catch((e) => console.log(e))
@@ -157,7 +155,7 @@ export const actions = {
 	forgotPassword({ state, commit }, email) {
 		email = email || state.forgotPasswordEmail
 
-		return this.$axios
+		return this.$api
 			.post('/customers/forgot-password', { email })
 			.then(() => {
 				commit('SET_FORGOT_PASSWORD_EMAIL', email)
@@ -169,7 +167,7 @@ export const actions = {
 	verifyAndResetPassword({ state, commit }, payload) {
 		payload.email = state.forgotPasswordEmail
 
-		return this.$axios
+		return this.$api
 			.post('/customers/verify-code-and-reset-password', payload)
 			.then(() => {
 				commit('SET_FORGOT_PASSWORD_EMAIL', '')
@@ -178,7 +176,7 @@ export const actions = {
 			.catch(({ response }) => response.status)
 	},
 	changePassword({ state }, payload) {
-		return this.$axios
+		return this.$api
 			.post('/customers/reset-password', payload, {
 				headers: {
 					Authorization: `Bearer ${state.accessToken}`
@@ -188,7 +186,7 @@ export const actions = {
 			.catch(({ response }) => response.status)
 	},
 	fetchAddresses({ state, commit }) {
-		return this.$axios
+		return this.$api
 			.get('/customers/get-addresses', {
 				headers: {
 					Authorization: `Bearer ${state.accessToken}`
@@ -198,7 +196,7 @@ export const actions = {
 			.catch(({ response }) => console.log(response))
 	},
 	createAddress({ state, dispatch }, payload) {
-		return this.$axios
+		return this.$api
 			.post('/customers/add-address', payload, {
 				headers: {
 					Authorization: `Berar ${state.accessToken}`
@@ -214,7 +212,7 @@ export const actions = {
 		const id = payload._id
 		delete payload._id
 
-		return this.$axios
+		return this.$api
 			.patch(`/customers/update-address/${id}`, payload, {
 				headers: {
 					Authorization: `Berar ${state.accessToken}`
@@ -227,7 +225,7 @@ export const actions = {
 			.catch(({ response }) => response.status)
 	},
 	deleteAddress({ state, dispatch }, id) {
-		return this.$axios
+		return this.$api
 			.delete(`/customers/remove-address/${id}`, {
 				headers: {
 					Authorization: `Bearer ${state.accessToken}`
@@ -256,15 +254,13 @@ export const actions = {
 			return 200
 		}
 
-		this.$axios.setHeader('Authorization', `Berar ${state.accessToken}`)
-		return this.$axios
+		return this.$api
 			.post('/customers/add-to-cart', payload)
 			.then(() => 200)
 			.catch(({ response }) => response.status)
 	},
 	async getCart({ state, commit }) {
 		commit('SET_CART', { loading: true, products: [] })
-		this.$axios.setHeader('lang', this.$i18n.locale)
 
 		let response = {}
 
@@ -278,10 +274,9 @@ export const actions = {
 				}
 
 				const works = cart.map((p) => p.productId)
-				response = await this.$axios.post('/cart/get-guest-cart', { works })
+				response = await this.$api.post('/cart/get-guest-cart', { works })
 			} else {
-				this.$axios.setHeader('Authorization', `Berar ${state.accessToken}`)
-				response = await this.$axios.get('/customers/get-cart')
+				response = await this.$api.get('/customers/get-cart')
 			}
 
 			commit('SET_CART', { loading: false, products: response?.data?.products || [] })

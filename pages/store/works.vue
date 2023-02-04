@@ -54,7 +54,7 @@ export default {
 			en: '/store/works'
 		}
 	},
-	async asyncData({ i18n, $axios, query, error }) {
+	async asyncData({ i18n, $api, query, error }) {
 		const params = {
 			page: query?.page || 1,
 			filters: query?.filters || null,
@@ -65,9 +65,8 @@ export default {
 		if (!params.sorting) delete params.sorting
 
 		try {
-			$axios.setHeader('lang', i18n.locale)
-			const { data } = await $axios.get('/works/get-list', { params })
-			const { data: filters } = await $axios.get('/filters/get-list')
+			const { data } = await $api.get('/works/get-list', { params })
+			const { data: filters } = await $api.get('/filters/get-list')
 
 			return {
 				works: data.data,

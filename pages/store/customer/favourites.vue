@@ -20,10 +20,8 @@ export default {
 		WorkCard
 	},
 	layout: 'CustomerLayout',
-	async asyncData({ $axios, store, i18n }) {
-		$axios.setHeader('Authorization', `Bearer ${store.state.accessToken}`)
-		$axios.setHeader('lang', i18n.locale)
-		const { data } = await $axios.get('/customers/get-favorites')
+	async asyncData({ $api, store, i18n }) {
+		const { data } = await $api.get('/customers/get-favorites')
 
 		return {
 			works: data
