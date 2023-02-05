@@ -34,9 +34,15 @@ export default {
 	},
 	computed: {
 		customerUrl() {
+			if (this.inCustomerPages) {
+				return this.localePath({
+					name: 'store-customer-login'
+				})
+			}
+
 			return this.$store.getters.getIsAuthenticated
-				? '/store/customer'
-				: `/store/customer/login?returnUrl=${this.$route.path}`
+				? this.localePath({ name: 'store-customer' })
+				: this.localePath({ name: 'store-customer-login', query: { returnUrl: this.$route.path } })
 		},
 		inCustomerPages() {
 			return this.$route.path.includes('customer')
@@ -51,14 +57,14 @@ export default {
 	methods: {
 		toggleMiniBasketOpen() {
 			if (!this.isMiniBasketOpen) {
-				this.$store.dispatch('getCart')
+				this.$store.dispatch('fetchCart')
 			}
 
 			this.isMiniBasketOpen = !this.isMiniBasketOpen
 		},
 		onClickOutsideFromMiniBasket({ target }) {
 			const closestDiv = target.closest('div')
-			if (!closestDiv.classList.contains('--basket') && !closestDiv.classList.contains('mini-basket')) {
+			if (closestDiv && !closestDiv.classList.contains('--basket') && !closestDiv.classList.contains('mini-basket')) {
 				this.isMiniBasketOpen = false
 			}
 		}

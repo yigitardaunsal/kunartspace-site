@@ -20,7 +20,7 @@ export default {
 		WorkCard
 	},
 	layout: 'CustomerLayout',
-	async asyncData({ $api, store, i18n }) {
+	async asyncData({ $api }) {
 		const { data } = await $api.get('/customers/get-favorites')
 
 		return {

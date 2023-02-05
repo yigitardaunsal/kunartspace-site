@@ -7,7 +7,7 @@ export default {
 	name: 'CircleLoader',
 	props: {
 		size: {
-			type: Number,
+			type: [Number, String],
 			required: false,
 			default: 30
 		}

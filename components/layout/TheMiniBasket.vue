@@ -21,11 +21,13 @@
 						</span>
 					</nuxt-link>
 				</section>
-				<section class="mini-basket__footer">
-					<nuxt-link to="#" tag="a" class="btn --tertiary --sm --block">{{ $t('miniBasket.showCart') }}</nuxt-link>
+				<div class="mini-basket__footer">
+					<nuxt-link :to="localePath({ name: 'store-cart' })" tag="a" class="btn --tertiary --sm --block">{{
+						$t('miniBasket.showCart')
+					}}</nuxt-link>
 					<nuxt-link to="#" tag="a" class="btn --primary --sm --block">{{ $t('miniBasket.proceedPay') }}</nuxt-link>
-					<div class="mini-basket__close">{{ $t('miniBasket.keepShopping') }}</div>
-				</section>
+					<span class="mini-basket__close">{{ $t('miniBasket.keepShopping') }}</span>
+				</div>
 			</template>
 		</template>
 	</div>
@@ -119,6 +121,7 @@ export default {
 	}
 
 	&__close {
+		display: block;
 		font-size: px2rem(14);
 		line-height: px2rem(38);
 		text-align: center;

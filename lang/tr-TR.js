@@ -211,5 +211,27 @@ export default {
 	},
 	vat: 'KDV',
 	addToCart: 'Sepete Ekle',
-	buyNow: 'Hemen Satın Al'
+	buyNow: 'Hemen Satın Al',
+	cartPage: {
+		title: 'Sepetiniz',
+		empty: {
+			title: 'Sepetinizde ürün bulunmamaktadır!',
+			keepShopping: 'Alışverişe Devam Et'
+		},
+		checkoutNow: 'Devam Et',
+		summaryInfo: 'Kargo ve vergi sonraki aşamada hesaplanacaktır.',
+		messages: {
+			availableQuantity: 'Bu üründen en fazla %d% adet alabilirsiniz!',
+			notAcceptable: 'Bu üründen daha fazla miktarda satın alamazsınız!'
+		}
+	},
+	cartProducts: {
+		product: 'Ürün',
+		details: 'Detaylar',
+		amount: 'Miktart',
+		total: 'Tutar'
+	},
+	cartSummary: {
+		totalPayment: 'Toplam Tutar'
+	}
 }

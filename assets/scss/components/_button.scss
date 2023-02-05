@@ -104,6 +104,12 @@
     line-height: px2rem(40);
   }
 
+  &.--lg {
+    height: px2rem(65);
+    font-size: px2rem(18);
+    line-height: px2rem(65);
+  }
+
   &.--block {
     display: block;
     width: 100%;

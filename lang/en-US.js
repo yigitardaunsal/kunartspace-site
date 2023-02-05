@@ -207,5 +207,27 @@ export default {
 	},
 	vat: 'VAT',
 	addToCart: 'Add to Cart',
-	buyNow: 'Buy Now'
+	buyNow: 'Buy Now',
+	cartPage: {
+		title: 'Your Cart',
+		empty: {
+			title: 'There are no items in your cart!',
+			keepShopping: 'Keep Shopping'
+		},
+		checkoutNow: 'Checkout Now',
+		sumamaryInfo: 'Shipping and tax will be calculated in the next step.',
+		messages: {
+			availableQuantity: 'You can buy a maximum of %d% of this product!',
+			notAcceptable: 'You cannot buy more quantity of this product!'
+		}
+	},
+	cartProducts: {
+		product: 'Ürün',
+		details: 'Detaylar',
+		amount: 'Miktart',
+		total: 'Tutar'
+	},
+	cartSummary: {
+		totalPayment: 'Total Payment'
+	}
 }

@@ -11,7 +11,7 @@ export const state = () => ({
 		products: [],
 		totalAmount: 0,
 		totalDiscountedAmount: 0,
-		totalPayabeAmount: 0,
+		totalPayableAmount: 0,
 		totalVatAmount: 0
 	}
 })
@@ -33,18 +33,6 @@ export const mutations = {
 		state.addresses = payload
 	},
 	SET_CART(state, payload) {
-		if (!payload) {
-			state.cart = {
-				loading: true,
-				products: [],
-				totalAmount: 0,
-				totalDiscountedAmount: 0,
-				totalPayabeAmount: 0,
-				totalVatAmount: 0
-			}
-			return
-		}
-
 		state.cart = {
 			...state.cart,
 			...payload
@@ -145,7 +133,7 @@ export const actions = {
 		commit('SET_CUSTOMER', payload)
 		dispatch('mergeCart')
 	},
-	mergeCart({ state }) {
+	mergeCart() {
 		const cart = JSON.parse(Cookie.get('cart') || '[]')
 
 		if (!cart.length) return
@@ -276,8 +264,8 @@ export const actions = {
 			.then(() => 200)
 			.catch(({ response }) => response.status)
 	},
-	async getCart({ state, commit }) {
-		commit('SET_CART')
+	async fetchCart({ state, commit }) {
+		commit('SET_CART', { loading: true })
 
 		let response = {}
 
@@ -286,7 +274,7 @@ export const actions = {
 				const cart = JSON.parse(Cookie.get('cart') || '[]')
 
 				if (!cart.length) {
-					commit('SET_CART', { loading: false })
+					commit('SET_CART', { loading: false, products: [] })
 					return
 				}
 
@@ -299,6 +287,57 @@ export const actions = {
 		} catch (e) {
 			console.log(e)
 		}
+	},
+	async changeQuantity({ state, dispatch }, payload) {
+		if (payload.quantity <= 0) {
+			dispatch('removeFromCart', payload)
+			return
+		}
+
+		try {
+			const { data } = await this.$api.patch(`/cart/change-quantity/${payload.productId}`, {
+				quantity: payload.quantity
+			})
+
+			if (!state.accessToken) {
+				const cart = JSON.parse(Cookie.get('cart') || '[]')
+				const newCart = cart.map((c) => {
+					let quantity = c.quantity
+
+					if (c.productId === data.productId) {
+						quantity = data.quantity
+					}
+
+					return {
+						...c,
+						quantity
+					}
+				})
+				Cookie.set('cart', JSON.stringify(newCart))
+			}
+
+			dispatch('fetchCart')
+
+			return {
+				productId: payload.productId
+			}
+		} catch (err) {
+			return {
+				status: err.response.status,
+				productId: payload.productId
+			}
+		}
+	},
+	async removeFromCart({ state, dispatch }, payload) {
+		if (!state.accessToken) {
+			const cart = JSON.parse(Cookie.get('cart') || '[]')
+			const newCart = cart.filter((c) => c.productId !== payload.productId)
+			Cookie.set('cart', JSON.stringify(newCart))
+		} else {
+			await this.$api.delete(`/customers/remove-from-cart/${payload.productId}`)
+		}
+
+		dispatch('fetchCart')
 	}
 }
 
@@ -311,5 +350,11 @@ export const getters = {
 	},
 	getExhibitionListWithoutCurrent(state) {
 		return state.exhibitionList.filter((exhibition) => !exhibition.isCurrent)
+	},
+	getCartSummary(state) {
+		const summary = { ...state.cart }
+		delete summary.loading
+		delete summary.products
+		return summary
 	}
 }
