@@ -228,6 +228,18 @@ export default {
 		total: 'Tutar'
 	},
 	cartSummary: {
+		shippingPrice: 'Shipping Price',
+		taxation: 'Taxation',
 		totalPayment: 'Total Payment'
+	},
+	checkoutPage: {
+		title: 'Checkout',
+		placeOrder: 'Place Order',
+		deliveryType: 'Delivery Option',
+		galleryDelivery: 'Gallery Delivery',
+		galleryDeliveryDesciption: 'The works you buy are packaged to be picked up from our gallery.',
+		paymentType: 'Payment Method',
+		creditCard: 'Credit Card',
+		creditCardDescription: 'You can make your payments securely with the IYZICO infrastructure.'
 	}
 }

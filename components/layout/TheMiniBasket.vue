@@ -25,7 +25,9 @@
 					<nuxt-link :to="localePath({ name: 'store-cart' })" tag="a" class="btn --tertiary --sm --block">{{
 						$t('miniBasket.showCart')
 					}}</nuxt-link>
-					<nuxt-link to="#" tag="a" class="btn --primary --sm --block">{{ $t('miniBasket.proceedPay') }}</nuxt-link>
+					<nuxt-link :to="localePath({ name: 'store-checkout' })" tag="a" class="btn --primary --sm --block">{{
+						$t('miniBasket.proceedPay')
+					}}</nuxt-link>
 					<span class="mini-basket__close">{{ $t('miniBasket.keepShopping') }}</span>
 				</div>
 			</template>

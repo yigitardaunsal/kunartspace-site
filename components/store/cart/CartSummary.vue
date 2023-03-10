@@ -1,5 +1,15 @@
 <template>
 	<div class="cart-summary">
+		<template v-if="isCheckoutPage">
+			<div class="cart-summary__row">
+				<span class="cart-summary__label">{{ $t('cartSummary.shippingPrice') }}</span>
+				<span class="cart-summary__value">{{ summary.totalShippingAmount | currency }}</span>
+			</div>
+			<div class="cart-summary__row">
+				<span class="cart-summary__label">{{ $t('cartSummary.taxation') }}</span>
+				<span class="cart-summary__value">{{ summary.totalVatAmount | currency }}</span>
+			</div>
+		</template>
 		<div class="cart-summary__row">
 			<span class="cart-summary__label">{{ $t('cartSummary.totalPayment') }}</span>
 			<span class="cart-summary__value">{{ summary.totalPayableAmount | currency }}</span>
@@ -7,7 +17,7 @@
 		<div class="cart-summary__button-area">
 			<slot name="button" />
 		</div>
-		<div class="cart-summary__info">{{ $t('cartPage.summaryInfo') }}</div>
+		<div v-if="!isCheckoutPage" class="cart-summary__info">{{ $t('cartPage.summaryInfo') }}</div>
 	</div>
 </template>
 
@@ -17,6 +27,9 @@ export default {
 	computed: {
 		summary() {
 			return this.$store.getters.getCartSummary
+		},
+		isCheckoutPage() {
+			return this.$route.name.includes('checkout')
 		}
 	}
 }

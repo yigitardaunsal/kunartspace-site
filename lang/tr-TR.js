@@ -232,6 +232,18 @@ export default {
 		total: 'Tutar'
 	},
 	cartSummary: {
+		shippingPrice: 'Kargo Ücreti',
+		taxation: 'Vergilendirme',
 		totalPayment: 'Toplam Tutar'
+	},
+	checkoutPage: {
+		title: 'Ödeme',
+		placeOrder: 'Sipariş Ver',
+		deliveryType: 'Teslimat Seçeneği',
+		galleryDelivery: 'Galeriden Teslimat',
+		galleryDeliveryDesciption: 'Satın aldığınız eserler galerimizden teslim alınmak üzere paketlenir.',
+		paymentType: 'Ödeme Yöntemi',
+		creditCard: 'Kredi Kartı',
+		creditCardDescription: 'IYZICO altyapısı ile güvenli bir şekilde ödemelerinizi yapabilirsiniz.'
 	}
 }

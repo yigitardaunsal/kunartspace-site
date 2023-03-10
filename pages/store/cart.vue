@@ -14,7 +14,9 @@
 				<div class="cart__footer">
 					<CartSummary>
 						<template #button>
-							<nuxt-link to="#" tag="a" class="btn --primary --block --lg">{{ $t('cartPage.checkoutNow') }}</nuxt-link>
+							<nuxt-link :to="localePath({ name: 'store-checkout' })" tag="a" class="btn --primary --block --lg">{{
+								$t('cartPage.checkoutNow')
+							}}</nuxt-link>
 						</template>
 					</CartSummary>
 				</div>
@@ -35,39 +37,16 @@
 </template>
 
 <script>
+import copMixin from '@/mixins/cop'
 import BasketIcon from '@/assets/svg/basket.svg'
 
 export default {
 	name: 'CartPage',
-	layout: 'StoreLayout',
 	components: {
 		BasketIcon
 	},
-	nuxtI18n: {
-		paths: {
-			tr: '/store/cart',
-			en: '/store/cart'
-		}
-	},
-	data() {
-		return {
-			loading: true
-		}
-	},
-	computed: {
-		cart() {
-			return this.$store.state.cart
-		}
-	},
-	methods: {
-		async fetchCart() {
-			await this.$store.dispatch('fetchCart')
-			this.loading = false
-		}
-	},
-	created() {
-		this.fetchCart()
-	}
+	mixins: [copMixin],
+	layout: 'StoreLayout'
 }
 </script>
 
