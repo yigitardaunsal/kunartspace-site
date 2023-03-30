@@ -168,7 +168,7 @@ export default {
 			const payload = {
 				addressId: this.selectedAddress === 'GALLERY' ? '' : this.selectedAddress,
 				deliveryType: this.selectedAddress === 'GALLERY' ? 'GALLERY' : 'ADDRESS',
-				paymentType: this.paymentMethod
+				paymentType: this.selectedPaymentMethod
 			}
 
 			console.log(payload)
