@@ -221,6 +221,7 @@ export default {
 		checkoutNow: 'Devam Et',
 		summaryInfo: 'Kargo ve vergi sonraki aşamada hesaplanacaktır.',
 		messages: {
+			outOfStock: 'Bu ürün için yeterli stok yok!',
 			availableQuantity: 'Bu üründen en fazla %d% adet alabilirsiniz!',
 			notAcceptable: 'Bu üründen daha fazla miktarda satın alamazsınız!'
 		}
@@ -228,7 +229,7 @@ export default {
 	cartProducts: {
 		product: 'Ürün',
 		details: 'Detaylar',
-		amount: 'Miktart',
+		amount: 'Miktar',
 		total: 'Tutar'
 	},
 	cartSummary: {
@@ -242,8 +243,16 @@ export default {
 		deliveryType: 'Teslimat Seçeneği',
 		galleryDelivery: 'Galeriden Teslimat',
 		galleryDeliveryDesciption: 'Satın aldığınız eserler galerimizden teslim alınmak üzere paketlenir.',
+		noAddressAlert: 'Adresinize teslimat yapılabilmesi için lütfen adres ekleyin.',
+		goToMyAddressPage: 'Hemen adres eklemek için tıklayın!',
 		paymentType: 'Ödeme Yöntemi',
 		creditCard: 'Kredi Kartı',
-		creditCardDescription: 'IYZICO altyapısı ile güvenli bir şekilde ödemelerinizi yapabilirsiniz.'
+		creditCardDescription: 'IYZICO altyapısı ile güvenli bir şekilde ödemelerinizi yapabilirsiniz.',
+		preInformationForm: 'Ön Bilgilendirme Formu',
+		distanceSellingContract: 'Mesafali Satış Sözleşmesi',
+		contractText: ['', 'nu ve', 'ni onaylıyorum.'],
+		messages: {
+			stockProblem: 'Bir veya daha fazla ürün için yeterli stok miktarı yok!'
+		}
 	}
 }

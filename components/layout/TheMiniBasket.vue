@@ -16,7 +16,8 @@
 						<span class="product__content">
 							<strong class="product__title"> {{ product.artist }} - {{ product.name }} </strong>
 							<span class="product__price">
-								{{ product.price | currency }} <template v-if="product.hasVat">(+{{ $t('vat') }})</template>
+								{{ getPrice(product.totalDiscountedPrice, product.totalPrice) | currency }}
+								<template v-if="product.hasVat">(+{{ $t('vat') }})</template>
 							</span>
 						</span>
 					</nuxt-link>
@@ -36,8 +37,11 @@
 </template>
 
 <script>
+import copMixin from '@/mixins/cop'
+
 export default {
 	name: 'TheMiniBasket',
+	mixins: [copMixin],
 	computed: {
 		cart() {
 			return this.$store.state.cart

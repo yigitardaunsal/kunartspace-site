@@ -9,14 +9,19 @@
 		<template v-else>
 			<template v-if="cart.products.length">
 				<div class="cart__body">
-					<CartProducts />
+					<CartProducts @overstock="anyOverstock" />
 				</div>
 				<div class="cart__footer">
 					<CartSummary>
 						<template #button>
-							<nuxt-link :to="localePath({ name: 'store-checkout' })" tag="a" class="btn --primary --block --lg">{{
-								$t('cartPage.checkoutNow')
-							}}</nuxt-link>
+							<Button v-if="overstock" size="large" block disabled>{{ $t('cartPage.checkoutNow') }}</Button>
+							<nuxt-link
+								v-else
+								:to="localePath({ name: 'store-checkout' })"
+								tag="a"
+								class="btn --primary --block --lg"
+								>{{ $t('cartPage.checkoutNow') }}</nuxt-link
+							>
 						</template>
 					</CartSummary>
 				</div>

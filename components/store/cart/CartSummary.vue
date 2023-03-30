@@ -10,9 +10,15 @@
 				<span class="cart-summary__value">{{ summary.totalVatAmount | currency }}</span>
 			</div>
 		</template>
-		<div class="cart-summary__row">
+		<div v-if="isCheckoutPage" class="cart-summary__row">
 			<span class="cart-summary__label">{{ $t('cartSummary.totalPayment') }}</span>
 			<span class="cart-summary__value">{{ summary.totalPayableAmount | currency }}</span>
+		</div>
+		<div v-else class="cart-summary__row">
+			<span class="cart-summary__label">{{ $t('cartSummary.totalPayment') }}</span>
+			<span class="cart-summary__value"
+				>{{ getPrice(summary.totalDiscountedAmount, totalAmount) | currency }} + {{ $t('vat') }}</span
+			>
 		</div>
 		<div class="cart-summary__button-area">
 			<slot name="button" />
@@ -22,8 +28,11 @@
 </template>
 
 <script>
+import copMixin from '@/mixins/cop'
+
 export default {
 	name: 'CartSummary',
+	mixins: [copMixin],
 	computed: {
 		summary() {
 			return this.$store.getters.getCartSummary

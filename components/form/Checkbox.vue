@@ -13,6 +13,7 @@
 				<CheckIcon width="12" height="12" />
 			</div>
 			<div class="checkbox__text"><slot /></div>
+			<slot name="content" />
 		</label>
 		<span v-if="errors[0]" class="validate-error">
 			{{ errors[0] }}

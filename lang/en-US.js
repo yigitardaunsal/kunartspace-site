@@ -217,15 +217,16 @@ export default {
 		checkoutNow: 'Checkout Now',
 		sumamaryInfo: 'Shipping and tax will be calculated in the next step.',
 		messages: {
+			outOfStock: 'There is not enough stock for this product!',
 			availableQuantity: 'You can buy a maximum of %d% of this product!',
 			notAcceptable: 'You cannot buy more quantity of this product!'
 		}
 	},
 	cartProducts: {
-		product: 'Ürün',
-		details: 'Detaylar',
-		amount: 'Miktart',
-		total: 'Tutar'
+		product: 'Product',
+		details: 'Details',
+		amount: 'Amount',
+		total: 'Total'
 	},
 	cartSummary: {
 		shippingPrice: 'Shipping Price',
@@ -238,8 +239,16 @@ export default {
 		deliveryType: 'Delivery Option',
 		galleryDelivery: 'Gallery Delivery',
 		galleryDeliveryDesciption: 'The works you buy are packaged to be picked up from our gallery.',
+		noAddressAlert: 'Please add an address so that delivery can be made to your address.',
+		goToMyAddressPage: 'Click to add address now!',
 		paymentType: 'Payment Method',
 		creditCard: 'Credit Card',
-		creditCardDescription: 'You can make your payments securely with the IYZICO infrastructure.'
+		creditCardDescription: 'You can make your payments securely with the IYZICO infrastructure.',
+		preInformationForm: 'Pre-information Form',
+		distanceSellingContract: 'Distance Selling Contract',
+		contractText: ['I approve the', ' and the ', '.'],
+		messages: {
+			stockProblem: 'There is not enough stock for one or more items!'
+		}
 	}
 }

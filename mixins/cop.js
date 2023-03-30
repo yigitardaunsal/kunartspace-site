@@ -1,7 +1,8 @@
 export default {
 	data() {
 		return {
-			loading: true
+			loading: true,
+			overstock: false
 		}
 	},
 	computed: {
@@ -16,6 +17,12 @@ export default {
 		async fetchCart() {
 			await this.$store.dispatch('fetchCart')
 			this.loading = false
+		},
+		anyOverstock(val) {
+			this.overstock = val
+		},
+		getPrice(discountedPrice, price) {
+			return discountedPrice || price
 		}
 	}
 }

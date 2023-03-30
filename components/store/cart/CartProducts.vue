@@ -54,11 +54,18 @@
 							</template>
 						</div>
 						<div v-if="product.availableQuantity !== product.quantity" class="error">
-							{{ $t('cartPage.messages.availableQuantity').replace('%d%', product.availableQuantity) }}
+							<template v-if="product.outOfStock">
+								{{ $t('cartPage.messages.outOfStock') }}
+							</template>
+							<template v-else>
+								{{ $t('cartPage.messages.availableQuantity').replace('%d%', product.availableQuantity) }}
+							</template>
 						</div>
 					</div>
 					<div class="col-md-2">
-						<span class="product__price">{{ product.totalPrice | currency }}</span>
+						<span class="product__price">{{
+							getPrice(product.totalDiscountedPrice, product.totalPrice) | currency
+						}}</span>
 					</div>
 				</div>
 			</div>
@@ -67,8 +74,11 @@
 </template>
 
 <script>
+import copMixin from '@/mixins/cop'
+
 export default {
 	name: 'CartProducts',
+	mixins: [copMixin],
 	data() {
 		return {
 			quantityLoader: []
@@ -77,6 +87,11 @@ export default {
 	computed: {
 		products() {
 			return this.$store.state.cart.products
+		}
+	},
+	watch: {
+		products() {
+			this.checkOverstock()
 		}
 	},
 	methods: {
@@ -93,7 +108,14 @@ export default {
 			}
 
 			this.quantityLoader = this.quantityLoader.filter((item) => item !== response?.productId)
+		},
+		checkOverstock() {
+			const anyOverstock = this.products.find((p) => p.quantity > p.availableQuantity)
+			this.$emit('overstock', !!anyOverstock)
 		}
+	},
+	mounted() {
+		this.checkOverstock()
 	}
 }
 </script>

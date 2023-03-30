@@ -285,7 +285,7 @@ export const actions = {
 
 			commit('SET_CART', { loading: false, ...response?.data })
 		} catch (e) {
-			console.log(e)
+			commit('SET_CART', { loading: false, products: [] })
 		}
 	},
 	async changeQuantity({ state, dispatch }, payload) {

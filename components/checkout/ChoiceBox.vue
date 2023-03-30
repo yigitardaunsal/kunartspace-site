@@ -35,7 +35,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .choiceBox {
 	display: flex;
 	gap: px2rem(112);

@@ -2,7 +2,7 @@
 	<button
 		v-bind="$attrs"
 		class="btn"
-		:class="[`--${variant}`, { '--block': block }]"
+		:class="[`--${variant}`, { '--block': block, [`--${size}`]: !!size }]"
 		:disabled="disabled || loading"
 		@click="$emit('click')"
 	>
@@ -21,6 +21,11 @@ export default {
 			type: String,
 			required: false,
 			default: 'primary'
+		},
+		size: {
+			type: String,
+			required: false,
+			default: ''
 		},
 		block: {
 			type: Boolean,
