@@ -168,8 +168,10 @@ export default {
 			const payload = {
 				addressId: this.selectedAddress === 'GALLERY' ? '' : this.selectedAddress,
 				deliveryType: this.selectedAddress === 'GALLERY' ? 'GALLERY' : 'ADDRESS',
-				paymentType: this.paymentType
+				paymentType: this.paymentMethod
 			}
+
+			console.log(payload)
 
 			this.$api
 				.post('/payment', payload)
