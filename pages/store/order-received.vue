@@ -42,8 +42,6 @@ export default {
 	async asyncData({ $api }) {
 		const { data: order } = await $api.get('/customers/get-last-order')
 
-		order.paymentStatus = 'failure'
-
 		return {
 			order
 		}
