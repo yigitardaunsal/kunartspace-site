@@ -9,7 +9,7 @@
 		<template v-else>
 			<template v-if="cart.products.length">
 				<div class="cart__body">
-					<CartProducts @overstock="anyOverstock" />
+					<CartProducts :products="products" @overstock="anyOverstock" />
 				</div>
 				<div class="cart__footer">
 					<CartSummary>

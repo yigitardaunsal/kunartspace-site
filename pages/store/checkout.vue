@@ -9,7 +9,7 @@
 		<template v-else>
 			<div class="checkout__body">
 				<div class="checkout__section --products">
-					<CartProducts @overstock="handleOverStock" />
+					<CartProducts :products="products" @overstock="handleOverStock" />
 				</div>
 				<div class="checkout__section --delivery">
 					<h5 class="checkout__title">{{ $t('checkoutPage.deliveryType') }}</h5>
@@ -170,8 +170,6 @@ export default {
 				deliveryType: this.selectedAddress === 'GALLERY' ? 'GALLERY' : 'ADDRESS',
 				paymentType: this.selectedPaymentMethod
 			}
-
-			console.log(payload)
 
 			this.$api
 				.post('/payment', payload)

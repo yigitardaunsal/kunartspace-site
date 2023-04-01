@@ -254,5 +254,16 @@ export default {
 		messages: {
 			stockProblem: 'Bir veya daha fazla ürün için yeterli stok miktarı yok!'
 		}
+	},
+	orderReceived: {
+		success: {
+			title: 'Siparişiniz Alındı',
+			text: '<strong>Tebrikler!</strong> Siparişiniz başarıyla oluşturuldu. Sipariş özetinizi inceleyebilir, alışverişe devam edebilir veya aklınızdaki sorularla ilgili tarafımıza ulaşabilirsiniz. Kun Art Space ailesi olarak eserlerinizi güzel günlerde kullanmanızı temenni eder sanatlı günler dileriz :)'
+		},
+		failure: {
+			title: 'Siparişiniz Alınamadı',
+			text: ''
+		},
+		reviewOrder: 'Siparişi İncele'
 	}
 }

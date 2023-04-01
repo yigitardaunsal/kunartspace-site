@@ -17,7 +17,7 @@
 		<div v-else class="cart-summary__row">
 			<span class="cart-summary__label">{{ $t('cartSummary.totalPayment') }}</span>
 			<span class="cart-summary__value"
-				>{{ getPrice(summary.totalDiscountedAmount, totalAmount) | currency }} + {{ $t('vat') }}</span
+				>{{ whichPrice(summary.totalDiscountedAmount, summary.totalAmount) | currency }} + {{ $t('vat') }}</span
 			>
 		</div>
 		<div class="cart-summary__button-area">
@@ -28,11 +28,11 @@
 </template>
 
 <script>
-import copMixin from '@/mixins/cop'
+import helpersMixin from '@/mixins/helpers'
 
 export default {
 	name: 'CartSummary',
-	mixins: [copMixin],
+	mixins: [helpersMixin],
 	computed: {
 		summary() {
 			return this.$store.getters.getCartSummary

@@ -8,6 +8,9 @@ export default {
 	computed: {
 		cart() {
 			return this.$store.state.cart
+		},
+		products() {
+			return this.$store.state.cart.products
 		}
 	},
 	created() {
@@ -20,9 +23,6 @@ export default {
 		},
 		anyOverstock(val) {
 			this.overstock = val
-		},
-		getPrice(discountedPrice, price) {
-			return discountedPrice || price
 		}
 	}
 }

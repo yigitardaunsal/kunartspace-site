@@ -250,5 +250,16 @@ export default {
 		messages: {
 			stockProblem: 'There is not enough stock for one or more items!'
 		}
+	},
+	orderReceived: {
+		success: {
+			title: 'Your Order is Placed',
+			text: '<strong>Congratulations!</strong> Your order has been successfully created. You can review your order summary, continue shopping or contact us with any questions you may have. As Kun Art Space family, we hope you enjoy your works in good days and wish you artistic days :)'
+		},
+		failure: {
+			title: 'Your Order is not Placed',
+			text: ''
+		},
+		reviewOrder: 'Review Order'
 	}
 }

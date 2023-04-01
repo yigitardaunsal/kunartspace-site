@@ -26,46 +26,51 @@
 						<p class="product__description">{{ product.description }}</p>
 					</div>
 					<div class="col-md-2 offset-md-1">
-						<div
-							class="amount"
-							:class="{
-								'--loading': quantityLoader.includes(product.id),
-								'--error': product.availableQuantity !== product.quantity
-							}"
-						>
-							<div v-if="quantityLoader.includes(product.id)" class="amount__loader">
-								<CircleLoader :size="20" />
+						<template v-if="quantityChangeable">
+							<div
+								class="amount"
+								:class="{
+									'--loading': quantityLoader.includes(product.id),
+									'--error': product.availableQuantity !== product.quantity
+								}"
+							>
+								<div v-if="quantityLoader.includes(product.id)" class="amount__loader">
+									<CircleLoader :size="20" />
+								</div>
+								<template v-else>
+									<button
+										class="amount__button"
+										@click="changeQuantity({ productId: product.id, quantity: product.quantity - 1 })"
+									>
+										-
+									</button>
+									<span class="amount__value">{{ product.quantity }}</span>
+									<button
+										class="amount__button"
+										:disabled="product.availableQuantity !== product.quantity"
+										@click="changeQuantity({ productId: product.id, quantity: product.quantity + 1 })"
+									>
+										+
+									</button>
+								</template>
 							</div>
-							<template v-else>
-								<button
-									class="amount__button"
-									@click="changeQuantity({ productId: product.id, quantity: product.quantity - 1 })"
-								>
-									-
-								</button>
-								<span class="amount__value">{{ product.quantity }}</span>
-								<button
-									class="amount__button"
-									:disabled="product.availableQuantity !== product.quantity"
-									@click="changeQuantity({ productId: product.id, quantity: product.quantity + 1 })"
-								>
-									+
-								</button>
-							</template>
-						</div>
-						<div v-if="product.availableQuantity !== product.quantity" class="error">
-							<template v-if="product.outOfStock">
-								{{ $t('cartPage.messages.outOfStock') }}
-							</template>
-							<template v-else>
-								{{ $t('cartPage.messages.availableQuantity').replace('%d%', product.availableQuantity) }}
-							</template>
-						</div>
+							<div v-if="product.availableQuantity !== product.quantity" class="error">
+								<template v-if="product.outOfStock">
+									{{ $t('cartPage.messages.outOfStock') }}
+								</template>
+								<template v-else>
+									{{ $t('cartPage.messages.availableQuantity').replace('%d%', product.availableQuantity) }}
+								</template>
+							</div>
+						</template>
+						<template v-else>
+							{{ product.quantity }}
+						</template>
 					</div>
 					<div class="col-md-2">
-						<span class="product__price">{{
-							getPrice(product.totalDiscountedPrice, product.totalPrice) | currency
-						}}</span>
+						<span class="product__price"
+							>{{ whichPrice(product.totalDiscountedPrice, product.totalPrice) | currency }} + {{ $t('vat') }}</span
+						>
 					</div>
 				</div>
 			</div>
@@ -74,19 +79,25 @@
 </template>
 
 <script>
-import copMixin from '@/mixins/cop'
+import helpersMixin from '@/mixins/helpers'
 
 export default {
 	name: 'CartProducts',
-	mixins: [copMixin],
+	props: {
+		products: {
+			type: Array,
+			required: true
+		},
+		quantityChangeable: {
+			type: Boolean,
+			required: false,
+			default: true
+		}
+	},
+	mixins: [helpersMixin],
 	data() {
 		return {
 			quantityLoader: []
-		}
-	},
-	computed: {
-		products() {
-			return this.$store.state.cart.products
 		}
 	},
 	watch: {
