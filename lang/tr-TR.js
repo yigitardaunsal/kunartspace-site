@@ -142,9 +142,22 @@ export default {
 		logoutButton: 'Çıkış Yap',
 		orders: {
 			title: 'Siparişlerim',
+			orderNo: 'Sipariş No',
+			status: 'Durum',
 			orderDate: 'Sipariş Tarihi',
 			receivedBy: 'Satın Alan',
-			amount: 'Tutar'
+			amount: 'Tutar',
+			statusValues: {
+				paymentWaiting: 'Ödeme Bekleniyor',
+				paymentFailure: 'Ödeme Başarısız',
+				waiting: 'Onay Bekliyor',
+				preparing: 'Hazırlanıyor',
+				shipped: 'Kargoya Verildi',
+				prepared: 'Teslim Alınabilir',
+				done: 'Tamamlandı',
+				canceled: 'İptal Edildi',
+				returned: 'İade Edildi'
+			}
 		},
 		addresses: {
 			title: 'Adreslerim',

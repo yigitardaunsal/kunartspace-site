@@ -1,16 +1,22 @@
 <template>
 	<div class="order-card">
 		<div class="order-card__header row">
-			<div class="col-md-5">
+			<div class="col-md-3">
+				<div class="info">
+					<div class="info__title">{{ $t('customer.orders.orderNo') }}</div>
+					<div class="info__text">{{ order.conversationId }}</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="info">
+					<div class="info__title">{{ $t('customer.orders.status') }}</div>
+					<div class="info__text">{{ status }}</div>
+				</div>
+			</div>
+			<div class="col-md-3">
 				<div class="info">
 					<div class="info__title">{{ $t('customer.orders.orderDate') }}</div>
 					<div class="info__text">{{ order.date }}</div>
-				</div>
-			</div>
-			<div class="col-md-5">
-				<div class="info">
-					<div class="info__title">{{ $t('customer.orders.receivedBy') }}</div>
-					<div class="info__text">{{ order.customer }}</div>
 				</div>
 			</div>
 			<div class="col-md-2">
@@ -24,14 +30,15 @@
 			<div class="work row align-items-center">
 				<div class="col-md-5">
 					<nuxt-link to="#" tag="a" class="work__picture">
-						<img :src="order.work.picture" :alt="order.work.name" />
+						<span v-if="productCount > 1" class="work__count">+ {{ productCount - 1 }}</span>
+						<img :src="order.products[0].picture" :alt="order.products[0].name" />
 					</nuxt-link>
 				</div>
 				<div class="col">
 					<div class="work__content">
-						<div class="work__artist">{{ order.work.artist }}</div>
-						<div class="work__name">{{ order.work.name }}</div>
-						<div class="work__description">{{ order.work.description }}</div>
+						<div class="work__artist">{{ order.products[0].artist }}</div>
+						<div class="work__name">{{ order.products[0].name }}</div>
+						<div class="work__description">{{ order.products[0].description }}</div>
 					</div>
 				</div>
 			</div>
@@ -46,6 +53,14 @@ export default {
 		order: {
 			type: Object,
 			required: true
+		}
+	},
+	computed: {
+		status() {
+			return this.$t('customer.orders.statusValues.' + this.order.status)
+		},
+		productCount() {
+			return this.order.products.length
 		}
 	}
 }
@@ -76,6 +91,7 @@ export default {
 	&__body {
 		.work {
 			&__picture {
+				position: relative;
 				display: block;
 				width: 100%;
 				height: px2rem(200);
@@ -85,6 +101,17 @@ export default {
 					height: 100%;
 					object-fit: contain;
 				}
+			}
+
+			&__count {
+				position: absolute;
+				bottom: 0;
+				right: 0;
+				padding: 5px;
+				background-color: rgba($darklighten, 0.5);
+				color: $enlighten;
+				font-size: px2rem(14);
+				line-height: 1;
 			}
 
 			&__content {

@@ -138,9 +138,22 @@ export default {
 		logoutButton: 'Exit from Site',
 		orders: {
 			title: 'Orders',
+			orderNo: 'Order No',
+			status: 'Status',
 			orderDate: 'Order Date',
 			receivedBy: 'Received By',
-			amount: 'Amount'
+			amount: 'Amount',
+			statusValues: {
+				paymentWaiting: 'Payment Waiting',
+				paymentFailure: 'Payment Failure',
+				waiting: 'Waiting for Approval',
+				preparing: 'Preparing',
+				shipped: 'Shipped',
+				prepared: 'Available for Delivery',
+				done: 'Completed',
+				canceled: 'Canceled',
+				returned: 'Returned'
+			}
 		},
 		addresses: {
 			title: 'Addresses',

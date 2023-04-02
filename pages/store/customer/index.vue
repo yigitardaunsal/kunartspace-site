@@ -15,46 +15,12 @@
 export default {
 	name: 'CustomerOrders',
 	layout: 'CustomerLayout',
-	asyncData({ $moment, i18n }) {
-		const data = [
-			{
-				date: '2023-01-15T19:24:43.427Z',
-				customer: 'Yiğit Arda Ünsal',
-				amount: 23000,
-				work: {
-					picture: 'http://test-api.kunartspace.com/public/images/works/untitled-1669711360794.jpeg',
-					artist: 'Dicle Çiftçi',
-					name: 'Bang Bang',
-					description: 'Tuval üzeri yağlı boya ve akrilik - 80x80 cm - 2022'
-				}
-			},
-			{
-				date: '2023-01-10T19:24:43.427Z',
-				customer: 'Yiğit Arda Ünsal',
-				amount: 10000,
-				work: {
-					picture: 'http://test-api.kunartspace.com/public/images/works/untitled2-1669711360805.jpeg',
-					artist: 'Dicle Çiftçi',
-					name: 'Bang Bang',
-					description: 'Tuval üzeri yağlı boya ve akrilik - 80x80 cm - 2023'
-				}
-			},
-			{
-				date: '2023-01-01T19:24:43.427Z',
-				customer: 'Yiğit Arda Ünsal',
-				amount: 12500,
-				work: {
-					picture: 'http://test-api.kunartspace.com/public/images/works/untitled2-1669711360805.jpeg',
-					artist: 'Dicle Çiftçi',
-					name: 'Bang Bang',
-					description: 'Tuval üzeri yağlı boya ve akrilik - 80x80 cm - 2023'
-				}
-			}
-		]
+	async asyncData({ $api, $moment, i18n }) {
+		const { data } = await $api.get('/customers/get-orders')
 
 		const orders = data.map((order) => ({
 			...order,
-			date: $moment(order.date).locale(i18n.locale).format('DD MMMM YYYY HH:MM')
+			date: $moment(order.createdAt).locale(i18n.locale).format('DD MMMM YYYY HH:MM')
 		}))
 
 		return {
@@ -72,6 +38,6 @@ export default {
 
 <style lang="scss" scoped>
 .order + .order {
-	margin-top: px2rem(25);
+	margin-top: px2rem(72);
 }
 </style>
