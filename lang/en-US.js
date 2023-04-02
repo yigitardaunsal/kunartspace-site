@@ -258,7 +258,7 @@ export default {
 		},
 		failure: {
 			title: 'Your Order is not Placed',
-			text: ''
+			text: 'There was a problem with your order. You can try again or contact us.'
 		},
 		reviewOrder: 'Review Order'
 	}

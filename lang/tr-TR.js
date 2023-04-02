@@ -262,7 +262,7 @@ export default {
 		},
 		failure: {
 			title: 'Siparişiniz Alınamadı',
-			text: ''
+			text: 'Siparişinizle ilgili bir sorun oluştu. Tekrar deneyebilir veya bizimle iletişime geçebilirsiniz.'
 		},
 		reviewOrder: 'Siparişi İncele'
 	}
