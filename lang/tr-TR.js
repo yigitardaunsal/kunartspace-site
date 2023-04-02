@@ -147,6 +147,7 @@ export default {
 			orderDate: 'Sipariş Tarihi',
 			receivedBy: 'Satın Alan',
 			amount: 'Tutar',
+			empty: 'Henüz siparişiniz yok.',
 			statusValues: {
 				paymentWaiting: 'Ödeme Bekleniyor',
 				paymentFailure: 'Ödeme Başarısız',

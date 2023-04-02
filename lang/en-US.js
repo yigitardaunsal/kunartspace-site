@@ -143,6 +143,7 @@ export default {
 			orderDate: 'Order Date',
 			receivedBy: 'Received By',
 			amount: 'Amount',
+			empty: "You don't have any orders yet",
 			statusValues: {
 				paymentWaiting: 'Payment Waiting',
 				paymentFailure: 'Payment Failure',

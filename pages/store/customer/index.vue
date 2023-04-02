@@ -4,9 +4,14 @@
 			<PageHeadline variant="customer" :bordered="false">{{ $t('customer.orders.title') }}</PageHeadline>
 		</div>
 		<div class="customer-page__body">
-			<div v-for="(order, index) in orders" :key="index" class="order">
-				<OrderCard :order="order" />
-			</div>
+			<template v-if="orders.length">
+				<div v-for="(order, index) in orders" :key="index" class="order">
+					<OrderCard :order="order" />
+				</div>
+			</template>
+			<template>
+				<Alert variant="warning">{{ $t('customer.orders.empty') }}</Alert>
+			</template>
 		</div>
 	</div>
 </template>
