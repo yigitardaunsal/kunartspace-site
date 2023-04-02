@@ -9,7 +9,7 @@
 					<OrderCard :order="order" />
 				</div>
 			</template>
-			<template>
+			<template v-else>
 				<Alert variant="warning">{{ $t('customer.orders.empty') }}</Alert>
 			</template>
 		</div>
