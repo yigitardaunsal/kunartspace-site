@@ -94,6 +94,7 @@ export default {
 				lastName: 'Last Name',
 				email: 'E-Mail',
 				password: 'Password',
+				identityNumber: 'Identity Number',
 				contactPermission: 'Contact Permission',
 				contactPermissionText:
 					'I want to be informed about your campaigns. I allow commercial electronic messages to be sent to me.',

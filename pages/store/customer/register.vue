@@ -43,6 +43,15 @@
 							/>
 						</div>
 						<div class="customer-auth__form-row">
+							<Textbox
+								v-model="identityNumber"
+								type="password"
+								:name="$t('customer.register.form.identityNumber')"
+								:placeholder="$t('customer.register.form.identityNumber')"
+								rules="required|digits:11|identity"
+							/>
+						</div>
+						<div class="customer-auth__form-row">
 							<div class="permission">
 								<Checkbox
 									v-model="contactPermission"
@@ -90,6 +99,7 @@ export default {
 			lastName: '',
 			email: '',
 			password: '',
+			identityNumber: '',
 			contactPermission: false,
 			contractPermission: false
 		}
@@ -98,9 +108,11 @@ export default {
 		async register() {
 			this.loading = true
 			const payload = {
-				fullName: `${this.firstName} ${this.lastName}`,
+				name: this.firstName,
+				surname: this.lastName,
 				email: this.email,
 				password: this.password,
+				identityNumber: this.identityNumber,
 				contactPermission: this.contactPermission
 			}
 			const status = await this.$store.dispatch('register', payload)

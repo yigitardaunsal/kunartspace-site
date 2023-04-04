@@ -97,6 +97,7 @@ export default {
 				lastName: 'Soyisim',
 				email: 'E-Posta',
 				password: 'Şifre',
+				identityNumber: 'T.C. Kimlik Numarası',
 				contactPermission: 'İletişim İzni',
 				contactPermissionText:
 					'Kampanyalarından haberdar olmak istiyorum. Tarafıma ticari elektronik ileti gönderilmesine izin veriyorum.',

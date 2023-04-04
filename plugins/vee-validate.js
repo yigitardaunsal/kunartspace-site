@@ -10,4 +10,12 @@ extend('password', {
 		field + ' alanında en az 1 büyük harf, 1 küçük harf ve 1 özel karakter (.,@,$,!,%,*,?,&) olmalıdır'
 })
 
+extend('identity', {
+	validate: (value) => {
+		const re = /^[1-9]{1}[0-9]{9}[02468]{1}$/
+		return re.test(value)
+	},
+	message: (field) => field + ' alanı geçerli bir kimlik numarası olmalıdır'
+})
+
 localize('tr', tr)
