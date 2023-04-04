@@ -96,23 +96,23 @@ export default {
 	},
 	methods: {
 		async register() {
-			// this.loading = true
-			// const payload = {
-			// 	fullName: `${this.firstName} ${this.lastName}`,
-			// 	email: this.email,
-			// 	password: this.password,
-			// 	contactPermission: this.contactPermission
-			// }
-			// const status = await this.$store.dispatch('register', payload)
-			// if (status !== 200) {
-			// 	this.loading = false
-			// }
-			// if (status === 409) {
-			// 	this.$toast.open({
-			// 		message: this.$t('customer.register.messages.conflict'),
-			// 		type: 'error'
-			// 	})
-			// }
+			this.loading = true
+			const payload = {
+				fullName: `${this.firstName} ${this.lastName}`,
+				email: this.email,
+				password: this.password,
+				contactPermission: this.contactPermission
+			}
+			const status = await this.$store.dispatch('register', payload)
+			if (status !== 200) {
+				this.loading = false
+			}
+			if (status === 409) {
+				this.$toast.open({
+					message: this.$t('customer.register.messages.conflict'),
+					type: 'error'
+				})
+			}
 		}
 	}
 }
