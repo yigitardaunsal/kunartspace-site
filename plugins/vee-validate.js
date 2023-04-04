@@ -3,7 +3,7 @@ import tr from 'vee-validate/dist/locale/tr.json'
 
 extend('password', {
 	validate: (value) => {
-		const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[.@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$/
+		const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[.@$!%*?&])[A-Za-z\d.@$!%*?&]{8,16}$/
 		return re.test(value)
 	},
 	message: (field) =>
