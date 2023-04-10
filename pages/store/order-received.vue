@@ -3,7 +3,7 @@
 		<div class="order-received__header">
 			<PageHeadline variant="customer" position="center" :bordered="false">{{ title }}</PageHeadline>
 			<div class="order-received__icon" :class="[`--${order.paymentStatus}`]">
-				<SuccessIcon v-if="order.paymentStatus === 'success'" width="325" height="325" />
+				<SuccessIcon v-if="order.paymentStatus !== 'failure'" width="325" height="325" />
 				<FailureIcon v-else width="325" height="325" />
 			</div>
 		</div>
@@ -13,11 +13,11 @@
 					<p class="order-received__text" v-html="text" />
 				</div>
 			</div>
-			<div v-if="order.paymentStatus === 'success'" class="order-received__products">
+			<div v-if="order.paymentStatus !== 'failure'" class="order-received__products">
 				<CartProducts :products="order.cartDetails.products" :quantity-changeable="false" />
 			</div>
 		</div>
-		<div v-if="order.paymentStatus === 'success'" class="order-received__footer row justify-content-end">
+		<div v-if="order.paymentStatus !== 'failure'" class="order-received__footer row justify-content-end">
 			<div class="col-md-4">
 				<nuxt-link :to="localePath({ name: 'store-customer' })" class="btn --primary --large --block">{{
 					$t('orderReceived.reviewOrder')
@@ -63,7 +63,7 @@ export default {
 		margin-top: px2rem(88);
 		text-align: center;
 
-		&.--success {
+		&.--success, &.--waiting {
 			color: $success;
 		}
 

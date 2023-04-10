@@ -7,94 +7,97 @@
 			<CircleLoader size="100" />
 		</div>
 		<template v-else>
-			<div class="checkout__body">
-				<div class="checkout__section --products">
-					<CartProducts :products="products" @overstock="handleOverStock" />
-				</div>
-				<div class="checkout__section --delivery">
-					<h5 class="checkout__title">{{ $t('checkoutPage.deliveryType') }}</h5>
-					<ChoiceBox
-						:condition-value="selectedAddress"
-						:value="'GALLERY'"
-						:title="$t('checkoutPage.galleryDelivery')"
-						@change="setSelectedAddress"
-					>
-						{{ $t('checkoutPage.galleryDeliveryDesciption') }}
-					</ChoiceBox>
-					<template v-if="!addresses.length">
-						<Alert variant="warning"
-							>{{ $t('checkoutPage.noAddressAlert') }}
-							<nuxt-link :to="localePath('/store/customer/addresses')" tag="a">{{
-								$t('checkoutPage.goToMyAddressPage')
-							}}</nuxt-link></Alert
-						>
-					</template>
-					<template v-else>
+			<template v-if="cart.products.length">
+				<div class="checkout__body">
+					<div class="checkout__section --products">
+						<CartProducts :products="products" @overstock="handleOverStock" />
+					</div>
+					<div class="checkout__section --delivery">
+						<h5 class="checkout__title">{{ $t('checkoutPage.deliveryType') }}</h5>
 						<ChoiceBox
-							v-for="(address, index) in addresses"
-							:key="index"
 							:condition-value="selectedAddress"
-							:value="address._id"
-							:title="address.title"
+							:value="'GALLERY'"
+							:title="$t('checkoutPage.galleryDelivery')"
 							@change="setSelectedAddress"
 						>
-							{{ address.address }} {{ address.district }} / {{ address.city }}
+							{{ $t('checkoutPage.galleryDeliveryDesciption') }}
 						</ChoiceBox>
-					</template>
-				</div>
-				<div class="checkout__section">
-					<h5 class="checkout__title">{{ $t('checkoutPage.paymentType') }}</h5>
-					<ChoiceBox
-						:condition-value="selectedPaymentMethod"
-						:value="'CREDIT_CARD'"
-						:title="$t('checkoutPage.creditCard')"
-						@change="setSelectedPaymentMethod"
-					>
-						{{ $t('checkoutPage.creditCardDescription') }}
-					</ChoiceBox>
-					<ChoiceBox
-						:condition-value="selectedPaymentMethod"
-						:value="'BANK_TRANSFER'"
-						title="Havale/EFT"
-						@change="setSelectedPaymentMethod"
-					>
-						<div v-html="transferBanks" />
-					</ChoiceBox>
-				</div>
-			</div>
-			<div class="checkout__footer row align-items-end">
-				<div class="col-md-7 offset-md-1">
-					<Checkbox v-model="didAcceptContracts" name="contracts" placeholder="contracts">
-						<template #content>
-							<div class="checkout__contract">
-								{{ $t('checkoutPage.contractText[0]') }}
-								<a href="#" @click.self.prevent="showContract('preInformationForm')">{{
-									$t('checkoutPage.preInformationForm')
-								}}</a
-								>{{ $t('checkoutPage.contractText[1]') }}
-								<a href="#" @click.self.prevent="showContract('distanceSellingContract')">{{
-									$t('checkoutPage.distanceSellingContract')
-								}}</a
-								>{{ $t('checkoutPage.contractText[2]') }}
-							</div>
-						</template>
-					</Checkbox>
-				</div>
-				<div class="col-md-4">
-					<CartSummary>
-						<template #button>
-							<Button
-								size="lg"
-								block
-								:disabled="!didAcceptContracts || overstock"
-								:loading="isButtonLoading"
-								@click="orderNow"
-								>{{ $t('checkoutPage.placeOrder') }}</Button
+						<template v-if="!addresses.length">
+							<Alert variant="warning"
+								>{{ $t('checkoutPage.noAddressAlert') }}
+								<nuxt-link :to="localePath('/store/customer/addresses')" tag="a">{{
+									$t('checkoutPage.goToMyAddressPage')
+								}}</nuxt-link></Alert
 							>
 						</template>
-					</CartSummary>
+						<template v-else>
+							<ChoiceBox
+								v-for="(address, index) in addresses"
+								:key="index"
+								:condition-value="selectedAddress"
+								:value="address._id"
+								:title="address.title"
+								@change="setSelectedAddress"
+							>
+								{{ address.address }} {{ address.district }} / {{ address.city }}
+							</ChoiceBox>
+						</template>
+					</div>
+					<div class="checkout__section">
+						<h5 class="checkout__title">{{ $t('checkoutPage.paymentType') }}</h5>
+						<ChoiceBox
+							:condition-value="selectedPaymentMethod"
+							:value="'CREDIT_CARD'"
+							:title="$t('checkoutPage.creditCard')"
+							@change="setSelectedPaymentMethod"
+						>
+							{{ $t('checkoutPage.creditCardDescription') }}
+						</ChoiceBox>
+						<ChoiceBox
+							:condition-value="selectedPaymentMethod"
+							:value="'BANK_TRANSFER'"
+							title="Havale/EFT"
+							@change="setSelectedPaymentMethod"
+						>
+							<div v-html="transferBanks" />
+						</ChoiceBox>
+					</div>
 				</div>
-			</div>
+				<div class="checkout__footer row align-items-end">
+					<div class="col-md-7 offset-md-1">
+						<Checkbox v-model="didAcceptContracts" name="contracts" placeholder="contracts">
+							<template #content>
+								<div class="checkout__contract">
+									{{ $t('checkoutPage.contractText[0]') }}
+									<a href="#" @click.self.prevent="showContract('preInformationForm')">{{
+										$t('checkoutPage.preInformationForm')
+									}}</a
+									>{{ $t('checkoutPage.contractText[1]') }}
+									<a href="#" @click.self.prevent="showContract('distanceSellingContract')">{{
+										$t('checkoutPage.distanceSellingContract')
+									}}</a
+									>{{ $t('checkoutPage.contractText[2]') }}
+								</div>
+							</template>
+						</Checkbox>
+					</div>
+					<div class="col-md-4">
+						<CartSummary>
+							<template #button>
+								<Button
+									size="lg"
+									block
+									:disabled="!didAcceptContracts || overstock"
+									:loading="isButtonLoading"
+									@click="orderNow"
+									>{{ $t('checkoutPage.placeOrder') }}</Button
+								>
+							</template>
+						</CartSummary>
+					</div>
+				</div>
+			</template>
+			<EmptyCart v-else />
 		</template>
 		<Modal :is-open="modal.isOpen" :title="modal.title" @close="closeModal">
 			<div v-if="!modal.body" class="modal-loader">
@@ -175,7 +178,7 @@ export default {
 				.post('/payment', payload)
 				.then(({ data }) => {
 					if (data.paymentType === 'BANK_TRANSFER') {
-						console.log('havale')
+						this.$router.push(this.localeLocation({ name: 'store-order-received' }))
 						return
 					}
 

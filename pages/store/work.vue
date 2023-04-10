@@ -31,7 +31,7 @@
 						</Button>
 					</div>
 					<div class="work__buttons">
-						<Button block :disabled="addToCartLoading">{{ $t('buyNow') }}</Button>
+						<Button block :disabled="addToCartLoading" @click="buyNow">{{ $t('buyNow') }}</Button>
 					</div>
 					<div class="work__contact">
 						<a href="https://wa.me/905383883838" target="_blank" class="whatsapp">
@@ -141,6 +141,12 @@ export default {
 			}
 
 			this.addToCartLoading = false
+			return status
+		},
+		async buyNow() {
+			const status = await this.addToCart()
+
+			if (status === 200) this.$router.push(this.localeLocation({ name: 'store-checkout' }))
 		}
 	}
 }

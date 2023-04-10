@@ -26,30 +26,16 @@
 					</CartSummary>
 				</div>
 			</template>
-			<div v-else class="empty">
-				<div class="empty__icon">
-					<BasketIcon width="200" height="200" />
-				</div>
-				<h2 class="empty__title">
-					{{ $t('cartPage.empty.title') }}
-				</h2>
-				<nuxt-link :to="localePath({ name: 'store-works' })" tag="a" class="btn --tertiary">{{
-					$t('cartPage.empty.keepShopping')
-				}}</nuxt-link>
-			</div>
+			<EmptyCart v-else />
 		</template>
 	</div>
 </template>
 
 <script>
 import copMixin from '@/mixins/cop'
-import BasketIcon from '@/assets/svg/basket.svg'
 
 export default {
 	name: 'CartPage',
-	components: {
-		BasketIcon
-	},
 	mixins: [copMixin],
 	layout: 'StoreLayout'
 }
@@ -65,14 +51,6 @@ export default {
 		position: relative;
 		height: px2rem(20);
 		color: $dark-gray;
-	}
-
-	.empty {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: px2rem(20);
-		margin-top: px2rem(-45);
 	}
 
 	&__body {

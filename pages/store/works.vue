@@ -11,7 +11,7 @@
 				<span class="icon"><FilterIcon width="30" height="30" /></span>
 			</button>
 			<button class="works__button --sorting" @click="showSortingWidget">
-				<span class="text">Sort By</span>
+				<span class="text">{{ $t('worksPage.sort') }}</span>
 				<span class="icon"><DownArrowIcon width="30" height="30" /></span>
 			</button>
 		</div>

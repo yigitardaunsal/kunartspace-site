@@ -198,7 +198,8 @@ export default {
 	delete: 'Delete',
 	save: 'Save',
 	worksPage: {
-		filter: 'FILTER'
+		filter: 'FILTER',
+		sort: 'Sort By'
 	},
 	apply: 'APPLY',
 	sortingItems: {

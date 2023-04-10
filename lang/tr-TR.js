@@ -202,7 +202,8 @@ export default {
 	delete: 'Sil',
 	save: 'Kaydet',
 	worksPage: {
-		filter: 'FİLTRELE'
+		filter: 'FİLTRELE',
+		sort: 'Sırala'
 	},
 	apply: 'UYGULA',
 	sortingItems: {
@@ -278,6 +279,10 @@ export default {
 		failure: {
 			title: 'Siparişiniz Alınamadı',
 			text: 'Siparişinizle ilgili bir sorun oluştu. Tekrar deneyebilir veya bizimle iletişime geçebilirsiniz.'
+		},
+		waiting: {
+			title: 'Siparişiniz Alındı',
+			text: 'Siparişiniz banka hesaplarımıza havale/eft yaptığınızdan sonra hazırlanacaktır.'
 		},
 		reviewOrder: 'Siparişi İncele'
 	}
