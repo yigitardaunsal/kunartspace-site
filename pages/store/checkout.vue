@@ -10,7 +10,7 @@
 			<template v-if="cart.products.length">
 				<div class="checkout__body">
 					<div class="checkout__section --products">
-						<CartProducts :products="products" @overstock="handleOverStock" />
+						<CartProducts :products="products" :quantityChangeable="false" @overstock="handleOverStock" />
 					</div>
 					<div class="checkout__section --delivery">
 						<h5 class="checkout__title">{{ $t('checkoutPage.deliveryType') }}</h5>
@@ -144,19 +144,15 @@ export default {
 			return this.$store.state.addresses
 		}
 	},
-	watch: {
-		selectedAddress() {
-			this.clearContracts()
-		},
-		selectedPaymentMethod() {
-			this.clearContracts()
-		}
-	},
 	methods: {
 		setSelectedAddress(value) {
+			const deliveryType = (value !== 'GALLERY' ? 'ADDRESS' : value).toLowerCase()
+			this.$store.dispatch('fetchCart', deliveryType)
+			this.clearContracts()
 			this.selectedAddress = value
 		},
 		setSelectedPaymentMethod(value) {
+			this.clearContracts()
 			this.selectedPaymentMethod = value
 		},
 		closeModal() {

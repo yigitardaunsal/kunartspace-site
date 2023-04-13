@@ -264,7 +264,7 @@ export const actions = {
 			.then(() => 200)
 			.catch(({ response }) => response.status)
 	},
-	async fetchCart({ state, commit }) {
+	async fetchCart({ state, commit }, deliveryType = 'gallery') {
 		commit('SET_CART', { loading: true })
 
 		let response = {}
@@ -280,7 +280,7 @@ export const actions = {
 
 				response = await this.$api.post('/cart/guest', { products: cart })
 			} else {
-				response = await this.$api.get('/customers/get-cart')
+				response = await this.$api.post('/customers/get-cart', { deliveryType })
 			}
 
 			commit('SET_CART', { loading: false, ...response?.data })
