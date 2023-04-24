@@ -15,6 +15,12 @@
 					<ArtistCard :artist="artist" vertical />
 				</div>
 			</div>
+			<PageHeadline tag="h3">{{ $t('designers') }}</PageHeadline>
+			<div class="row">
+				<div v-for="(designer, index) in designers" :key="index" class="col-md-4">
+					<ArtistCard :artist="designer" vertical />
+				</div>
+			</div>
 		</div>
 	</div>
 </template>
@@ -27,7 +33,8 @@ export default {
 
 		return {
 			exhibitedArtists: data.filter((artist) => artist.hasExhibition),
-			artists: data.filter((artist) => !artist.hasExhibition)
+			artists: data.filter((artist) => !artist.hasExhibition && artist.type === 'artist'),
+			designers: data.filter((designer) => !designer.hasExhibition && designer.type === 'designer')
 		}
 	},
 	nuxtI18n: {

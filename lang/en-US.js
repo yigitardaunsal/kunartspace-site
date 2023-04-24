@@ -9,7 +9,7 @@ export default {
 		contact: 'Contact',
 		store: 'Store',
 		atelier: 'Atelier',
-		works: 'Works',
+		products: 'Products',
 		corporate: 'Corporate'
 	},
 	constantPageLinks: {
@@ -26,7 +26,7 @@ export default {
 		overview: 'OVERVİEW',
 		works: 'WORKS',
 		exhibitions: 'EXHIBITIONS',
-		exhibitedArtists: 'EXHIBITED ARTISTS'
+		exhibitedArtists: 'ACTIVE EXHIBITION ARTISTS'
 	},
 	constantPage: {
 		photosFromGallery: 'PHOTOS FROM GALLERY'
@@ -55,6 +55,7 @@ export default {
 	},
 	readMore: 'read more',
 	artists: 'ARTISTS',
+	designers: 'TASARIMCILAR',
 	works: 'WORKS',
 	contact: 'CONTACT',
 	send: 'Send',
@@ -214,6 +215,7 @@ export default {
 	},
 	workPage: {
 		stockCode: 'Stock Code',
+		stockAmount: 'Stock Amount',
 		whatsappText: 'Ask About Art Piece',
 		contactText: 'If you need any help feel free to call us from our numbers',
 		messages: {

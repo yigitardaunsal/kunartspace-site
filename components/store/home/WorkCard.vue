@@ -1,6 +1,6 @@
 <template>
 	<nuxt-link
-		:to="localePath({ name: 'store-work', params: { slug: work.link } })"
+		:to="localePath({ name: 'store-product', params: { slug: work.link } })"
 		tag="a"
 		class="work"
 		draggable="false"

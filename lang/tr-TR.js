@@ -9,7 +9,7 @@ export default {
 		contact: 'İletişim',
 		store: 'Mağaza',
 		atelier: 'Atölye',
-		works: 'Eserler',
+		products: 'Ürünler',
 		corporate: 'Kurumsal'
 	},
 	constantPageLinks: {
@@ -26,7 +26,7 @@ export default {
 		overview: 'GENEL BAKIŞ',
 		works: 'ESERLER',
 		exhibitions: 'SERGİLER',
-		exhibitedArtists: 'SERGİSİ OLAN SANATÇILAR'
+		exhibitedArtists: 'AKTİF SERGİ SANATÇILARI'
 	},
 	constantPage: {
 		photosFromGallery: 'GALERİMİZDEN FOTOĞRAFLAR'
@@ -55,6 +55,7 @@ export default {
 	},
 	readMore: 'daha fazla',
 	artists: 'SANATÇILAR',
+	designers: 'TASARIMCILAR',
 	works: 'ESERLER',
 	contact: 'İletişim',
 	send: 'Gönder',
@@ -218,6 +219,7 @@ export default {
 	},
 	workPage: {
 		stockCode: 'Stok Kodu',
+		stockAmount: 'Stok Miktarı',
 		whatsappText: 'Sanat Eseri Hakkında Soru Sor',
 		contactText: 'Herhangi bir yardıma ihtiyacınız olursa, bizi numaralarımızdan aramaktan çekinmeyin',
 		messages: {

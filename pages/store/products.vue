@@ -50,11 +50,11 @@ export default {
 	layout: 'StoreLayout',
 	nuxtI18n: {
 		paths: {
-			tr: '/magaza/eserler',
-			en: '/store/works'
+			tr: '/magaza/urunler',
+			en: '/store/products'
 		}
 	},
-	async asyncData({ i18n, $api, query, error }) {
+	async asyncData({ $api, query, error }) {
 		const params = {
 			page: query?.page || 1,
 			filters: query?.filters || null,

@@ -1,6 +1,6 @@
 <template>
 	<div class="artist container">
-		<TabContainer>
+		<TabContainer :activeIndex="activeTab">
 			<TabPane :title="$t('artistPage.overview')">
 				<div class="row align-items-center">
 					<div class="col-md-6">
@@ -33,7 +33,7 @@
 <script>
 export default {
 	name: 'ArtistPage',
-	async asyncData({ store, params, $api, i18n, $moment }) {
+	async asyncData({ store, params, query, $api, i18n, $moment }) {
 		await store.dispatch('i18n/setRouteParams', {})
 
 		const { data } = await $api.get(`/artists/get-detail/${params.slug}`)
@@ -46,7 +46,10 @@ export default {
 			}
 		})
 
+		const works = i18n.t('artistPage.works').toLowerCase()
+
 		return {
+			activeTab: Object.keys(query).includes(works) ? 1 : 0,
 			artist: data,
 			exhibitions
 		}

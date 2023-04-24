@@ -1,6 +1,6 @@
 <template>
 	<div class="social-media">
-		<a href="https://www.facebook.com/kuzgunartspace/" target="_blank" class="social-media__link">
+		<a href="https://www.facebook.com/kunartspace/" target="_blank" class="social-media__link">
 			<FacebookIcon width="24" />
 		</a>
 		<a href="https://twitter.com/kunartspace" target="_blank" class="social-media__link">

@@ -6,7 +6,7 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="exhibition__picture">
-								<img :src="exhibition.image" :alt="exhibition.name" class="img-fluid" />
+								<img :src="exhibition.image" :alt="exhibition.name" class="img-contain" />
 							</div>
 						</div>
 						<div class="col-md-5 offset-md-1">
@@ -75,6 +75,8 @@ export default {
 
 	.exhibition {
 		&__picture {
+			height: calc(100vh - 158px - px2rem(48) - px2rem(100));
+
 			img {
 				pointer-events: none;
 			}

@@ -13,7 +13,7 @@
 				<div class="row align-items-center">
 					<div class="col-md-3">
 						<nuxt-link
-							:to="localePath({ name: 'store-work', params: { slug: product.link } })"
+							:to="localePath({ name: 'store-product', params: { slug: product.link } })"
 							tag="a"
 							class="product__picture"
 						>

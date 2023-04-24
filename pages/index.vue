@@ -82,12 +82,12 @@ export default {
 				flex-shrink: 0;
 				margin-right: 6%;
 				width: 50%;
-				height: auto;
+				height: calc(100vh - 12vh - px2rem(62) - 158px);
 
 				img {
 					width: 100%;
 					height: 100%;
-					object-fit: cover;
+					object-fit: contain;
 					pointer-events: none;
 				}
 			}

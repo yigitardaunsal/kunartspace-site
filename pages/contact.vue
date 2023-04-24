@@ -106,7 +106,7 @@
 							<EnvelopeSvg width="40" height="40" />
 						</div>
 						<div class="contact__content">
-							<a href="mailto:info@kuzgunartspace.com" class="contact__link">info@kuzgunartspace.com</a>
+							<a href="mailto:info@kunartspace.com" class="contact__link">info@kunartspace.com</a>
 						</div>
 					</div>
 				</div>
@@ -128,7 +128,7 @@
 							<InstagramSvg width="40" height="40" />
 						</div>
 						<div class="contact__content">
-							<a href="https://www.instagram.com/kunartspace/" target="_blank" class="contact__link">kuzgunartspace</a>
+							<a href="https://www.instagram.com/kunartspace/" target="_blank" class="contact__link">kunartspace</a>
 						</div>
 					</div>
 				</div>
@@ -138,9 +138,7 @@
 							<FacebookSvg width="40" height="40" />
 						</div>
 						<div class="contact__content">
-							<a href="https://www.facebook.com/kuzgunartspace/" target="_blank" class="contact__link"
-								>kuzgunartspace</a
-							>
+							<a href="https://www.facebook.com/kunartspace/" target="_blank" class="contact__link">kunartspace</a>
 						</div>
 					</div>
 				</div>
@@ -150,7 +148,7 @@
 							<TwitterSvg width="40" height="40" />
 						</div>
 						<div class="contact__content">
-							<a href="https://twitter.com/kunartspace" target="_blank" class="contact__link">kuzgunartspace</a>
+							<a href="https://twitter.com/kunartspace" target="_blank" class="contact__link">kunartspace</a>
 						</div>
 					</div>
 				</div>

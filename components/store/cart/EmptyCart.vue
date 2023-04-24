@@ -6,7 +6,7 @@
 		<h2 class="empty__title">
 			{{ $t('cartPage.empty.title') }}
 		</h2>
-		<nuxt-link :to="localePath({ name: 'store-works' })" tag="a" class="btn --tertiary">{{
+		<nuxt-link :to="localePath({ name: 'store-products' })" tag="a" class="btn --tertiary">{{
 			$t('cartPage.empty.keepShopping')
 		}}</nuxt-link>
 	</div>

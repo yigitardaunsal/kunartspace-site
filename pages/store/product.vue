@@ -10,8 +10,17 @@
 			</div>
 			<div class="col-md-5 offset-md-1">
 				<div class="work__detail">
-					<span class="work__code">{{ $t('workPage.stockCode') }}: {{ work.stockCode }}</span>
-					<h1 class="work__artist">{{ work.artist }}</h1>
+					<span class="work__stock --code">{{ $t('workPage.stockCode') }}: {{ work.stockCode }}</span>
+					<span class="work__stock --amount">{{ $t('workPage.stockAmount') }}: {{ work.stock }}</span>
+					<h1 class="work__artist">
+						<nuxt-link
+							:to="`${localePath({ name: 'artist', params: { slug: work.artist.link } })}?${$t(
+								'artistPage.works'
+							).toLowerCase()}`"
+							tag="a"
+							>{{ work.artist.name }}</nuxt-link
+						>
+					</h1>
 					<h2 class="work__name">{{ work.name }}</h2>
 					<div class="work__description" v-html="work.description" />
 					<span class="work__price"
@@ -66,8 +75,8 @@ export default {
 	layout: 'StoreLayout',
 	nuxtI18n: {
 		paths: {
-			tr: '/magaza/eser/:slug',
-			en: '/store/work/:slug'
+			tr: '/magaza/urun/:slug',
+			en: '/store/product/:slug'
 		}
 	},
 	async asyncData({ $api, error, params }) {
@@ -161,12 +170,15 @@ export default {
 		padding-top: px2rem(42);
 	}
 
-	&__code {
+	&__stock {
 		display: block;
-		margin-bottom: px2rem(34);
 		font-size: px2rem(12);
 		line-height: px2rem(18);
 		color: $mild-gray;
+
+		&.--amount {
+			margin-bottom: px2rem(34);
+		}
 	}
 
 	&__artist {
@@ -174,6 +186,14 @@ export default {
 		font-size: px2rem(56);
 		line-height: px2rem(84);
 		font-weight: 600;
+
+		a {
+			color: inherit;
+
+			&:hover {
+				color: $dark-gray;
+			}
+		}
 	}
 
 	&__name {
