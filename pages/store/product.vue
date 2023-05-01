@@ -134,8 +134,7 @@ export default {
 		async addToCart() {
 			this.addToCartLoading = true
 			const status = await this.$store.dispatch('addToCart', {
-				productId: this.work._id,
-				onModel: 'work'
+				productId: this.work._id
 			})
 
 			if (status === 200) {

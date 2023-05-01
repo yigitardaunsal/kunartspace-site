@@ -241,26 +241,9 @@ export const actions = {
 			})
 			.catch(({ response }) => response.status)
 	},
-	addToCart({ state }, payload) {
-		if (!state.accessToken) {
-			const cart = JSON.parse(Cookie.get('cart') || '[]')
-			const productInCart = cart.find((item) => item.productId === payload.productId)
-
-			if (productInCart) {
-				return 406
-			}
-
-			cart.push({
-				productId: payload.productId,
-				onModel: payload.onModel,
-				quantity: 1
-			})
-			Cookie.set('cart', JSON.stringify(cart), { expires: 1 })
-			return 200
-		}
-
+	addToCart(context, payload) {
 		return this.$api
-			.post('/customers/add-to-cart', payload)
+			.post('/cart/add-to-cart', payload)
 			.then(() => 200)
 			.catch(({ response }) => response.status)
 	},
@@ -270,18 +253,19 @@ export const actions = {
 		let response = {}
 
 		try {
-			if (!state.accessToken) {
-				const cart = JSON.parse(Cookie.get('cart') || '[]')
+			response = await this.$api.get('/cart')
+			// if (!state.accessToken) {
+			// 	const cart = JSON.parse(Cookie.get('cart') || '[]')
 
-				if (!cart.length) {
-					commit('SET_CART', { loading: false, products: [] })
-					return
-				}
+			// 	if (!cart.length) {
+			// 		commit('SET_CART', { loading: false, products: [] })
+			// 		return
+			// 	}
 
-				response = await this.$api.post('/cart/guest', { products: cart })
-			} else {
-				response = await this.$api.post('/customers/get-cart', { deliveryType })
-			}
+			// 	response = await this.$api.post('/cart/guest', { products: cart })
+			// } else {
+			// 	response = await this.$api.post('/customers/get-cart', { deliveryType })
+			// }
 
 			commit('SET_CART', { loading: false, ...response?.data })
 		} catch (e) {
