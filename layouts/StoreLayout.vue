@@ -12,6 +12,7 @@
 			<Nuxt />
 		</main>
 		<TheStoreFooter />
+		<TheSearchModal />
 	</div>
 </template>
 

@@ -41,7 +41,7 @@ import DownArrowIcon from '@/assets/svg/arrow-down.svg'
 import WorkCard from '@/components/store/works/WorkCard'
 
 export default {
-	name: 'WorksPage',
+	name: 'ProductsPage',
 	components: {
 		FilterIcon,
 		DownArrowIcon,
@@ -58,11 +58,13 @@ export default {
 		const params = {
 			page: query?.page || 1,
 			filters: query?.filters || null,
-			sorting: query?.sorting || null
+			sorting: query?.sorting || null,
+			q: query?.q || null
 		}
 
-		if (!params.filters) delete params.filters
-		if (!params.sorting) delete params.sorting
+		Object.keys(params).forEach((key) => {
+			if (!params[key]) delete params[key]
+		})
 
 		try {
 			const { data } = await $api.get('/works/get-list', { params })
@@ -85,7 +87,7 @@ export default {
 			isSortingWidgetShowing: false
 		}
 	},
-	watchQuery: ['page', 'filters', 'sorting'],
+	watchQuery: ['page', 'filters', 'sorting', 'q'],
 	methods: {
 		showFilterWidget() {
 			document.body.style.overflow = 'hidden'

@@ -66,7 +66,7 @@ import FilledHeartIcon from '@/assets/svg/heart-tick-filled.svg'
 import WhatsappIcon from '@/assets/svg/whatsapp.svg'
 
 export default {
-	name: 'WorkPage',
+	name: 'ProductPage',
 	components: {
 		HeartIcon,
 		FilledHeartIcon,

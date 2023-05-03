@@ -1,6 +1,7 @@
 import Cookie from 'js-cookie'
 
 export const state = () => ({
+	isOpenSearchModal: false,
 	exhibitionList: [],
 	accessToken: null,
 	customer: null,
@@ -17,6 +18,9 @@ export const state = () => ({
 })
 
 export const mutations = {
+	SET_IS_OPEN_SEARCH_MODAL(state, payload) {
+		state.isOpenSearchModal = payload
+	},
 	SET_EXHIBITION_LIST(state, payload) {
 		state.exhibitionList = payload
 	},
