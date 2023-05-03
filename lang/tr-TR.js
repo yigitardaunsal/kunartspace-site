@@ -74,6 +74,7 @@ export default {
 	},
 	explore: 'Keşfet',
 	currentWorks: 'ÖNE ÇIKAN ESERLER',
+	selectedWorks: 'Sizin için Seçtiklerimiz',
 	viewAll: 'Tümünü Gör',
 	customer: {
 		loginButton: 'Giriş Yap',

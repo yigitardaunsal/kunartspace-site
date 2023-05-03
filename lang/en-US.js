@@ -74,6 +74,7 @@ export default {
 	},
 	explore: 'Explore',
 	currentWorks: 'CURRENT WORKS',
+	selectedWorks: 'Selected Works',
 	viewAll: 'View All',
 	customer: {
 		loginButton: 'Login',
