@@ -63,7 +63,8 @@ export default {
 		margin-top: px2rem(88);
 		text-align: center;
 
-		&.--success, &.--waiting {
+		&.--success,
+		&.--waiting {
 			color: $success;
 		}
 

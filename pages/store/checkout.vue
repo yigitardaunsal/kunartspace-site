@@ -116,7 +116,6 @@ export default {
 	name: 'CheckoutPage',
 	mixins: [copMixin],
 	layout: 'StoreLayout',
-	middleware: ['session-control', 'auth'],
 	async asyncData({ store, $api }) {
 		await store.dispatch('fetchAddresses')
 		const { data: transferBanks } = await $api.get('/definitions/get-detail/money_transfer_information')
@@ -146,7 +145,7 @@ export default {
 	},
 	methods: {
 		setSelectedAddress(value) {
-			const deliveryType = (value !== 'GALLERY' ? 'ADDRESS' : value).toLowerCase()
+			const deliveryType = value !== 'GALLERY' ? 'ADDRESS' : value
 			this.$store.dispatch('fetchCart', deliveryType)
 			this.clearContracts()
 			this.selectedAddress = value
@@ -213,9 +212,17 @@ export default {
 			}
 
 			const payload = {
-				addressId: this.selectedAddress === 'GALLERY' ? '' : this.selectedAddress,
 				paymentType: this.selectedPaymentMethod,
 				deliveryType: this.selectedAddress === 'GALLERY' ? 'GALLERY' : 'ADDRESS'
+			}
+
+			if (this.selectedAddress !== 'GALLERY') {
+				const selectedAddress = this.addresses.find((address) => address._id === this.selectedAddress)
+				payload.phone = selectedAddress.phone
+				payload.address = selectedAddress.address
+				payload.city = selectedAddress.city
+				payload.district = selectedAddress.district
+				payload.recipient = selectedAddress.fullName
 			}
 
 			try {

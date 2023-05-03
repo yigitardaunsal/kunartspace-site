@@ -78,6 +78,7 @@ export default {
 	customer: {
 		loginButton: 'Login',
 		registerButton: 'Create an Account',
+		guestCheckout: 'Continue Without Creating Account',
 		login: {
 			title: 'Login',
 			form: {

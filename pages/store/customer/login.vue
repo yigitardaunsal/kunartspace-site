@@ -39,6 +39,14 @@
 								$t('customer.registerButton')
 							}}</nuxt-link>
 						</div>
+						<div v-if="isGuestCheckOut" class="customer-auth__form-row">
+							<nuxt-link
+								:to="localePath({ name: 'store-checkout', query: { isGuestCheckOut: true } })"
+								tag="a"
+								class="btn --tertiary --block"
+								>{{ $t('customer.guestCheckout') }}</nuxt-link
+							>
+						</div>
 					</form>
 				</ValidationObserver>
 				<div class="customer-auth__footer">
@@ -61,6 +69,11 @@ export default {
 			password: ''
 		}
 	},
+	computed: {
+		isGuestCheckOut() {
+			return !!this.$route.query?.isGuestCheckOut
+		}
+	},
 	methods: {
 		async login() {
 			this.loading = true
@@ -70,6 +83,7 @@ export default {
 				password: this.password
 			}
 			const status = await this.$store.dispatch('login', payload)
+			console.log('status', status)
 
 			if (status !== 200) {
 				this.loading = false

@@ -131,17 +131,6 @@ export const actions = {
 		delete payload.accessToken
 		delete payload.refreshToken
 		commit('SET_CUSTOMER', payload)
-		dispatch('mergeCart')
-	},
-	mergeCart() {
-		const cart = JSON.parse(Cookie.get('cart') || '[]')
-
-		if (!cart.length) return
-
-		this.$api
-			.post('/cart/merge', { products: cart })
-			.then(() => Cookie.remove('cart'))
-			.catch((e) => console.log(e))
 	},
 	logout({ commit }) {
 		Cookie.remove('accessToken')
@@ -247,60 +236,22 @@ export const actions = {
 			.then(() => 200)
 			.catch(({ response }) => response.status)
 	},
-	async fetchCart({ state, commit }, deliveryType = 'gallery') {
+	fetchCart({ commit }, deliveryType = 'GALLERY') {
 		commit('SET_CART', { loading: true })
 
-		let response = {}
-
-		try {
-			response = await this.$api.get('/cart')
-			// if (!state.accessToken) {
-			// 	const cart = JSON.parse(Cookie.get('cart') || '[]')
-
-			// 	if (!cart.length) {
-			// 		commit('SET_CART', { loading: false, products: [] })
-			// 		return
-			// 	}
-
-			// 	response = await this.$api.post('/cart/guest', { products: cart })
-			// } else {
-			// 	response = await this.$api.post('/customers/get-cart', { deliveryType })
-			// }
-
-			commit('SET_CART', { loading: false, ...response?.data })
-		} catch (e) {
-			commit('SET_CART', { loading: false, products: [] })
-		}
+		this.$api
+			.post('/cart', { deliveryType })
+			.then((response) => commit('SET_CART', { ...response?.data }))
+			.catch(() => commit('SET_CART', { products: [] }))
+			.finally(() => commit('SET_CART', { loading: false }))
 	},
-	async changeQuantity({ state, dispatch }, payload) {
-		if (payload.quantity <= 0) {
-			dispatch('removeFromCart', payload)
-			return
-		}
-
+	async changeQuantity({ commit }, payload) {
 		try {
 			const { data } = await this.$api.patch(`/cart/change-quantity/${payload.productId}`, {
 				quantity: payload.quantity
 			})
 
-			if (!state.accessToken) {
-				const cart = JSON.parse(Cookie.get('cart') || '[]')
-				const newCart = cart.map((c) => {
-					let quantity = c.quantity
-
-					if (c.productId === data.productId) {
-						quantity = data.quantity
-					}
-
-					return {
-						...c,
-						quantity
-					}
-				})
-				Cookie.set('cart', JSON.stringify(newCart))
-			}
-
-			dispatch('fetchCart')
+			commit('SET_CART', { ...data })
 
 			return {
 				productId: payload.productId

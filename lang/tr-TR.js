@@ -78,6 +78,7 @@ export default {
 	customer: {
 		loginButton: 'Giriş Yap',
 		registerButton: 'Hesap Oluştur',
+		guestCheckout: 'Üye Olmadan Devam Et',
 		login: {
 			title: 'Giriş Yap',
 			form: {

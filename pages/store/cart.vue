@@ -15,13 +15,9 @@
 					<CartSummary>
 						<template #button>
 							<Button v-if="overstock" size="large" block disabled>{{ $t('cartPage.checkoutNow') }}</Button>
-							<nuxt-link
-								v-else
-								:to="localePath({ name: 'store-checkout' })"
-								tag="a"
-								class="btn --primary --block --lg"
-								>{{ $t('cartPage.checkoutNow') }}</nuxt-link
-							>
+							<nuxt-link v-else :to="checkoutLink" tag="a" class="btn --primary --block --lg">{{
+								$t('cartPage.checkoutNow')
+							}}</nuxt-link>
 						</template>
 					</CartSummary>
 				</div>
@@ -37,7 +33,17 @@ import copMixin from '@/mixins/cop'
 export default {
 	name: 'CartPage',
 	mixins: [copMixin],
-	layout: 'StoreLayout'
+	layout: 'StoreLayout',
+	computed: {
+		checkoutLink() {
+			const checkoutUrl = this.localePath({ name: 'store-checkout' })
+			if (this.$store.getters.getIsAuthenticated) {
+				return checkoutUrl
+			}
+
+			return this.localePath({ name: 'store-customer-login', query: { returnUrl: checkoutUrl, isGuestCheckOut: true } })
+		}
+	}
 }
 </script>
 
