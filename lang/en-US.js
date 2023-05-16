@@ -217,6 +217,7 @@ export default {
 	workPage: {
 		stockCode: 'Stock Code',
 		stockAmount: 'Stock Amount',
+		outOfStock: 'Out of stock',
 		whatsappText: 'Ask About Art Piece',
 		contactText: 'If you need any help feel free to call us from our numbers',
 		messages: {

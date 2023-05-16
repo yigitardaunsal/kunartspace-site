@@ -221,6 +221,7 @@ export default {
 	workPage: {
 		stockCode: 'Stok Kodu',
 		stockAmount: 'Stok Miktarı',
+		outOfStock: 'Stok Tükendi',
 		whatsappText: 'Sanat Eseri Hakkında Soru Sor',
 		contactText: 'Herhangi bir yardıma ihtiyacınız olursa, bizi numaralarımızdan aramaktan çekinmeyin',
 		messages: {

@@ -11,7 +11,10 @@
 			<div class="col-md-5 offset-md-1">
 				<div class="work__detail">
 					<span class="work__stock --code">{{ $t('workPage.stockCode') }}: {{ work.stockCode }}</span>
-					<span class="work__stock --amount">{{ $t('workPage.stockAmount') }}: {{ work.stock }}</span>
+					<span v-if="work.stock > 0" class="work__stock --amount"
+						>{{ $t('workPage.stockAmount') }}: {{ work.stock }}</span
+					>
+					<span v-else class="work__stock --out-of-stock">{{ $t('workPage.outOfStock') }}</span>
 					<h1 class="work__artist">
 						<nuxt-link
 							:to="`${localePath({ name: 'artist', params: { slug: work.artist.link } })}?${$t(
@@ -178,6 +181,11 @@ export default {
 
 		&.--amount {
 			margin-bottom: px2rem(34);
+		}
+
+		&.--out-of-stock {
+			margin-bottom: px2rem(34);
+			color: $alizarin;
 		}
 	}
 
