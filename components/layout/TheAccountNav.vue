@@ -1,8 +1,8 @@
 <template>
 	<div class="account-nav">
-		<a href="#" class="account-nav__item">
+		<button class="account-nav__button" @click="openSearchModal">
 			<SearchIcon width="25" height="25" />
-		</a>
+		</button>
 		<nuxt-link :to="customerUrl" tag="a" class="account-nav__item" :class="{ '--active': inCustomerPages }">
 			<AccountIcon width="25" height="25" />
 		</nuxt-link>
@@ -55,6 +55,9 @@ export default {
 		document.removeEventListener('click', this.onClickOutsideFromMiniBasket)
 	},
 	methods: {
+		openSearchModal() {
+			this.$store.commit('SET_IS_OPEN_SEARCH_MODAL', true)
+		},
 		toggleMiniBasketOpen() {
 			if (!this.isMiniBasketOpen) {
 				this.$store.dispatch('fetchCart')

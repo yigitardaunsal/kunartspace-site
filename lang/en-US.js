@@ -26,7 +26,8 @@ export default {
 		overview: 'OVERVİEW',
 		works: 'WORKS',
 		exhibitions: 'EXHIBITIONS',
-		exhibitedArtists: 'ACTIVE EXHIBITION ARTISTS'
+		exhibitedArtists: 'ACTIVE EXHIBITION ARTISTS',
+		searchPlaceholder: 'Search by Name'
 	},
 	constantPage: {
 		photosFromGallery: 'PHOTOS FROM GALLERY'
@@ -74,6 +75,7 @@ export default {
 	},
 	explore: 'Explore',
 	currentWorks: 'CURRENT WORKS',
+	selectedWorks: 'Selected Works',
 	viewAll: 'View All',
 	customer: {
 		loginButton: 'Login',
@@ -200,9 +202,9 @@ export default {
 	delete: 'Delete',
 	save: 'Save',
 	worksPage: {
-		filter: 'FILTER',
-		sort: 'Sort By'
+		filter: 'FILTER'
 	},
+	sort: 'Sort By',
 	apply: 'APPLY',
 	sortingItems: {
 		bestSellers: 'Best Sellers',
@@ -217,6 +219,7 @@ export default {
 	workPage: {
 		stockCode: 'Stock Code',
 		stockAmount: 'Stock Amount',
+		outOfStock: 'Out of stock',
 		whatsappText: 'Ask About Art Piece',
 		contactText: 'If you need any help feel free to call us from our numbers',
 		messages: {

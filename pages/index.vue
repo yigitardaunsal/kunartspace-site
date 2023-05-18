@@ -3,7 +3,7 @@
 		<div class="hero">
 			<VueSlickCarousel ref="heroSlider" :arrows="false" :dots="false">
 				<div v-for="(exhibition, index) in exhibitionList" :key="index" class="hero__item">
-					<div class="exhibition">
+					<nuxt-link :to="localePath({ name: 'exhibition', params: { slug: exhibition.link } })" class="exhibition">
 						<div class="exhibition__picture">
 							<img :src="exhibition.image" :alt="exhibition.name" />
 						</div>
@@ -17,7 +17,7 @@
 							<span class="exhibition__date">{{ exhibition.startDate }} - {{ exhibition.endDate }}</span>
 							<p class="exhibition__text">{{ exhibition.description }}</p>
 						</div>
-					</div>
+					</nuxt-link>
 				</div>
 			</VueSlickCarousel>
 			<div v-if="exhibitionList.length" class="hero__nav">
@@ -77,6 +77,7 @@ export default {
 		.exhibition {
 			display: flex;
 			height: 100%;
+			color: $darklighten;
 
 			&__picture {
 				flex-shrink: 0;

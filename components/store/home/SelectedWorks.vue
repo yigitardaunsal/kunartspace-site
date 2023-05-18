@@ -1,6 +1,6 @@
 <template>
 	<div class="selected-works">
-		<PageHeadline tag="h2" position="center" :bordered="false" size="sm">Selected Works</PageHeadline>
+		<PageHeadline tag="h2" position="center" :bordered="false" size="sm">{{ $t('selectedWorks') }}</PageHeadline>
 		<div class="row">
 			<div v-for="(work, index) in works" :key="index" class="col-md-4">
 				<WorkCard :work="work" />
