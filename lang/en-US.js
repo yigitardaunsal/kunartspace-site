@@ -26,7 +26,8 @@ export default {
 		overview: 'OVERVİEW',
 		works: 'WORKS',
 		exhibitions: 'EXHIBITIONS',
-		exhibitedArtists: 'ACTIVE EXHIBITION ARTISTS'
+		exhibitedArtists: 'ACTIVE EXHIBITION ARTISTS',
+		searchPlaceholder: 'Search by Name'
 	},
 	constantPage: {
 		photosFromGallery: 'PHOTOS FROM GALLERY'
@@ -200,9 +201,9 @@ export default {
 	delete: 'Delete',
 	save: 'Save',
 	worksPage: {
-		filter: 'FILTER',
-		sort: 'Sort By'
+		filter: 'FILTER'
 	},
+	sort: 'Sort By',
 	apply: 'APPLY',
 	sortingItems: {
 		bestSellers: 'Best Sellers',

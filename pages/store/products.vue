@@ -10,10 +10,7 @@
 				<span class="text">{{ $t('worksPage.filter') }}</span>
 				<span class="icon"><FilterIcon width="30" height="30" /></span>
 			</button>
-			<button class="works__button --sorting" @click="showSortingWidget">
-				<span class="text">{{ $t('worksPage.sort') }}</span>
-				<span class="icon"><DownArrowIcon width="30" height="30" /></span>
-			</button>
+			<SortingWidget :items="sortingItems" @on-select-item="handleSortingItemSelect" />
 		</div>
 		<div ref="worksBody" class="works__body">
 			<div class="row">
@@ -31,20 +28,18 @@
 			:selected-items="selectedFilters"
 			@close="closeFilterWidget"
 		/>
-		<SortingWidget v-if="isSortingWidgetShowing" @close="closeSortingWidget" />
 	</div>
 </template>
 
 <script>
 import FilterIcon from '@/assets/svg/filter.svg'
-import DownArrowIcon from '@/assets/svg/arrow-down.svg'
+import { workSortingItems } from '@/constants/sorting'
 import WorkCard from '@/components/store/works/WorkCard'
 
 export default {
 	name: 'ProductsPage',
 	components: {
 		FilterIcon,
-		DownArrowIcon,
 		WorkCard
 	},
 	layout: 'StoreLayout',
@@ -87,6 +82,9 @@ export default {
 			isSortingWidgetShowing: false
 		}
 	},
+	computed: {
+		sortingItems: () => workSortingItems
+	},
 	watchQuery: ['page', 'filters', 'sorting', 'q'],
 	methods: {
 		showFilterWidget() {
@@ -97,13 +95,18 @@ export default {
 			document.body.style.overflow = 'auto'
 			this.isFilterWidgetShowing = false
 		},
-		showSortingWidget() {
-			document.body.style.overflow = 'hidden'
-			this.isSortingWidgetShowing = true
-		},
-		closeSortingWidget() {
-			document.body.style.overflow = 'auto'
-			this.isSortingWidgetShowing = false
+		handleSortingItemSelect(val) {
+			const query = {
+				...this.$route.query,
+				sorting: val
+			}
+
+			delete query?.page
+
+			this.$router.push({
+				name: this.$route.name,
+				query
+			})
 		}
 	}
 }
@@ -140,14 +143,6 @@ export default {
 				background-color: $darklighten;
 				color: $enlighten;
 			}
-		}
-
-		&.--sorting {
-			gap: px2rem(20);
-			margin-left: auto;
-			border: none;
-			height: px2rem(30);
-			font-size: px2rem(22);
 		}
 
 		&:not(.--active):hover {

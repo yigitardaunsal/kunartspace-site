@@ -26,7 +26,8 @@ export default {
 		overview: 'GENEL BAKIŞ',
 		works: 'ESERLER',
 		exhibitions: 'SERGİLER',
-		exhibitedArtists: 'AKTİF SERGİ SANATÇILARI'
+		exhibitedArtists: 'AKTİF SERGİ SANATÇILARI',
+		searchPlaceholder: 'İsme Göre Ara'
 	},
 	constantPage: {
 		photosFromGallery: 'GALERİMİZDEN FOTOĞRAFLAR'
@@ -204,9 +205,9 @@ export default {
 	delete: 'Sil',
 	save: 'Kaydet',
 	worksPage: {
-		filter: 'FİLTRELE',
-		sort: 'Sırala'
+		filter: 'FİLTRELE'
 	},
+	sort: 'Sırala',
 	apply: 'UYGULA',
 	sortingItems: {
 		bestSellers: 'En Çok Satanlar',
