@@ -90,7 +90,6 @@ export default {
 	},
 	methods: {
 		handleSortingItemSelect(val) {
-			console.log(val)
 			this.sortingType = val
 		},
 		sorting(a, b) {
