@@ -17,7 +17,7 @@
 				<CartProducts :products="order.cartDetails.products" :quantity-changeable="false" />
 			</div>
 		</div>
-		<div v-if="order.paymentStatus !== 'failure'" class="order-received__footer row justify-content-end">
+		<div v-if="order.paymentStatus !== 'failure' && isCustomer" class="order-received__footer row justify-content-end">
 			<div class="col-md-4">
 				<nuxt-link :to="localePath({ name: 'store-customer' })" class="btn --primary --large --block">{{
 					$t('orderReceived.reviewOrder')
@@ -34,19 +34,21 @@ import FailureIcon from '@/assets/svg/failure.svg'
 export default {
 	name: 'PaymentSuccess',
 	layout: 'StoreLayout',
-	middleware: ['session-control', 'auth'],
 	components: {
 		SuccessIcon,
 		FailureIcon
 	},
-	async asyncData({ $api }) {
-		const { data: order } = await $api.get('/customers/get-last-order')
+	async asyncData({ $api, redirect }) {
+		const { data: order } = await $api.get('/orders/get-my-order').catch(() => redirect('/'))
 
 		return {
 			order
 		}
 	},
 	computed: {
+		isCustomer() {
+			return this.$store.getters.getIsAuthenticated
+		},
 		title() {
 			return this.$t('orderReceived["' + this.order.paymentStatus + '"].title')
 		},

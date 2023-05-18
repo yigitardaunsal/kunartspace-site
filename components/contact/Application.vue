@@ -10,7 +10,7 @@
 								v-model="name"
 								name="name"
 								:placeholder="$t('contactPage.applicationForm.name')"
-								:rules="{ required: 'requied', regex: /^[a-zA-Z\s]*$/ }"
+								:rules="{ required: 'requied', regex: /^[a-zA-ZığĞüÜşŞiİöÖçÇ\s]*$/ }"
 							/>
 						</FormGroup>
 					</div>
@@ -20,7 +20,7 @@
 								v-model="surname"
 								name="surname"
 								:placeholder="$t('contactPage.applicationForm.surname')"
-								:rules="{ required: 'requied', regex: /^[a-zA-Z\s]*$/ }"
+								:rules="{ required: 'requied', regex: /^[a-zA-ZığĞüÜşŞiİöÖçÇ\s]*$/ }"
 							/>
 						</FormGroup>
 					</div>

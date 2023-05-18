@@ -13,7 +13,7 @@
 											type="text"
 											name="name"
 											:placeholder="$t('contactPage.form.name')"
-											:rules="{ required: 'requied', regex: /^[a-zA-Z\s]*$/ }"
+											:rules="{ required: 'requied', regex: /^[a-zA-ZığĞüÜşŞiİöÖçÇ\s]*$/ }"
 										/>
 									</FormGroup>
 								</div>
@@ -24,7 +24,7 @@
 											type="text"
 											name="surname"
 											:placeholder="$t('contactPage.form.surname')"
-											:rules="{ required: 'required', regex: /^[a-zA-Z\s]*$/ }"
+											:rules="{ required: 'required', regex: /^[a-zA-ZığĞüÜşŞiİöÖçÇ\s]*$/ }"
 										/>
 									</FormGroup>
 								</div>

@@ -223,7 +223,7 @@ export default {
 		whatsappText: 'Ask About Art Piece',
 		contactText: 'If you need any help feel free to call us from our numbers',
 		messages: {
-			success: 'The work has been added to the cart!',
+			success: 'The product has been added to the cart!',
 			notAcceptable: 'The work is already in your cart!'
 		}
 	},
@@ -258,8 +258,19 @@ export default {
 	checkoutPage: {
 		title: 'Checkout',
 		placeOrder: 'Place Order',
+		guestContactTitle: 'İletişim Bilgileri',
+		guestForm: {
+			name: 'Ad',
+			surname: 'Soyad',
+			email: 'E-Posta',
+			phone: 'Telefon',
+			address: 'Adres',
+			district: 'İlçe',
+			city: 'İl'
+		},
 		deliveryType: 'Delivery Option',
 		galleryDelivery: 'Gallery Delivery',
+		addressDelivery: 'Adrese Teslim',
 		galleryDeliveryDesciption: 'The works you buy are packaged to be picked up from our gallery.',
 		noAddressAlert: 'Please add an address so that delivery can be made to your address.',
 		goToMyAddressPage: 'Click to add address now!',

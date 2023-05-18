@@ -113,7 +113,11 @@ export default {
 		border: none;
 		padding: 0;
 		background-color: transparent;
-		color: inherit;
+		color: $dark-gray;
+
+		&:hover {
+			color: $darklighten;
+		}
 	}
 }
 </style>

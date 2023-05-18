@@ -12,34 +12,129 @@
 					<div class="checkout__section --products">
 						<CartProducts :products="products" :quantityChangeable="false" @overstock="handleOverStock" />
 					</div>
+					<div v-if="isGuest" class="checkout__section --guest">
+						<h5 class="checkout__title">{{ $t('checkoutPage.guestContactTitle') }}</h5>
+						<div class="row">
+							<div class="col-md-6">
+								<FormGroup>
+									<Textbox
+										v-model="guestForm.name"
+										type="text"
+										name="name"
+										:placeholder="$t('checkoutPage.guestForm.name')"
+										:rules="{ required: 'requied', regex: /^[a-zA-ZığĞüÜşŞiİöÖçÇ\s]*$/ }"
+									/>
+								</FormGroup>
+							</div>
+							<div class="col-md-6">
+								<FormGroup>
+									<Textbox
+										v-model="guestForm.surname"
+										type="text"
+										name="name"
+										:placeholder="$t('checkoutPage.guestForm.surname')"
+										:rules="{ required: 'requied', regex: /^[a-zA-ZığĞüÜşŞiİöÖçÇ\s]*$/ }"
+									/>
+								</FormGroup>
+							</div>
+							<div class="col-md-6">
+								<FormGroup>
+									<Textbox
+										v-model="guestForm.email"
+										type="email"
+										name="email"
+										:placeholder="$t('checkoutPage.guestForm.email')"
+										rules="required|email"
+									/>
+								</FormGroup>
+							</div>
+							<div class="col-md-6">
+								<FormGroup>
+									<Textbox
+										v-model="guestForm.phone"
+										type="number"
+										name="phone"
+										:placeholder="$t('checkoutPage.guestForm.phone')"
+										rules="required"
+									/>
+								</FormGroup>
+							</div>
+						</div>
+					</div>
 					<div class="checkout__section --delivery">
 						<h5 class="checkout__title">{{ $t('checkoutPage.deliveryType') }}</h5>
 						<ChoiceBox
 							:condition-value="selectedAddress"
-							:value="'GALLERY'"
+							value="GALLERY"
 							:title="$t('checkoutPage.galleryDelivery')"
 							@change="setSelectedAddress"
 						>
 							{{ $t('checkoutPage.galleryDeliveryDesciption') }}
 						</ChoiceBox>
-						<template v-if="!addresses.length">
-							<Alert variant="warning"
-								>{{ $t('checkoutPage.noAddressAlert') }}
-								<nuxt-link :to="localePath('/store/customer/addresses')" tag="a">{{
-									$t('checkoutPage.goToMyAddressPage')
-								}}</nuxt-link></Alert
-							>
+						<template v-if="!isGuest">
+							<template v-if="!addresses.length">
+								<Alert variant="warning"
+									>{{ $t('checkoutPage.noAddressAlert') }}
+									<nuxt-link :to="localePath('/store/customer/addresses')" tag="a">{{
+										$t('checkoutPage.goToMyAddressPage')
+									}}</nuxt-link></Alert
+								>
+							</template>
+							<template v-else>
+								<ChoiceBox
+									v-for="(address, index) in addresses"
+									:key="index"
+									:condition-value="selectedAddress"
+									:value="address._id"
+									:title="address.title"
+									@change="setSelectedAddress"
+								>
+									{{ address.address }} {{ address.district }} / {{ address.city }}
+								</ChoiceBox>
+							</template>
 						</template>
 						<template v-else>
 							<ChoiceBox
-								v-for="(address, index) in addresses"
-								:key="index"
 								:condition-value="selectedAddress"
-								:value="address._id"
-								:title="address.title"
+								value="ADDRESS"
+								:title="$t('checkoutPage.addressDelivery')"
 								@change="setSelectedAddress"
 							>
-								{{ address.address }} {{ address.district }} / {{ address.city }}
+								<div class="row">
+									<div class="col-md-12">
+										<FormGroup>
+											<Textbox
+												v-model="guestForm.address"
+												type="text"
+												name="address"
+												:placeholder="$t('checkoutPage.guestForm.address')"
+												rules="required"
+											/>
+										</FormGroup>
+									</div>
+									<div class="col-md-6">
+										<FormGroup>
+											<Textbox
+												v-model="guestForm.city"
+												type="text"
+												name="city"
+												:placeholder="$t('checkoutPage.guestForm.city')"
+												:rules="{ required: 'requied', regex: /^[a-zA-ZığĞüÜşŞiİöÖçÇ\s]*$/ }"
+											/>
+										</FormGroup>
+									</div>
+									<div class="col-md-6">
+										<FormGroup>
+											<Textbox
+												v-model="guestForm.district"
+												type="text"
+												name="district"
+												:placeholder="$t('checkoutPage.guestForm.district')"
+												:rules="{ required: 'requied', regex: /^[a-zA-ZığĞüÜşŞiİöÖçÇ\s]*$/ }"
+											/>
+										</FormGroup>
+									</div>
+								</div>
 							</ChoiceBox>
 						</template>
 					</div>
@@ -127,6 +222,15 @@ export default {
 		return {
 			selectedAddress: 'GALLERY',
 			selectedPaymentMethod: 'CREDIT_CARD',
+			guestForm: {
+				name: '',
+				surname: '',
+				email: '',
+				phone: '',
+				address: '',
+				district: '',
+				city: ''
+			},
 			didAcceptContracts: false,
 			isButtonLoading: false,
 			modal: {
@@ -139,12 +243,27 @@ export default {
 		}
 	},
 	computed: {
+		isGuest() {
+			return !this.$store.getters.getIsAuthenticated
+		},
 		addresses() {
 			return this.$store.state.addresses
 		}
 	},
+	created() {
+		if (!('isGuestCheckOut' in this.$route.query) && this.isGuest) {
+			const redirectRoute = this.localePath({
+				name: 'store-customer-login',
+				query: { returnUrl: this.localePath({ name: 'store-checkout' }), isGuestCheckOut: true }
+			})
+
+			this.$router.push(redirectRoute)
+		}
+	},
 	methods: {
 		setSelectedAddress(value) {
+			if (this.selectedAddress === value) return
+
 			const deliveryType = value !== 'GALLERY' ? 'ADDRESS' : value
 			this.$store.dispatch('fetchCart', deliveryType)
 			this.clearContracts()
@@ -163,14 +282,29 @@ export default {
 				document.querySelector('#iyzipay-script').remove()
 			}
 
+			let requestUrl = '/payment'
+
 			const payload = {
 				addressId: this.selectedAddress === 'GALLERY' ? '' : this.selectedAddress,
 				deliveryType: this.selectedAddress === 'GALLERY' ? 'GALLERY' : 'ADDRESS',
 				paymentType: this.selectedPaymentMethod
 			}
 
+			if (this.isGuest) {
+				requestUrl = '/payment/guest'
+
+				delete payload.addressId
+				payload.name = this.guestForm.name
+				payload.surname = this.guestForm.surname
+				payload.email = this.guestForm.email
+				payload.phone = this.guestForm.phone
+				payload.address = this.guestForm.address
+				payload.city = this.guestForm.city
+				payload.district = this.guestForm.district
+			}
+
 			this.$api
-				.post('/payment', payload)
+				.post(requestUrl, payload)
 				.then(({ data }) => {
 					if (data.paymentType === 'BANK_TRANSFER') {
 						this.$router.push(this.localeLocation({ name: 'store-order-received' }))
@@ -217,12 +351,23 @@ export default {
 			}
 
 			if (this.selectedAddress !== 'GALLERY') {
-				const selectedAddress = this.addresses.find((address) => address._id === this.selectedAddress)
-				payload.phone = selectedAddress.phone
-				payload.address = selectedAddress.address
-				payload.city = selectedAddress.city
-				payload.district = selectedAddress.district
-				payload.recipient = selectedAddress.fullName
+				if (this.isGuest) {
+					payload.name = this.guestForm.name
+					payload.surname = this.guestForm.surname
+					payload.email = this.guestForm.email
+					payload.phone = this.guestForm.phone
+					payload.address = this.guestForm.address
+					payload.city = this.guestForm.city
+					payload.district = this.guestForm.district
+					payload.recipient = `${this.guestForm.name} ${this.guestForm.surname}`
+				} else {
+					const selectedAddress = this.addresses.find((address) => address._id === this.selectedAddress)
+					payload.phone = selectedAddress.phone
+					payload.address = selectedAddress.address
+					payload.city = selectedAddress.city
+					payload.district = selectedAddress.district
+					payload.recipient = selectedAddress.fullName
+				}
 			}
 
 			try {

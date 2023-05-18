@@ -128,7 +128,7 @@ export const actions = {
 				return response.status
 			})
 	},
-	setAuthData({ commit, dispatch }, payload) {
+	setAuthData({ commit }, payload) {
 		Cookie.set('accessToken', payload.accessToken, { expires: 1 })
 		localStorage.setItem('accessToken', payload.accessToken)
 		commit('SET_ACCESS_TOKEN', payload.accessToken)
@@ -183,6 +183,8 @@ export const actions = {
 			.catch(({ response }) => response.status)
 	},
 	fetchAddresses({ state, commit }) {
+		if (!state.customer) return
+
 		return this.$api
 			.get('/customers/get-addresses', {
 				headers: {
@@ -255,6 +257,10 @@ export const actions = {
 				quantity: payload.quantity
 			})
 
+			if (!('products' in data)) {
+				data.products = []
+			}
+
 			commit('SET_CART', { ...data })
 
 			return {
@@ -266,17 +272,6 @@ export const actions = {
 				productId: payload.productId
 			}
 		}
-	},
-	async removeFromCart({ state, dispatch }, payload) {
-		if (!state.accessToken) {
-			const cart = JSON.parse(Cookie.get('cart') || '[]')
-			const newCart = cart.filter((c) => c.productId !== payload.productId)
-			Cookie.set('cart', JSON.stringify(newCart))
-		} else {
-			await this.$api.delete(`/customers/remove-from-cart/${payload.productId}`)
-		}
-
-		dispatch('fetchCart')
 	}
 }
 

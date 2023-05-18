@@ -227,7 +227,7 @@ export default {
 		whatsappText: 'Sanat Eseri Hakkında Soru Sor',
 		contactText: 'Herhangi bir yardıma ihtiyacınız olursa, bizi numaralarımızdan aramaktan çekinmeyin',
 		messages: {
-			success: 'Eser sepete eklendi!',
+			success: 'Ürün sepete eklendi!',
 			notAcceptable: 'Bu ürün zaten sepetinizde mevcut!'
 		}
 	},
@@ -262,8 +262,19 @@ export default {
 	checkoutPage: {
 		title: 'Ödeme',
 		placeOrder: 'Sipariş Ver',
+		guestContactTitle: 'İletişim Bilgileri',
+		guestForm: {
+			name: 'Ad',
+			surname: 'Soyad',
+			email: 'E-Posta',
+			phone: 'Telefon',
+			address: 'Adres',
+			district: 'İlçe',
+			city: 'İl'
+		},
 		deliveryType: 'Teslimat Seçeneği',
 		galleryDelivery: 'Galeriden Teslimat',
+		addressDelivery: 'Adrese Teslim',
 		galleryDeliveryDesciption: 'Satın aldığınız eserler galerimizden teslim alınmak üzere paketlenir.',
 		noAddressAlert: 'Adresinize teslimat yapılabilmesi için lütfen adres ekleyin.',
 		goToMyAddressPage: 'Hemen adres eklemek için tıklayın!',

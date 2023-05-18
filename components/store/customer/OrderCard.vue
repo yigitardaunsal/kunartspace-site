@@ -29,7 +29,11 @@
 		<div class="order-card__body">
 			<div class="work row align-items-center">
 				<div class="col-md-5">
-					<nuxt-link to="#" tag="a" class="work__picture">
+					<nuxt-link
+						:to="localePath({ name: 'store-product', params: { slug: order.products[0].link } })"
+						tag="a"
+						class="work__picture"
+					>
 						<span v-if="productCount > 1" class="work__count">+ {{ productCount - 1 }}</span>
 						<img :src="order.products[0].picture" :alt="order.products[0].name" />
 					</nuxt-link>

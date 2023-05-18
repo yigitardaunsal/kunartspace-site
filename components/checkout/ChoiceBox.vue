@@ -61,6 +61,7 @@ export default {
 	}
 
 	&__content {
+		flex: 1;
 		user-select: none;
 	}
 
