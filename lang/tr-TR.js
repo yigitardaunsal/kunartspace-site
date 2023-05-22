@@ -9,13 +9,14 @@ export default {
 		contact: 'İletişim',
 		store: 'Mağaza',
 		atelier: 'Atölye',
-		products: 'Ürünler',
-		corporate: 'Kurumsal'
+		products: 'Ürünler'
 	},
 	constantPageLinks: {
 		about: 'hakkimizda'
 	},
 	footer: {
+		corporate: 'Kurumsal',
+		contact: 'İletişim',
 		copyright: 'TÜM HAKLARI SAKLIDIR'
 	},
 	exhibitionPage: {

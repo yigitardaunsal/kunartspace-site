@@ -9,13 +9,14 @@ export default {
 		contact: 'Contact',
 		store: 'Store',
 		atelier: 'Atelier',
-		products: 'Products',
-		corporate: 'Corporate'
+		products: 'Products'
 	},
 	constantPageLinks: {
 		about: 'about-us'
 	},
 	footer: {
+		corporate: 'Corporate',
+		contact: 'Contact',
 		copyright: 'ALL RIGHTS RESERVED'
 	},
 	exhibitionPage: {

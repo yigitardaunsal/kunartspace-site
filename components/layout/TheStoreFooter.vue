@@ -3,7 +3,7 @@
 		<div class="footer__inner row">
 			<div class="col-md-2">
 				<div class="footer__block">
-					<h6 class="footer__title">{{ $t('nav.corporate') }}</h6>
+					<h6 class="footer__title">{{ $t('footer.corporate') }}</h6>
 					<nuxt-link
 						:to="localePath({ name: 'constant', params: { slug: `${$t('constantPageLinks.about')}` } })"
 						class="footer__link"
@@ -14,7 +14,7 @@
 			</div>
 			<div class="col-md-3">
 				<div class="footer__block">
-					<h6 class="footer__title">Kuzgun Art Store</h6>
+					<h6 class="footer__title">Kun Art Space</h6>
 					<a href="#" class="footer__link">Kişisel Verilerin Korunması</a>
 					<a href="#" class="footer__link">Mesafeli Satış Sözleşmesi</a>
 					<a href="#" class="footer__link">Gizlilik ve Güvenlik İlkeleri</a>
@@ -24,7 +24,7 @@
 			</div>
 			<div class="col-md-4 offset-md-1">
 				<div class="footer__block">
-					<h6 class="footer__title">İletişim</h6>
+					<h6 class="footer__title">{{ $t('footer.contact') }}</h6>
 					<a href="tel:903222255640" class="footer__link">+90 322 225 56 40</a>
 					<a href="mailto:info@kunartspace.com" class="footer__link">info@kunartspace.com</a>
 					<div class="newsletter">
