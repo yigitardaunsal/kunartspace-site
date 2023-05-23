@@ -39,7 +39,10 @@ export default {
 		FailureIcon
 	},
 	async asyncData({ $api, redirect }) {
-		const { data: order } = await $api.get('/orders/get-my-order').catch(() => redirect('/'))
+		const { data: order } = await $api.get('/orders/get-my-order').catch((e) => {
+			console.log(e)
+			// redirect('/')
+		})
 
 		return {
 			order
