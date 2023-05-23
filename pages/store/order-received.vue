@@ -84,6 +84,7 @@ export default {
 
 	&__text {
 		line-height: px2rem(24);
+		text-align: center;
 	}
 
 	&__products {

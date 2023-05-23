@@ -307,7 +307,7 @@ export default {
 				.post(requestUrl, payload)
 				.then(({ data }) => {
 					if (data.paymentType === 'BANK_TRANSFER') {
-						this.$router.push(this.localeLocation({ name: 'store-order-received' }))
+						this.$router.push(this.localeLocation({ name: 'store-order-received', query: { order: data.order } }))
 						return
 					}
 
