@@ -38,11 +38,8 @@ export default {
 		SuccessIcon,
 		FailureIcon
 	},
-	async asyncData({ $api, redirect }) {
-		const { data: order } = await $api.get('/orders/get-my-order').catch((e) => {
-			console.log(e)
-			// redirect('/')
-		})
+	async asyncData({ $api, query, redirect }) {
+		const { data: order } = await $api.get(`/orders/get-my-order?order=${query?.order}`).catch(() => redirect('/'))
 
 		return {
 			order
@@ -58,6 +55,9 @@ export default {
 		text() {
 			return this.$t('orderReceived["' + this.order.paymentStatus + '"].text')
 		}
+	},
+	mounted() {
+		history.pushState({}, '', location.origin + location.pathname)
 	}
 }
 </script>
