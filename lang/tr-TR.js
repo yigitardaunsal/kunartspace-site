@@ -33,6 +33,12 @@ export default {
 	constantPage: {
 		photosFromGallery: 'GALERİMİZDEN FOTOĞRAFLAR'
 	},
+	atelierPage: {
+		currentAteliers: 'AKTİF ATÖLYELER',
+		pastAteliers: 'GEÇMİŞ ATÖLYELER',
+		instructor: 'Eğitmen'
+	},
+	view: 'Görüntüle',
 	contactPage: {
 		visit: 'ZİYARET BİLGİLERİ',
 		application: 'BAŞVURU',

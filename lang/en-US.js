@@ -33,6 +33,12 @@ export default {
 	constantPage: {
 		photosFromGallery: 'PHOTOS FROM GALLERY'
 	},
+	atelierPage: {
+		currentAteliers: 'CURRENT ATELIERS',
+		pastAteliers: 'PAST ATELIERS',
+		instuctor: 'Instructor'
+	},
+	view: 'View',
 	contactPage: {
 		visit: 'VISIT',
 		application: 'APPLICATION',

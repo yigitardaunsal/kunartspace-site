@@ -6,7 +6,9 @@
 		}}</nuxt-link>
 		<nuxt-link :to="localePath('exhibitions')" tag="a" class="nav__item">{{ $t('nav.exhibitions') }}</nuxt-link>
 		<nuxt-link :to="localePath('artists')" tag="a" class="nav__item">{{ $t('nav.artists') }}</nuxt-link>
-		<nuxt-link to="#" tag="a" class="nav__item">{{ $t('nav.atelier') }}</nuxt-link>
+		<nuxt-link :to="localePath({ name: 'store-ateliers' })" tag="a" class="nav__item">{{
+			$t('nav.atelier')
+		}}</nuxt-link>
 		<nuxt-link :to="localePath('contact')" tag="a" class="nav__item">{{ $t('nav.contact') }}</nuxt-link>
 	</nav>
 </template>
