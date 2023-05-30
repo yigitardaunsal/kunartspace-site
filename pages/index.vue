@@ -1,7 +1,7 @@
 <template>
 	<client-only>
 		<div class="hero">
-			<VueSlickCarousel ref="heroSlider" :arrows="false" :dots="false">
+			<VueSlickCarousel ref="heroSlider" v-bind="settings">
 				<div v-for="(exhibition, index) in exhibitionList" :key="index" class="hero__item">
 					<nuxt-link :to="localePath({ name: 'exhibition', params: { slug: exhibition.link } })" class="exhibition">
 						<div class="exhibition__picture">
@@ -47,6 +47,16 @@ export default {
 	async asyncData({ store }) {
 		await store.dispatch('fetchExhibitionList')
 	},
+	data() {
+		return {
+			settings: {
+				arrows: false,
+				dots: false,
+				autoplay: true,
+				autoplaySpeed: 3000
+			}
+		}
+	},
 	computed: {
 		exhibitionList() {
 			return this.$store.state.exhibitionList
@@ -78,6 +88,12 @@ export default {
 			display: flex;
 			height: 100%;
 			color: $darklighten;
+			user-drag: none;
+			-webkit-user-drag: none;
+			user-select: none;
+			-moz-user-select: none;
+			-webkit-user-select: none;
+			-ms-user-select: none;
 
 			&__picture {
 				flex-shrink: 0;

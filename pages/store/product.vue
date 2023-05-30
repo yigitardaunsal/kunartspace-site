@@ -2,7 +2,7 @@
 	<div class="work container-xxxl">
 		<div class="row">
 			<div class="col-md-6">
-				<VueSlickCarousel ref="heroSlider" :arrows="false" :dots="true">
+				<VueSlickCarousel ref="heroSlider" v-bind="sliderSettings">
 					<div v-for="(image, index) in work.gallery" :key="index" class="work__picture">
 						<img :src="image" :alt="work.name" class="work__image img-fluid" />
 					</div>
@@ -95,6 +95,12 @@ export default {
 	},
 	data() {
 		return {
+			sliderSettings: {
+				arrows: false,
+				dots: true,
+				autoplay: true,
+				autoplaySpeed: 3000
+			},
 			favoriteLoading: false,
 			addToCartLoading: false
 		}
@@ -166,6 +172,15 @@ export default {
 <style lang="scss" scoped>
 .work {
 	padding-top: px2rem(40);
+
+	&__image {
+		user-drag: none;
+		-webkit-user-drag: none;
+		user-select: none;
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+	}
 
 	&__detail {
 		max-width: px2rem(420);
@@ -284,6 +299,16 @@ export default {
 			font-size: px2rem(12);
 			line-height: px2rem(18);
 			color: $mild-gray;
+		}
+	}
+}
+</style>
+
+<style lang="scss">
+.slick-dots {
+	.slick-active {
+		button {
+			background-color: $mild-gray !important;
 		}
 	}
 }

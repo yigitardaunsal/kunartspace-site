@@ -1,7 +1,7 @@
 <template>
 	<div class="exhibition-slider">
 		<client-only>
-			<VueSlickCarousel ref="exhibitionSlider" :arrows="false" :dots="false">
+			<VueSlickCarousel ref="exhibitionSlider" v-bind="settings">
 				<div v-for="(exhibition, index) in exhibitionList" :key="index" class="exhibition">
 					<div class="row">
 						<div class="col-md-6">
@@ -58,6 +58,16 @@ export default {
 			required: true
 		}
 	},
+	data() {
+		return {
+			settings: {
+				arrows: false,
+				dots: false,
+				autoplay: true,
+				autoplaySpeed: 3000
+			}
+		}
+	},
 	methods: {
 		prevSlide() {
 			this.$refs.exhibitionSlider.prev()
@@ -74,6 +84,13 @@ export default {
 	position: relative;
 
 	.exhibition {
+		user-drag: none;
+		-webkit-user-drag: none;
+		user-select: none;
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+
 		&__picture {
 			height: calc(100vh - 158px - px2rem(48) - px2rem(100));
 
