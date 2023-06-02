@@ -36,7 +36,8 @@ export default {
 	atelierPage: {
 		currentAteliers: 'CURRENT ATELIERS',
 		pastAteliers: 'PAST ATELIERS',
-		instuctor: 'Instructor'
+		instuctor: 'Instructor',
+		price: 'Participation Fee'
 	},
 	view: 'View',
 	contactPage: {

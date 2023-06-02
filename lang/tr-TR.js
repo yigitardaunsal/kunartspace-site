@@ -36,7 +36,8 @@ export default {
 	atelierPage: {
 		currentAteliers: 'AKTİF ATÖLYELER',
 		pastAteliers: 'GEÇMİŞ ATÖLYELER',
-		instructor: 'Eğitmen'
+		instructor: 'Eğitmen',
+		price: 'Katılım Ücreti'
 	},
 	view: 'Görüntüle',
 	contactPage: {

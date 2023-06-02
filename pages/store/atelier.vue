@@ -12,6 +12,12 @@
 					<div class="atelier__picture">
 						<img :src="atelier.image" :alt="atelier.title" class="img-fluid" />
 					</div>
+					<div class="atelier__price">
+						{{ $t('atelierPage.price') }}: <strong>{{ atelier.price | currency }}</strong>
+					</div>
+					<div class="atelier__buttons">
+						<Button variant="secondary" block>Atölyeye Katıl</Button>
+					</div>
 				</div>
 				<div class="col-md-6">
 					<div class="atelier__text" v-html="atelier.description" />
@@ -89,8 +95,20 @@ export default {
 		font-weight: 500;
 	}
 
+	&__price {
+		margin: px2rem(30) 0;
+		font-size: px2rem(20);
+		color: $mild-gray;
+
+		strong {
+			color: $darklighten;
+		}
+	}
+
 	&__text {
+		padding-left: px2rem(26);
 		font-size: px2rem(14);
+		line-height: px2rem(20);
 		color: $dark-gray;
 	}
 }
