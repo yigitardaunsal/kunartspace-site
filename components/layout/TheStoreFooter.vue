@@ -75,10 +75,10 @@ export default {
 
 <style lang="scss" scoped>
 .footer {
-	margin-top: px2rem(116);
+	margin-top: pxToRem(116);
 
 	&__inner {
-		padding: px2rem(60) 0;
+		padding: pxToRem(60) 0;
 		border-top: 1px solid $graylighten;
 		border-bottom: 1px solid $graylighten;
 	}
@@ -101,25 +101,25 @@ export default {
 			margin-top: auto;
 
 			&__text {
-				margin-bottom: px2rem(18);
-				font-size: px2rem(15);
-				line-height: px2rem(22);
+				margin-bottom: pxToRem(18);
+				font-size: pxToRem(15);
+				line-height: pxToRem(22);
 			}
 
 			&__textbox {
 				display: flex;
 				overflow: hidden;
-				height: px2rem(43);
+				height: pxToRem(43);
 				border: 1px solid $b-gray;
-				border-radius: px2rem(5);
+				border-radius: pxToRem(5);
 				color: $b-gray;
 			}
 
 			&__input {
 				flex: 1;
 				border: none;
-				padding: 0 px2rem(18);
-				font-size: px2rem(15);
+				padding: 0 pxToRem(18);
+				font-size: pxToRem(15);
 				color: inherit;
 
 				&::placeholder {
@@ -130,23 +130,23 @@ export default {
 			&__button {
 				border: none;
 				background-color: transparent;
-				padding: 0 px2rem(10);
+				padding: 0 pxToRem(10);
 				color: inherit;
 			}
 		}
 	}
 
 	&__title {
-		margin-bottom: px2rem(20);
-		font-size: px2rem(18);
-		line-height: px2rem(27);
+		margin-bottom: pxToRem(20);
+		font-size: pxToRem(18);
+		line-height: pxToRem(27);
 		font-weight: 500;
 	}
 
 	&__link {
-		margin-bottom: px2rem(12);
-		font-size: px2rem(18);
-		line-height: px2rem(27);
+		margin-bottom: pxToRem(12);
+		font-size: pxToRem(18);
+		line-height: pxToRem(27);
 		color: $b-gray;
 
 		&:last-child {
@@ -161,22 +161,22 @@ export default {
 	&__bottom {
 		display: flex;
 		justify-content: center;
-		padding: px2rem(44) 0 px2rem(56);
+		padding: pxToRem(44) 0 pxToRem(56);
 
 		.sub-info {
 			display: inline-grid;
 			grid-template-areas:
 				'picture picture'
 				'copyright agence';
-			gap: px2rem(15);
+			gap: pxToRem(15);
 
 			&__picture {
 				grid-area: picture;
 			}
 
 			&__text {
-				font-size: px2rem(12);
-				line-height: px2rem(20);
+				font-size: pxToRem(12);
+				line-height: pxToRem(20);
 				font-weight: 300;
 				color: $b-gray;
 

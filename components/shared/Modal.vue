@@ -81,15 +81,15 @@ export default {
 
 	&__title {
 		margin-bottom: 0;
-		padding: px2rem(30);
-		font-size: px2rem(22);
+		padding: pxToRem(30);
+		font-size: pxToRem(22);
 		line-height: 1;
 		font-weight: 500;
 	}
 
 	&__close {
-		margin-top: px2rem(12);
-		margin-right: px2rem(12);
+		margin-top: pxToRem(12);
+		margin-right: pxToRem(12);
 		border: none;
 		padding: 0;
 		background-color: transparent;
@@ -101,8 +101,8 @@ export default {
 	}
 
 	&__body {
-		padding: 0 px2rem(30) px2rem(30);
-		max-height: calc(90vh - px2rem(82));
+		padding: 0 pxToRem(30) pxToRem(30);
+		max-height: calc(90vh - pxToRem(82));
 		overflow-y: scroll;
 	}
 }

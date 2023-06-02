@@ -203,23 +203,23 @@ export default {
 <style lang="scss" scoped>
 .contact {
 	&__footer {
-		margin: px2rem(145) 0 px2rem(88);
+		margin: pxToRem(145) 0 pxToRem(88);
 
 		.row:not(:last-child) {
-			margin-bottom: px2rem(40);
+			margin-bottom: pxToRem(40);
 			border-bottom: 1px solid $graylighten;
-			padding-bottom: px2rem(70);
+			padding-bottom: pxToRem(70);
 		}
 	}
 
 	&__box {
 		display: flex;
 		align-items: center;
-		gap: px2rem(22);
+		gap: pxToRem(22);
 	}
 
 	&__content {
-		line-height: px2rem(24);
+		line-height: pxToRem(24);
 		font-style: normal;
 		color: $dark-gray;
 
@@ -238,9 +238,9 @@ export default {
 		}
 
 		&.--phone:not(:last-child) {
-			margin-right: px2rem(20);
+			margin-right: pxToRem(20);
 			border-right: 1px solid $darklighten;
-			padding-right: px2rem(25);
+			padding-right: pxToRem(25);
 		}
 	}
 }

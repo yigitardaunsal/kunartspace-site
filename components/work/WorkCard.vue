@@ -34,10 +34,10 @@ export default {
 .work {
 	$self: &;
 	display: block;
-	margin-bottom: px2rem(25);
+	margin-bottom: pxToRem(25);
 
 	&__canvas {
-		margin-bottom: px2rem(25);
+		margin-bottom: pxToRem(25);
 		width: 100%;
 		height: 300px;
 	}
@@ -49,28 +49,28 @@ export default {
 	}
 
 	&__name {
-		margin: 0 0 px2rem(8);
-		line-height: px2rem(32);
-		font-size: px2rem(22);
+		margin: 0 0 pxToRem(8);
+		line-height: pxToRem(32);
+		font-size: pxToRem(22);
 		font-weight: 400;
 	}
 
 	&__artist {
-		line-height: px2rem(32);
-		font-size: px2rem(16);
+		line-height: pxToRem(32);
+		font-size: pxToRem(16);
 	}
 
 	&.--artist {
-		margin-bottom: px2rem(68);
+		margin-bottom: pxToRem(68);
 
 		#{$self} {
 			&__canvas {
-				margin-bottom: px2rem(28);
+				margin-bottom: pxToRem(28);
 			}
 
 			&__name {
 				margin: 0;
-				font-size: px2rem(14);
+				font-size: pxToRem(14);
 			}
 		}
 	}

@@ -79,10 +79,10 @@ export default {
 <style lang="scss" scoped>
 .textbox {
 	width: 100%;
-	height: px2rem(50);
+	height: pxToRem(50);
 	border: 1px solid $dark-gray;
-	border-radius: px2rem(5);
-	padding: 0 px2rem(20);
+	border-radius: pxToRem(5);
+	padding: 0 pxToRem(20);
 	color: $dark-gray;
 
 	&::placeholder {

@@ -57,16 +57,16 @@ export default {
 	}
 
 	&__title {
-		margin: 0 0 px2rem(16);
+		margin: 0 0 pxToRem(16);
 		font-size: px2trem(36);
 		font-weight: 500;
-		line-height: px2rem(54);
+		line-height: pxToRem(54);
 	}
 
 	&__instructor {
-		font-size: px2rem(20);
+		font-size: pxToRem(20);
 		font-weight: 400;
-		line-height: px2rem(30);
+		line-height: pxToRem(30);
 		color: $mild-gray;
 
 		strong {
@@ -84,13 +84,13 @@ export default {
 	}
 
 	&__date {
-		margin-bottom: px2rem(34);
-		line-height: px2rem(22);
+		margin-bottom: pxToRem(34);
+		line-height: pxToRem(22);
 		font-weight: 500;
 	}
 
 	&__text {
-		font-size: px2rem(14);
+		font-size: pxToRem(14);
 	}
 }
 </style>

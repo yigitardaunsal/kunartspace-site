@@ -12,12 +12,12 @@
     flex: 1;
     display: flex;
     justify-content: $justify;
-    gap: px2rem(45);
-    margin: 0 px2rem(50);
+    gap: pxToRem(45);
+    margin: 0 pxToRem(50);
 
     &__item {
-      font-size: px2rem(18);
-      line-height: px2rem(26);
+      font-size: pxToRem(18);
+      line-height: pxToRem(26);
       color: $darklighten;
 
       &.nuxt-link-exact-active {

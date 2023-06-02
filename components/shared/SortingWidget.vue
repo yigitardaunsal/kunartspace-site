@@ -78,11 +78,11 @@ export default {
 .sorting-button {
 	display: inline-flex;
 	align-items: center;
-	gap: px2rem(20);
+	gap: pxToRem(20);
 	border: none;
-	height: px2rem(30);
+	height: pxToRem(30);
 	background-color: $enlighten;
-	font-size: px2rem(22);
+	font-size: pxToRem(22);
 	color: $mild-gray;
 
 	&:hover {
@@ -105,9 +105,9 @@ export default {
 	&__wrapper {
 		position: absolute;
 		right: 0;
-		border-radius: px2rem(10);
-		width: px2rem(300);
-		padding: px2rem(21) px2rem(24);
+		border-radius: pxToRem(10);
+		width: pxToRem(300);
+		padding: pxToRem(21) pxToRem(24);
 		background-color: $f3-light-gray;
 	}
 
@@ -116,9 +116,9 @@ export default {
 		border: none;
 		border-bottom: 1px solid $mild-gray;
 		width: 100%;
-		height: px2rem(56);
-		padding: 0 px2rem(10);
-		font-size: px2rem(18);
+		height: pxToRem(56);
+		padding: 0 pxToRem(10);
+		font-size: pxToRem(18);
 		text-align: left;
 		color: $dark-gray;
 

@@ -43,7 +43,7 @@ export default {
 .footer {
 	&__inner {
 		border-top: 1px solid $graylighten;
-		padding: px2rem(40) 0 px2rem(42);
+		padding: pxToRem(40) 0 pxToRem(42);
 	}
 
 	&__social {
@@ -53,17 +53,17 @@ export default {
 	&__texts {
 		display: flex;
 		justify-content: space-between;
-		font-size: px2rem(12);
+		font-size: pxToRem(12);
 		font-weight: 300;
-		line-height: px2rem(20);
+		line-height: pxToRem(20);
 		color: $b-gray;
 	}
 
 	&__link {
 		&.--contact {
-			font-size: px2rem(12);
+			font-size: pxToRem(12);
 			font-weight: 400;
-			line-height: px2rem(16);
+			line-height: pxToRem(16);
 			color: $dark-gray;
 
 			&:hover {
@@ -73,7 +73,7 @@ export default {
 	}
 
 	&__logo {
-		margin-bottom: px2rem(20);
+		margin-bottom: pxToRem(20);
 	}
 }
 </style>

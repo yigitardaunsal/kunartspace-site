@@ -38,21 +38,21 @@ export default {
 <style lang="scss">
 .choiceBox {
 	display: flex;
-	gap: px2rem(112);
-	margin-bottom: px2rem(30);
+	gap: pxToRem(112);
+	margin-bottom: pxToRem(30);
 	border: 1px solid $b-gray;
-	border-radius: px2rem(5);
-	padding: px2rem(44) px2rem(38);
+	border-radius: pxToRem(5);
+	padding: pxToRem(44) pxToRem(38);
 	cursor: pointer;
 
 	&__check {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		border: px2rem(2) solid $darklighten;
-		border-radius: px2rem(5);
-		width: px2rem(25);
-		height: px2rem(25);
+		border: pxToRem(2) solid $darklighten;
+		border-radius: pxToRem(5);
+		width: pxToRem(25);
+		height: pxToRem(25);
 		color: $enlighten;
 
 		&.--selected {
@@ -66,13 +66,13 @@ export default {
 	}
 
 	&__title {
-		font-size: px2rem(24);
-		margin-bottom: px2rem(18);
+		font-size: pxToRem(24);
+		margin-bottom: pxToRem(18);
 		font-weight: 400;
 	}
 
 	&__text {
-		line-height: px2rem(24);
+		line-height: pxToRem(24);
 		color: $dark-gray;
 
 		h1,
@@ -81,14 +81,14 @@ export default {
 		h4,
 		h5,
 		h6 {
-			margin-bottom: px2rem(3);
-			font-size: px2rem(20);
-			line-height: px2rem(30);
+			margin-bottom: pxToRem(3);
+			font-size: pxToRem(20);
+			line-height: pxToRem(30);
 			font-weight: 700;
 		}
 
 		p {
-			line-height: px2rem(24);
+			line-height: pxToRem(24);
 		}
 	}
 

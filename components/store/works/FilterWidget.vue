@@ -106,22 +106,22 @@ export default {
 	&__wrapper {
 		position: absolute;
 		left: 0;
-		width: px2rem(600);
-		padding: px2rem(35) 0 0;
+		width: pxToRem(600);
+		padding: pxToRem(35) 0 0;
 		background-color: $f3-light-gray;
 	}
 
 	&__body {
-		height: calc(100% - px2rem(71));
+		height: calc(100% - pxToRem(71));
 		.filters {
 			overflow-y: auto;
 			height: 100%;
-			padding: 0 px2rem(35);
+			padding: 0 pxToRem(35);
 
 			.filter {
-				margin-bottom: px2rem(20);
+				margin-bottom: pxToRem(20);
 				border-bottom: 1px solid $mild-gray;
-				padding: 0 px2rem(35) px2rem(35);
+				padding: 0 pxToRem(35) pxToRem(35);
 
 				&:last-child {
 					margin-bottom: 0;
@@ -131,19 +131,19 @@ export default {
 				&__header {
 					display: flex;
 					align-items: center;
-					gap: px2rem(10);
-					margin-bottom: px2rem(20);
+					gap: pxToRem(10);
+					margin-bottom: pxToRem(20);
 				}
 
 				&__title {
-					font-size: px2rem(25);
-					line-height: px2rem(38);
+					font-size: pxToRem(25);
+					line-height: pxToRem(38);
 					font-weight: 600;
 				}
 
 				&__body {
 					overflow-y: auto;
-					max-height: px2rem(270);
+					max-height: pxToRem(270);
 
 					&::-webkit-scrollbar {
 						width: 5px;
@@ -161,8 +161,8 @@ export default {
 				&__item {
 					display: flex;
 					align-items: center;
-					gap: px2rem(16);
-					margin-bottom: px2rem(10);
+					gap: pxToRem(16);
+					margin-bottom: pxToRem(10);
 					cursor: pointer;
 
 					&:last-child {
@@ -185,15 +185,15 @@ export default {
 						justify-content: center;
 						border: 2px solid $dark-gray;
 						border-radius: 3px;
-						width: px2rem(18);
-						height: px2rem(18);
+						width: pxToRem(18);
+						height: pxToRem(18);
 						color: transparent;
 						user-select: none;
 					}
 
 					.text {
-						font-size: px2rem(20);
-						line-height: px2rem(30);
+						font-size: pxToRem(20);
+						line-height: pxToRem(30);
 						color: $dark-gray;
 						user-select: none;
 					}
@@ -203,8 +203,8 @@ export default {
 	}
 
 	&__footer {
-		margin: 0 px2rem(35);
-		padding: px2rem(10) 0;
+		margin: 0 pxToRem(35);
+		padding: pxToRem(10) 0;
 		border-top: 1px solid $mild-gray;
 	}
 }

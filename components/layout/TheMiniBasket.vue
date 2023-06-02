@@ -54,16 +54,16 @@ export default {
 .mini-basket {
 	position: absolute;
 	z-index: 2;
-	top: calc(100% + px2rem(30));
-	right: px2rem(-115);
-	border-radius: px2rem(10);
-	width: px2rem(366);
-	padding: px2rem(34) px2rem(20) px2rem(18);
+	top: calc(100% + pxToRem(30));
+	right: pxToRem(-115);
+	border-radius: pxToRem(10);
+	width: pxToRem(366);
+	padding: pxToRem(34) pxToRem(20) pxToRem(18);
 	background-color: $f3-light-gray;
 
 	&__text {
-		font-size: px2rem(14);
-		line-height: px2rem(21);
+		font-size: pxToRem(14);
+		line-height: pxToRem(21);
 		text-align: center;
 		color: $dark-gray;
 	}
@@ -71,21 +71,21 @@ export default {
 	&__loading {
 		position: relative;
 		height: 40px;
-		margin-bottom: px2rem(16);
+		margin-bottom: pxToRem(16);
 	}
 
 	&__empty {
-		margin-bottom: px2rem(16);
+		margin-bottom: pxToRem(16);
 		text-align: center;
 	}
 
 	&__products {
-		margin-bottom: px2rem(45);
+		margin-bottom: pxToRem(45);
 		.product {
 			display: flex;
-			gap: px2rem(26);
-			margin-bottom: px2rem(15);
-			font-size: px2rem(15);
+			gap: pxToRem(26);
+			margin-bottom: pxToRem(15);
+			font-size: pxToRem(15);
 			color: $darklighten;
 
 			&:last-child {
@@ -98,8 +98,8 @@ export default {
 
 			&__picture {
 				flex-shrink: 0;
-				width: px2rem(92);
-				height: px2rem(100);
+				width: pxToRem(92);
+				height: pxToRem(100);
 
 				img {
 					width: 100%;
@@ -123,13 +123,13 @@ export default {
 	&__footer {
 		display: flex;
 		flex-direction: column;
-		gap: px2rem(16);
+		gap: pxToRem(16);
 	}
 
 	&__close {
 		display: block;
-		font-size: px2rem(14);
-		line-height: px2rem(38);
+		font-size: pxToRem(14);
+		line-height: pxToRem(38);
 		text-align: center;
 		color: $dark-gray;
 		cursor: pointer;

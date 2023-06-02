@@ -114,13 +114,13 @@ export default {
 
 <style lang="scss" scoped>
 .works {
-	margin: px2rem(50) auto 0;
+	margin: pxToRem(50) auto 0;
 
 	&__header {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		margin-bottom: px2rem(35);
+		margin-bottom: pxToRem(35);
 	}
 
 	&__button {
@@ -132,11 +132,11 @@ export default {
 		&.--filter {
 			justify-content: space-between;
 			border: 1px solid $b-gray;
-			border-radius: px2rem(10);
-			width: px2rem(368);
-			height: px2rem(75);
-			padding: 0 px2rem(36);
-			font-size: px2rem(22);
+			border-radius: pxToRem(10);
+			width: pxToRem(368);
+			height: pxToRem(75);
+			padding: 0 pxToRem(36);
+			font-size: pxToRem(22);
 
 			&.--active {
 				border-color: $darklighten;
@@ -152,7 +152,7 @@ export default {
 	}
 
 	&__footer {
-		margin-top: px2rem(75);
+		margin-top: pxToRem(75);
 	}
 }
 </style>

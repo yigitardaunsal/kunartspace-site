@@ -86,7 +86,7 @@ export default {
 <style lang="scss" scoped>
 .constant-page {
 	&__picture {
-		margin-bottom: px2rem(52);
+		margin-bottom: pxToRem(52);
 		width: 100%;
 		height: 600px;
 
@@ -99,28 +99,28 @@ export default {
 
 	&__title {
 		margin: 0;
-		line-height: px2rem(84);
-		font-size: px2rem(56);
+		line-height: pxToRem(84);
+		font-size: pxToRem(56);
 		font-weight: 600;
 		color: $darklighten;
 	}
 
 	&__content {
-		margin-top: px2rem(18);
-		line-height: px2rem(21);
-		font-size: px2rem(14);
+		margin-top: pxToRem(18);
+		line-height: pxToRem(21);
+		font-size: pxToRem(14);
 		font-weight: 400;
 		color: $dark-gray;
 	}
 
 	&__gallery {
-		margin: px2rem(102) 0 px2rem(60);
+		margin: pxToRem(102) 0 pxToRem(60);
 
 		&-item {
 			display: block;
-			margin-bottom: px2rem(30);
+			margin-bottom: pxToRem(30);
 			width: 100%;
-			height: px2rem(300);
+			height: pxToRem(300);
 		}
 	}
 }

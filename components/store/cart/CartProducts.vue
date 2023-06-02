@@ -134,36 +134,36 @@ export default {
 <style lang="scss" scoped>
 .products {
 	&__header {
-		margin-bottom: px2rem(48);
+		margin-bottom: pxToRem(48);
 		border-bottom: 1px solid $graylighten;
-		padding-bottom: px2rem(52);
-		font-size: px2rem(18);
-		line-height: px2rem(27);
+		padding-bottom: pxToRem(52);
+		font-size: pxToRem(18);
+		line-height: pxToRem(27);
 	}
 
 	&__body {
 		border-bottom: 1px solid $graylighten;
 
 		.product {
-			margin-bottom: px2rem(46);
+			margin-bottom: pxToRem(46);
 
 			&__picture {
 				display: block;
 				width: 100%;
-				height: px2rem(200);
+				height: pxToRem(200);
 			}
 
 			&__artist {
-				margin-bottom: px2rem(16);
-				font-size: px2rem(18);
-				line-height: px2rem(27);
+				margin-bottom: pxToRem(16);
+				font-size: pxToRem(18);
+				line-height: pxToRem(27);
 				font-weight: 400;
 			}
 
 			&__name {
-				margin-bottom: px2rem(16);
-				font-size: px2rem(16);
-				line-height: px2rem(24);
+				margin-bottom: pxToRem(16);
+				font-size: pxToRem(16);
+				line-height: pxToRem(24);
 				font-weight: 400;
 				color: $dark-gray;
 			}
@@ -174,24 +174,24 @@ export default {
 				-webkit-box-orient: vertical;
 				overflow: hidden;
 				margin-bottom: 0;
-				font-size: px2rem(14);
-				line-height: px2rem(21);
+				font-size: pxToRem(14);
+				line-height: pxToRem(21);
 				text-overflow: ellipsis;
 				color: $dark-gray;
 			}
 
 			&__price {
-				font-size: px2rem(18);
-				line-height: px2rem(26);
+				font-size: pxToRem(18);
+				line-height: pxToRem(26);
 			}
 
 			.amount {
 				display: flex;
 				align-items: center;
 				border: 1px solid;
-				border-radius: px2rem(4);
-				width: px2rem(150);
-				font-size: px2rem(18);
+				border-radius: pxToRem(4);
+				width: pxToRem(150);
+				font-size: pxToRem(18);
 				color: $b-gray;
 
 				&:not(.--loading):hover {
@@ -199,7 +199,7 @@ export default {
 				}
 
 				&.--error {
-					margin-bottom: px2rem(10);
+					margin-bottom: pxToRem(10);
 					color: $alizarin;
 
 					&:hover {
@@ -210,13 +210,13 @@ export default {
 				&__loader {
 					position: relative;
 					width: 100%;
-					height: px2rem(40);
+					height: pxToRem(40);
 				}
 
 				&__button {
 					flex: 1;
 					border: none;
-					height: px2rem(40);
+					height: pxToRem(40);
 					padding: 0;
 					background-color: transparent;
 					font-size: inherit;
@@ -230,7 +230,7 @@ export default {
 			}
 
 			.error {
-				font-size: px2rem(14);
+				font-size: pxToRem(14);
 				color: $alizarin;
 			}
 		}

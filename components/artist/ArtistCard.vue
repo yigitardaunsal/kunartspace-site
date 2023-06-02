@@ -32,8 +32,8 @@ export default {
 	$self: &;
 	display: flex;
 	align-items: center;
-	gap: px2rem(22);
-	margin-bottom: px2rem(25);
+	gap: pxToRem(22);
+	margin-bottom: pxToRem(25);
 	color: $dark-gray;
 
 	&:hover {
@@ -42,30 +42,30 @@ export default {
 
 	&__picture {
 		flex-shrink: 0;
-		width: px2rem(154);
-		height: px2rem(150);
+		width: pxToRem(154);
+		height: pxToRem(150);
 		object-fit: cover;
 	}
 
 	&__name {
-		font-size: px2rem(18);
+		font-size: pxToRem(18);
 	}
 
 	&.--vertical {
 		flex-direction: column;
 		align-items: flex-start;
-		gap: px2rem(30);
-		margin-bottom: px2rem(30);
+		gap: pxToRem(30);
+		margin-bottom: pxToRem(30);
 
 		#{$self} {
 			&__picture {
 				width: 100%;
-				height: px2rem(400);
+				height: pxToRem(400);
 			}
 
 			&__name {
-				line-height: px2rem(36);
-				font-size: px2rem(24);
+				line-height: pxToRem(36);
+				font-size: pxToRem(24);
 				color: $darklighten;
 			}
 		}

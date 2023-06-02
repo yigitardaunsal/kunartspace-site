@@ -171,7 +171,7 @@ export default {
 
 <style lang="scss" scoped>
 .work {
-	padding-top: px2rem(40);
+	padding-top: pxToRem(40);
 
 	&__image {
 		user-drag: none;
@@ -183,30 +183,30 @@ export default {
 	}
 
 	&__detail {
-		max-width: px2rem(420);
-		padding-top: px2rem(42);
+		max-width: pxToRem(420);
+		padding-top: pxToRem(42);
 	}
 
 	&__stock {
 		display: block;
-		font-size: px2rem(12);
-		line-height: px2rem(18);
+		font-size: pxToRem(12);
+		line-height: pxToRem(18);
 		color: $mild-gray;
 
 		&.--amount {
-			margin-bottom: px2rem(34);
+			margin-bottom: pxToRem(34);
 		}
 
 		&.--out-of-stock {
-			margin-bottom: px2rem(34);
+			margin-bottom: pxToRem(34);
 			color: $alizarin;
 		}
 	}
 
 	&__artist {
-		margin-bottom: px2rem(2);
-		font-size: px2rem(56);
-		line-height: px2rem(84);
+		margin-bottom: pxToRem(2);
+		font-size: pxToRem(56);
+		line-height: pxToRem(84);
 		font-weight: 600;
 
 		a {
@@ -219,16 +219,16 @@ export default {
 	}
 
 	&__name {
-		margin-bottom: px2rem(20);
-		font-size: px2rem(24);
-		line-height: px2rem(28);
+		margin-bottom: pxToRem(20);
+		font-size: pxToRem(24);
+		line-height: pxToRem(28);
 		font-weight: 400;
 	}
 
 	&__description {
-		margin-bottom: px2rem(60);
-		font-size: px2rem(14);
-		line-height: px2rem(21);
+		margin-bottom: pxToRem(60);
+		font-size: pxToRem(14);
+		line-height: pxToRem(21);
 		color: $dark-gray;
 
 		p:last-child {
@@ -238,15 +238,15 @@ export default {
 
 	&__price {
 		display: block;
-		margin-bottom: px2rem(50);
-		font-size: px2rem(20);
-		line-height: px2rem(30);
+		margin-bottom: pxToRem(50);
+		font-size: pxToRem(20);
+		line-height: pxToRem(30);
 	}
 
 	&__buttons {
 		display: flex;
 		align-items: center;
-		gap: px2rem(38);
+		gap: pxToRem(38);
 
 		& > *:first-child {
 			flex: 1;
@@ -254,7 +254,7 @@ export default {
 	}
 
 	&__buttons {
-		margin-bottom: px2rem(22);
+		margin-bottom: pxToRem(22);
 	}
 
 	&__favorite {
@@ -277,15 +277,15 @@ export default {
 	}
 
 	&__contact {
-		margin-top: px2rem(110);
+		margin-top: pxToRem(110);
 
 		.whatsapp {
 			display: inline-flex;
 			align-items: flex-end;
-			gap: px2rem(14);
-			margin-bottom: px2rem(56);
-			font-size: px2rem(14);
-			line-height: px2rem(18);
+			gap: pxToRem(14);
+			margin-bottom: pxToRem(56);
+			font-size: pxToRem(14);
+			line-height: pxToRem(18);
 
 			&__icon {
 				color: $whatsapp;
@@ -296,8 +296,8 @@ export default {
 			display: inline-flex;
 			flex-direction: column;
 			align-items: flex-start;
-			font-size: px2rem(12);
-			line-height: px2rem(18);
+			font-size: pxToRem(12);
+			line-height: pxToRem(18);
 			color: $mild-gray;
 		}
 	}

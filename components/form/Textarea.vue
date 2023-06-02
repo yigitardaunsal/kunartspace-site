@@ -51,8 +51,8 @@ export default {
 .textarea {
 	width: 100%;
 	border: 1px solid $dark-gray;
-	border-radius: px2rem(5);
-	padding: px2rem(20);
+	border-radius: pxToRem(5);
+	padding: pxToRem(20);
 	color: $dark-gray;
 
 	&::placeholder {

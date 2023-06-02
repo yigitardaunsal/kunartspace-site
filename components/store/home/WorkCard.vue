@@ -31,14 +31,14 @@ export default {
 .work {
 	$self: &;
 	display: block;
-	border: px2rem(12) solid $enlighten;
-	padding: px2rem(44) px2rem(32) px2rem(36);
+	border: pxToRem(12) solid $enlighten;
+	padding: pxToRem(44) pxToRem(32) pxToRem(36);
 	background-color: $f3-light-gray;
 
 	&__picture {
 		display: block;
 		width: 100%;
-		height: px2rem(350);
+		height: pxToRem(350);
 
 		img {
 			width: 100%;
@@ -51,26 +51,26 @@ export default {
 
 	&__artist {
 		transition: 250ms all;
-		margin: px2rem(42) 0 px2rem(6);
-		font-size: px2rem(20);
-		line-height: px2rem(26);
+		margin: pxToRem(42) 0 pxToRem(6);
+		font-size: pxToRem(20);
+		line-height: pxToRem(26);
 		font-weight: 600;
 		color: $darklighten;
 	}
 
 	&__name {
-		margin-bottom: px2rem(18);
-		font-size: px2rem(16);
-		line-height: px2rem(26);
+		margin-bottom: pxToRem(18);
+		font-size: pxToRem(16);
+		line-height: pxToRem(26);
 		font-weight: 400;
 		color: $mild-gray;
 	}
 
 	&__description {
 		overflow: hidden;
-		margin-bottom: px2rem(5);
-		font-size: px2rem(14);
-		line-height: px2rem(20);
+		margin-bottom: pxToRem(5);
+		font-size: pxToRem(14);
+		line-height: pxToRem(20);
 		font-weight: 300;
 		white-space: nowrap;
 		text-overflow: ellipsis;
@@ -78,8 +78,8 @@ export default {
 	}
 
 	&__price {
-		font-size: px2rem(18);
-		line-height: px2rem(26);
+		font-size: pxToRem(18);
+		line-height: pxToRem(26);
 		font-weight: 600;
 		color: $darklighten;
 	}

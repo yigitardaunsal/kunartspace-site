@@ -396,43 +396,43 @@ export default {
 <style lang="scss" scoped>
 .checkout {
 	&__header {
-		margin-bottom: px2rem(90);
+		margin-bottom: pxToRem(90);
 	}
 
 	&__loader {
 		position: relative;
-		height: px2rem(20);
+		height: pxToRem(20);
 		color: $dark-gray;
 	}
 
 	&__body {
-		margin-bottom: px2rem(55);
+		margin-bottom: pxToRem(55);
 	}
 
 	&__section {
 		&.--products {
-			margin-bottom: px2rem(56);
+			margin-bottom: pxToRem(56);
 		}
 
 		&.--delivery {
-			margin-bottom: px2rem(45);
+			margin-bottom: pxToRem(45);
 		}
 	}
 
 	&__title {
-		font-size: px2rem(18);
-		line-height: px2rem(27);
+		font-size: pxToRem(18);
+		line-height: pxToRem(27);
 		font-weight: 600;
 	}
 
 	&__contract {
-		line-height: px2rem(24);
+		line-height: pxToRem(24);
 		color: $dark-gray;
 	}
 }
 
 .modal-loader {
 	position: relative;
-	height: px2rem(50);
+	height: pxToRem(50);
 }
 </style>

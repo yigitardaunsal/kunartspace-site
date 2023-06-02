@@ -40,7 +40,7 @@ export default {
 
 <style lang="scss" scoped>
 .artist {
-	margin-bottom: px2rem(70);
+	margin-bottom: pxToRem(70);
 
 	&:last-child {
 		margin-bottom: 0;
@@ -50,13 +50,13 @@ export default {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		margin-bottom: px2rem(68);
+		margin-bottom: pxToRem(68);
 	}
 
 	&__name {
 		margin-bottom: 0;
-		font-size: px2rem(30);
-		line-height: px2rem(45);
+		font-size: pxToRem(30);
+		line-height: pxToRem(45);
 		font-weight: 500;
 	}
 }
@@ -65,8 +65,8 @@ export default {
 	$self: &;
 	&__picture {
 		width: 100%;
-		height: px2rem(337);
-		margin-bottom: px2rem(50);
+		height: pxToRem(337);
+		margin-bottom: pxToRem(50);
 
 		img {
 			width: 100%;
@@ -78,18 +78,18 @@ export default {
 
 	&__name {
 		transition: 250ms all;
-		margin-bottom: px2rem(12);
-		font-size: px2rem(20);
-		line-height: px2rem(26);
+		margin-bottom: pxToRem(12);
+		font-size: pxToRem(20);
+		line-height: pxToRem(26);
 		font-weight: 400;
 		color: $darklighten;
 	}
 
 	&__description {
 		overflow: hidden;
-		margin-bottom: px2rem(12);
-		font-size: px2rem(14);
-		line-height: px2rem(20);
+		margin-bottom: pxToRem(12);
+		font-size: pxToRem(14);
+		line-height: pxToRem(20);
 		font-weight: 300;
 		white-space: nowrap;
 		text-overflow: ellipsis;
@@ -97,8 +97,8 @@ export default {
 	}
 
 	&__price {
-		font-size: px2rem(18);
-		line-height: px2rem(26);
+		font-size: pxToRem(18);
+		line-height: pxToRem(26);
 		font-weight: 600;
 		color: $darklighten;
 	}

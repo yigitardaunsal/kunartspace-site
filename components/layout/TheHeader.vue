@@ -1,9 +1,11 @@
 <template>
 	<header ref="header" class="header container-xxxl">
 		<nuxt-link :to="localePath('index')" tag="a" class="logo">
-			<Logo height="30" />
+			<Logo />
 		</nuxt-link>
-		<slot name="nav" />
+		<div class="navigation">
+			<slot name="nav" />
+		</div>
 		<slot name="account" />
 		<div class="language" :class="{ last: !$slots.social }">
 			<button
@@ -17,7 +19,10 @@
 				{{ locale.toLocaleUpperCase() }}
 			</button>
 		</div>
-		<slot name="social" />
+		<div class="social">
+			<slot name="social" />
+		</div>
+		<TheMobileMenuButton />
 	</header>
 </template>
 
@@ -51,33 +56,69 @@ export default {
 	display: flex;
 	align-items: center;
 	margin: 0 auto;
-	height: 158px;
+	height: pxToRem(100);
+	gap: pxToRem(30);
+
+	@include respond-to('x-large') {
+		height: pxToRem(158);
+		gap: 0;
+	}
 
 	.logo {
+		width: 100%;
 		color: $darklighten;
+
+		svg {
+			width: 100%;
+		}
+
+		@include respond-to('x-large') {
+			width: pxToRem(350);
+		}
+	}
+
+	.navigation {
+		display: none;
+
+		@include respond-to('x-large') {
+			display: block;
+			flex: 1;
+		}
 	}
 
 	.language {
-		display: flex;
-		margin-right: px2rem(50);
+		display: none;
 
-		&.last {
-			margin-right: 0;
-		}
+		@include respond-to('x-large') {
+			display: flex;
+			margin-right: pxToRem(50);
 
-		&__item {
-			border: none;
-			width: 30px;
-			line-height: 16px;
-			background: transparent;
-			font-size: px2rem(12);
-			color: $mild-gray;
-			cursor: pointer;
-
-			&.active {
-				font-weight: 600;
-				color: $darklighten;
+			&.last {
+				margin-right: 0;
 			}
+
+			&__item {
+				border: none;
+				width: 30px;
+				line-height: 16px;
+				background: transparent;
+				font-size: pxToRem(12);
+				color: $mild-gray;
+				cursor: pointer;
+
+				&.active {
+					font-weight: 600;
+					color: $darklighten;
+				}
+			}
+		}
+	}
+
+	.social {
+		display: none;
+
+		@include respond-to('x-large') {
+			display: block;
 		}
 	}
 }

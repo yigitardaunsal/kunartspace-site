@@ -70,34 +70,34 @@ export default {
 		grid-template-columns: 1fr auto;
 		grid-template-rows: auto auto;
 		align-items: self-end;
-		margin-bottom: px2rem(68);
+		margin-bottom: pxToRem(68);
 	}
 
 	&__title {
-		margin-bottom: px2rem(14);
-		font-size: px2rem(58);
+		margin-bottom: pxToRem(14);
+		font-size: pxToRem(58);
 		font-weight: 600;
 	}
 
 	&__instructor-title {
-		margin-bottom: px2rem(14);
-		font-size: px2rem(20);
+		margin-bottom: pxToRem(14);
+		font-size: pxToRem(20);
 		text-align: right;
 		color: $mild-gray;
 	}
 
 	&__date {
-		font-size: px2rem(20);
+		font-size: pxToRem(20);
 	}
 
 	&__instructor {
-		font-size: px2rem(24);
+		font-size: pxToRem(24);
 		font-weight: 500;
 	}
 
 	&__price {
-		margin: px2rem(30) 0;
-		font-size: px2rem(20);
+		margin: pxToRem(30) 0;
+		font-size: pxToRem(20);
 		color: $mild-gray;
 
 		strong {
@@ -106,9 +106,9 @@ export default {
 	}
 
 	&__text {
-		padding-left: px2rem(26);
-		font-size: px2rem(14);
-		line-height: px2rem(20);
+		padding-left: pxToRem(26);
+		font-size: pxToRem(14);
+		line-height: pxToRem(20);
 		color: $dark-gray;
 	}
 }

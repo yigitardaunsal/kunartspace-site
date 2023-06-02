@@ -17,11 +17,11 @@ export default {
 
 <style lang="scss" scoped>
 .alert {
-	margin-bottom: px2rem(10);
-	padding: px2rem(12);
-	border-left-width: px2rem(5);
+	margin-bottom: pxToRem(10);
+	padding: pxToRem(12);
+	border-left-width: pxToRem(5);
 	border-left-style: solid;
-	border-radius: px2rem(3);
+	border-radius: pxToRem(3);
 
 	&.--success {
 		color: #270;

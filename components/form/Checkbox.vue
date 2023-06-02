@@ -56,7 +56,7 @@ export default {
 	$self: &;
 	display: flex;
 	align-items: center;
-	gap: px2rem(16);
+	gap: pxToRem(16);
 	cursor: pointer;
 
 	&__input {
@@ -77,8 +77,8 @@ export default {
 		justify-content: center;
 		border: 1px solid $dark-gray;
 		border-radius: 3px;
-		width: px2rem(18);
-		height: px2rem(18);
+		width: pxToRem(18);
+		height: pxToRem(18);
 		color: $enlighten;
 
 		&.--invalid {
@@ -87,7 +87,7 @@ export default {
 	}
 
 	&__text {
-		font-size: px2rem(12);
+		font-size: pxToRem(12);
 		line-height: 1.3;
 		color: $mild-gray;
 		user-select: none;

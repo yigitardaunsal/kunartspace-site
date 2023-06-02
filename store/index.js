@@ -1,6 +1,7 @@
 import Cookie from 'js-cookie'
 
 export const state = () => ({
+	isOpenMobileMenu: false,
 	isOpenSearchModal: false,
 	exhibitionList: [],
 	accessToken: null,
@@ -18,6 +19,9 @@ export const state = () => ({
 })
 
 export const mutations = {
+	SET_IS_OPEN_MOBILE_MENU(state, payload) {
+		state.isOpenMobileMenu = payload
+	},
 	SET_IS_OPEN_SEARCH_MODAL(state, payload) {
 		state.isOpenSearchModal = payload
 	},

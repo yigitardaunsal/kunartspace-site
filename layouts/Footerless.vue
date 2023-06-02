@@ -11,6 +11,7 @@
 		<main class="main">
 			<Nuxt />
 		</main>
+		<TheMobileMenu />
 	</div>
 </template>
 

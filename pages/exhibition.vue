@@ -61,43 +61,43 @@ export default {
 <style lang="scss" scoped>
 .exhibition {
 	&__header {
-		margin: px2rem(40) 0 px2rem(72);
+		margin: pxToRem(40) 0 pxToRem(72);
 	}
 
 	&__title {
 		margin: 0;
-		line-height: px2rem(84);
-		font-size: px2rem(56);
+		line-height: pxToRem(84);
+		font-size: pxToRem(56);
 		font-weight: 600;
 	}
 
 	&__date {
 		display: block;
-		line-height: px2rem(28);
-		font-size: px2rem(18);
+		line-height: pxToRem(28);
+		font-size: pxToRem(18);
 	}
 
 	&__body {
-		margin-bottom: px2rem(66);
+		margin-bottom: pxToRem(66);
 	}
 
 	&__content {
-		padding-left: px2rem(46);
-		line-height: px2rem(22);
-		font-size: px2rem(14);
+		padding-left: pxToRem(46);
+		line-height: pxToRem(22);
+		font-size: pxToRem(14);
 		color: $dark-gray;
 
 		p {
-			margin-bottom: px2rem(20);
+			margin-bottom: pxToRem(20);
 		}
 	}
 
 	&__artists {
-		margin-bottom: px2rem(25);
+		margin-bottom: pxToRem(25);
 	}
 
 	&__works {
-		margin-bottom: px2rem(75);
+		margin-bottom: pxToRem(75);
 	}
 }
 </style>

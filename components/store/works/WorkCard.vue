@@ -39,7 +39,7 @@ export default {
 	$self: &;
 	display: block;
 	height: 100%;
-	padding-bottom: px2rem(25);
+	padding-bottom: pxToRem(25);
 
 	&__wrapper {
 		display: flex;
@@ -47,14 +47,14 @@ export default {
 		transition: 250ms all;
 		height: 100%;
 		border: 1px solid $graylighten;
-		border-radius: px2rem(10);
-		padding: px2rem(20);
+		border-radius: pxToRem(10);
+		padding: pxToRem(20);
 	}
 
 	&__picture {
-		margin-bottom: px2rem(16);
+		margin-bottom: pxToRem(16);
 		width: 100%;
-		height: px2rem(200);
+		height: pxToRem(200);
 
 		img {
 			width: 100%;
@@ -64,26 +64,26 @@ export default {
 	}
 
 	&__artist {
-		margin-bottom: px2rem(6);
-		font-size: px2rem(20);
-		line-height: px2rem(26);
+		margin-bottom: pxToRem(6);
+		font-size: pxToRem(20);
+		line-height: pxToRem(26);
 		font-weight: 600;
 		color: $darklighten;
 	}
 
 	&__name {
 		display: block;
-		margin-bottom: px2rem(11);
-		line-height: px2rem(24);
+		margin-bottom: pxToRem(11);
+		line-height: pxToRem(24);
 		color: $mild-gray;
 	}
 
 	&__description {
 		display: -webkit-box;
 		overflow: hidden;
-		margin-bottom: px2rem(3);
-		font-size: px2rem(14);
-		line-height: px2rem(21);
+		margin-bottom: pxToRem(3);
+		font-size: pxToRem(14);
+		line-height: pxToRem(21);
 		font-weight: 300;
 		-webkit-line-clamp: 2;
 		-webkit-box-orient: vertical;
@@ -93,8 +93,8 @@ export default {
 
 	&__price {
 		margin-top: auto;
-		font-size: px2rem(18);
-		line-height: px2rem(26);
+		font-size: pxToRem(18);
+		line-height: pxToRem(26);
 		font-weight: 600;
 		color: $darklighten;
 	}
@@ -102,11 +102,11 @@ export default {
 	&.--lg {
 		#{$self} {
 			&__wrapper {
-				padding: px2rem(15) px2rem(20) px2rem(35);
+				padding: pxToRem(15) pxToRem(20) pxToRem(35);
 			}
 
 			&__picture {
-				height: px2rem(483);
+				height: pxToRem(483);
 			}
 		}
 	}

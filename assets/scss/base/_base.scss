@@ -70,8 +70,8 @@ svg {
 
 .validate-error {
   display: block;
-  margin-top: px2rem(8);
-  font-size: px2rem(12);
+  margin-top: pxToRem(8);
+  font-size: pxToRem(12);
   color: $alizarin;
 }
 
@@ -94,7 +94,7 @@ svg {
 
   th,
   td {
-    padding: px2rem(12);
+    padding: pxToRem(12);
     vertical-align: bottom;
     border-bottom: 2px solid $graylighten;
     text-align: inherit;

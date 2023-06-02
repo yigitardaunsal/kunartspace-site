@@ -60,10 +60,10 @@ export default {
 	}
 
 	&__title {
-		margin: 0 0 px2rem(12);
+		margin: 0 0 pxToRem(12);
 		font-size: px2trem(36);
 		font-weight: 600;
-		line-height: px2rem(54);
+		line-height: pxToRem(54);
 
 		span {
 			font-weight: 400;
@@ -71,7 +71,7 @@ export default {
 	}
 
 	&__date {
-		line-height: px2rem(22);
+		line-height: pxToRem(22);
 	}
 
 	&__footer {
@@ -84,15 +84,15 @@ export default {
 
 	&__text {
 		margin: 0;
-		width: px2rem(420);
-		line-height: px2rem(22);
+		width: pxToRem(420);
+		line-height: pxToRem(22);
 	}
 
 	&__link {
 		display: inline-flex;
 		align-items: center;
-		gap: px2rem(5);
-		height: px2rem(22);
+		gap: pxToRem(5);
+		height: pxToRem(22);
 	}
 }
 </style>

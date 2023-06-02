@@ -51,31 +51,31 @@ export default {
 	align-items: flex-end;
 
 	&__row {
-		margin-bottom: px2rem(30);
+		margin-bottom: pxToRem(30);
 		display: inline-flex;
 		flex-direction: column;
 		align-items: flex-end;
-		gap: px2rem(16);
+		gap: pxToRem(16);
 	}
 
 	&__label {
-		line-height: px2rem(24);
+		line-height: pxToRem(24);
 	}
 
 	&__value {
-		font-size: px2rem(24);
-		line-height: px2rem(36);
+		font-size: pxToRem(24);
+		line-height: pxToRem(36);
 		font-weight: 500;
 	}
 
 	&__button-area {
-		margin-top: px2rem(12);
-		min-width: px2rem(330);
+		margin-top: pxToRem(12);
+		min-width: pxToRem(330);
 	}
 
 	&__info {
-		margin-top: px2rem(42);
-		line-height: px2rem(24);
+		margin-top: pxToRem(42);
+		line-height: pxToRem(24);
 		color: $mild-gray;
 	}
 }

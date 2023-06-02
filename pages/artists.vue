@@ -115,7 +115,7 @@ export default {
 <style lang="scss" scoped>
 .artists {
 	&__exhibited {
-		margin-bottom: px2rem(22);
+		margin-bottom: pxToRem(22);
 	}
 
 	.artist-filter {
@@ -126,10 +126,10 @@ export default {
 	.artist-search {
 		display: flex;
 		align-items: center;
-		margin-left: px2rem(68);
+		margin-left: pxToRem(68);
 		border: 1px solid $mild-gray;
 		border-radius: 5px;
-		width: px2rem(242);
+		width: pxToRem(242);
 		padding: 0 20px;
 
 		&__input {
@@ -137,9 +137,9 @@ export default {
 			flex-shrink: 0;
 			border: none;
 			width: 100%;
-			height: px2rem(42);
+			height: pxToRem(42);
 			padding: 0 10px 0 0;
-			font-size: px2rem(14);
+			font-size: pxToRem(14);
 			font-weight: 400;
 			color: $mild-gray;
 
@@ -150,8 +150,8 @@ export default {
 
 		&__icon {
 			flex-shrink: 0;
-			width: px2rem(30);
-			height: px2rem(30);
+			width: pxToRem(30);
+			height: pxToRem(30);
 			line-height: 1;
 		}
 	}

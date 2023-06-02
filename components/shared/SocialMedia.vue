@@ -30,8 +30,8 @@ export default {
 <style lang="scss" scoped>
 .social-media {
 	display: inline-grid;
-	grid-template-columns: repeat(3, px2rem(24));
-	column-gap: px2rem(18);
+	grid-template-columns: repeat(3, pxToRem(24));
+	column-gap: pxToRem(18);
 
 	&__link {
 		color: $mild-gray;

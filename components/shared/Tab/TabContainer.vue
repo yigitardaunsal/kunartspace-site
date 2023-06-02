@@ -57,17 +57,17 @@ export default {
 	&__nav {
 		display: flex;
 		align-items: center;
-		gap: px2rem(60);
-		margin-bottom: px2rem(32);
+		gap: pxToRem(60);
+		margin-bottom: pxToRem(32);
 		border-bottom: 1px solid $graylighten;
-		padding: 0 0 px2rem(32);
+		padding: 0 0 pxToRem(32);
 
 		&-item {
 			border: none;
 			background: transparent;
 			margin: 0;
 			padding: 0;
-			line-height: px2rem(24);
+			line-height: pxToRem(24);
 			text-transform: uppercase;
 			cursor: pointer;
 

@@ -43,6 +43,6 @@ export default {
 
 <style lang="scss" scoped>
 .order + .order {
-	margin-top: px2rem(72);
+	margin-top: pxToRem(72);
 }
 </style>

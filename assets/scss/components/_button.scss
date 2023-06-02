@@ -2,11 +2,11 @@
   $self: &;
   position: relative;
   display: inline-block;
-  border-radius: px2rem(5);
-  height: px2rem(50);
-  padding: 0 px2rem(22);
-  font-size: px2rem(15);
-  line-height: px2rem(50);
+  border-radius: pxToRem(5);
+  height: pxToRem(50);
+  padding: 0 pxToRem(22);
+  font-size: pxToRem(15);
+  line-height: pxToRem(50);
   font-weight: 400;
 
   &:disabled {
@@ -64,22 +64,22 @@
 
   &.--cart {
     @extend .--secondary;
-    font-size: px2rem(18);
+    font-size: pxToRem(18);
     line-height: 1;
 
     #{$self} {
       &__text {
         display: inline-flex;
         align-items: center;
-        gap: px2rem(24);
-        height: px2rem(28);
+        gap: pxToRem(24);
+        height: pxToRem(28);
       }
     }
 
     .icon {
       border-right: 1px solid $b-gray;
-      height: px2rem(28);
-      padding-right: px2rem(24);
+      height: pxToRem(28);
+      padding-right: pxToRem(24);
     }
   }
 
@@ -100,14 +100,14 @@
   }
 
   &.--sm {
-    height: px2rem(40);
-    line-height: px2rem(40);
+    height: pxToRem(40);
+    line-height: pxToRem(40);
   }
 
   &.--lg {
-    height: px2rem(65);
-    font-size: px2rem(18);
-    line-height: px2rem(65);
+    height: pxToRem(65);
+    font-size: pxToRem(18);
+    line-height: pxToRem(65);
   }
 
   &.--block {

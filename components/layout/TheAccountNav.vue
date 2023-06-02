@@ -79,8 +79,8 @@ export default {
 .account-nav {
 	display: flex;
 	align-items: center;
-	gap: px2rem(20);
-	margin-right: px2rem(56);
+	gap: pxToRem(20);
+	margin-right: pxToRem(56);
 
 	&__item {
 		position: relative;
@@ -97,12 +97,12 @@ export default {
 					content: '';
 					position: absolute;
 					z-index: -1;
-					top: calc(100% + px2rem(24));
+					top: calc(100% + pxToRem(24));
 					left: 50%;
 					transform: translateX(-50%) rotate(45deg);
 					display: block;
-					width: px2rem(39);
-					height: px2rem(39);
+					width: pxToRem(39);
+					height: pxToRem(39);
 					background-color: $f3-light-gray;
 				}
 			}

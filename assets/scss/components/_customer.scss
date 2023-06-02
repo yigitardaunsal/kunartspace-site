@@ -1,25 +1,25 @@
 .customer-auth {
-  padding: px2rem(50) 0;
+  padding: pxToRem(50) 0;
 
   &__header {
-    margin-bottom: px2rem(44);
+    margin-bottom: pxToRem(44);
   }
 
   &__form {
     display: flex;
     flex-direction: column;
-    gap: px2rem(20);
+    gap: pxToRem(20);
 
     &-row {
       &.--high-gap {
-        margin-bottom: px2rem(30);
+        margin-bottom: pxToRem(30);
       }
     }
   }
 
   &__link {
-    font-size: px2rem(16);
-    line-height: px2rem(24);
+    font-size: pxToRem(16);
+    line-height: pxToRem(24);
     text-decoration: underline;
     color: $dark-gray;
 
@@ -29,9 +29,9 @@
   }
 
   &__footer {
-    margin-top: px2rem(58);
-    font-size: px2rem(12);
-    line-height: px2rem(18);
+    margin-top: pxToRem(58);
+    font-size: pxToRem(12);
+    line-height: pxToRem(18);
     color: $mild-gray;
   }
 }
@@ -41,6 +41,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: px2rem(44);
+    margin-bottom: pxToRem(44);
   }
 }

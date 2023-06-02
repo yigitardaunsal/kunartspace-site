@@ -65,18 +65,18 @@ export default {
 
 <style lang="scss" scoped>
 .artist {
-	margin-bottom: px2rem(100);
+	margin-bottom: pxToRem(100);
 
 	&__name {
 		margin: 0 0 20%;
-		line-height: px2rem(45);
-		font-size: px2rem(30);
+		line-height: pxToRem(45);
+		font-size: pxToRem(30);
 		font-weight: 500;
 	}
 
 	&__bio {
-		line-height: px2rem(21);
-		font-size: px2rem(14);
+		line-height: pxToRem(21);
+		font-size: pxToRem(14);
 		font-weight: 400;
 		color: $dark-gray;
 	}

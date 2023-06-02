@@ -50,17 +50,17 @@ export default {
 <style lang="scss" scoped>
 .cart {
 	&__header {
-		margin-bottom: px2rem(90);
+		margin-bottom: pxToRem(90);
 	}
 
 	&__loader {
 		position: relative;
-		height: px2rem(20);
+		height: pxToRem(20);
 		color: $dark-gray;
 	}
 
 	&__body {
-		margin-bottom: px2rem(55);
+		margin-bottom: pxToRem(55);
 	}
 }
 </style>

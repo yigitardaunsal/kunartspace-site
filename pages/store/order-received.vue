@@ -65,7 +65,7 @@ export default {
 <style lang="scss" scoped>
 .order-received {
 	&__icon {
-		margin-top: px2rem(88);
+		margin-top: pxToRem(88);
 		text-align: center;
 
 		&.--success,
@@ -79,20 +79,20 @@ export default {
 	}
 
 	&__body {
-		margin-top: px2rem(130);
+		margin-top: pxToRem(130);
 	}
 
 	&__text {
-		line-height: px2rem(24);
+		line-height: pxToRem(24);
 		text-align: center;
 	}
 
 	&__products {
-		margin-top: px2rem(52);
+		margin-top: pxToRem(52);
 	}
 
 	&__footer {
-		margin-top: px2rem(82);
+		margin-top: pxToRem(82);
 	}
 }
 </style>

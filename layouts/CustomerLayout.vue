@@ -35,6 +35,6 @@ export default {
 
 <style lang="scss" scoped>
 .customer {
-	padding-top: px2rem(50);
+	padding-top: pxToRem(50);
 }
 </style>

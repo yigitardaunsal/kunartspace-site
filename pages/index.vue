@@ -80,13 +80,15 @@ export default {
 
 	@include respond-to('large') {
 		max-width: 1780px;
-		padding: 12vh px2rem(12) px2rem(62);
+		padding: 12vh pxToRem(12) pxToRem(62);
 	}
 
 	&__item {
 		.exhibition {
 			display: flex;
-			height: 100%;
+			flex-direction: column;
+			height: calc(100vh - pxToRem(100));
+			padding: 0 pxToRem(12);
 			color: $darklighten;
 			user-drag: none;
 			-webkit-user-drag: none;
@@ -97,9 +99,9 @@ export default {
 
 			&__picture {
 				flex-shrink: 0;
-				margin-right: 6%;
-				width: 50%;
-				height: calc(100vh - 12vh - px2rem(62) - 158px);
+				margin-right: 0;
+				width: 100%;
+				height: 50%;
 
 				img {
 					width: 100%;
@@ -112,12 +114,13 @@ export default {
 			&__content {
 				display: flex;
 				flex-direction: column;
+				height: 50%;
 			}
 
 			&__title {
-				margin: 0 0 px2rem(24);
-				line-height: px2rem(54);
-				font-size: px2rem(36);
+				margin: 0 0 pxToRem(24);
+				line-height: pxToRem(54);
+				font-size: pxToRem(36);
 				font-weight: 600;
 
 				span {
@@ -126,38 +129,67 @@ export default {
 			}
 
 			&__date {
-				line-height: px2rem(30);
-				font-size: px2rem(20);
+				line-height: pxToRem(30);
+				font-size: pxToRem(20);
 				color: $dark-gray;
 			}
 
 			&__text {
-				margin: auto 0 0;
-				max-width: px2rem(420);
-				line-height: px2rem(22);
-				font-size: px2rem(14);
-				color: $dark-gray;
+				display: none;
+			}
+
+			@include respond-to('large') {
+				flex-direction: row;
+				height: 100%;
+				padding: 0;
+
+				&__picture {
+					margin-right: 6%;
+					width: 50%;
+					height: calc(100vh - 12vh - pxToRem(62) - 158px);
+				}
+
+				&__content {
+					height: auto;
+				}
+
+				&__text {
+					display: block;
+					margin: auto 0 0;
+					max-width: pxToRem(420);
+					line-height: pxToRem(22);
+					font-size: pxToRem(14);
+					color: $dark-gray;
+				}
 			}
 		}
 	}
 
 	&__nav {
 		position: absolute;
-		bottom: px2rem(62);
-		right: px2rem(12);
+		bottom: pxToRem(20);
+		left: 50%;
+		transform: translateX(-50%);
 		display: grid;
-		grid-template-columns: repeat(2, px2rem(40));
-		column-gap: px2rem(15);
+		grid-template-columns: repeat(2, pxToRem(40));
+		column-gap: pxToRem(15);
 
 		&-button {
 			border: none;
-			height: px2rem(40);
+			height: pxToRem(40);
 			background-color: transparent;
 			color: $dark-gray;
 
 			&:hover {
 				color: $darklighten;
 			}
+		}
+
+		@include respond-to('large') {
+			bottom: pxToRem(62);
+			left: unset;
+			right: pxToRem(12);
+			transform: translateX(0);
 		}
 	}
 }

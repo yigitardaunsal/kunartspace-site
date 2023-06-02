@@ -245,55 +245,55 @@ export default {
 
 <style lang="scss" scoped>
 .address {
-	margin-top: px2rem(25);
+	margin-top: pxToRem(25);
 
 	&__header {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		margin-bottom: px2rem(32);
+		margin-bottom: pxToRem(32);
 		border-bottom: 1px solid $graylighten;
-		padding-bottom: px2rem(26);
+		padding-bottom: pxToRem(26);
 	}
 
 	&__title {
 		margin-bottom: 0;
-		font-size: px2rem(18);
-		line-height: px2rem(26);
+		font-size: pxToRem(18);
+		line-height: pxToRem(26);
 		font-weight: 400;
 	}
 
 	&__default {
-		font-size: px2rem(14);
-		line-height: px2rem(20);
+		font-size: pxToRem(14);
+		line-height: pxToRem(20);
 		text-decoration: underline;
 	}
 
 	&__body {
-		margin-bottom: px2rem(40);
+		margin-bottom: pxToRem(40);
 	}
 
 	&__person {
-		margin-bottom: px2rem(14);
-		font-size: px2rem(18);
-		line-height: px2rem(26);
+		margin-bottom: pxToRem(14);
+		font-size: pxToRem(18);
+		line-height: pxToRem(26);
 	}
 
 	&__content {
 		margin-bottom: 0;
-		font-size: px2rem(16);
-		line-height: px2rem(24);
+		font-size: pxToRem(16);
+		line-height: pxToRem(24);
 		color: $dark-gray;
 	}
 
 	&__footer {
 		display: flex;
 		justify-content: flex-end;
-		gap: px2rem(24);
+		gap: pxToRem(24);
 	}
 
 	&__button {
-		width: px2rem(160);
+		width: pxToRem(160);
 	}
 
 	&:last-child {

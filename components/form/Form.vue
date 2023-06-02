@@ -21,6 +21,6 @@ export default {
 .form {
 	display: flex;
 	flex-direction: column;
-	gap: px2rem(20);
+	gap: pxToRem(20);
 }
 </style>

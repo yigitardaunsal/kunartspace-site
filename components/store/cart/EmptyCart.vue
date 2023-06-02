@@ -28,7 +28,7 @@ export default {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: px2rem(20);
-	margin-top: px2rem(-45);
+	gap: pxToRem(20);
+	margin-top: pxToRem(-45);
 }
 </style>

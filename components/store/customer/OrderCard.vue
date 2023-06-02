@@ -73,20 +73,20 @@ export default {
 <style lang="scss" scoped>
 .order-card {
 	&__header {
-		margin-bottom: px2rem(48);
+		margin-bottom: pxToRem(48);
 		border-bottom: 1px solid $graylighten;
-		padding-bottom: px2rem(26);
+		padding-bottom: pxToRem(26);
 
 		.info {
 			&__title {
 				margin-bottom: 1px;
-				font-size: px2rem(18);
-				line-height: px2rem(26);
+				font-size: pxToRem(18);
+				line-height: pxToRem(26);
 			}
 
 			&__text {
-				font-size: px2rem(16);
-				line-height: px2rem(24);
+				font-size: pxToRem(16);
+				line-height: pxToRem(24);
 				color: $dark-gray;
 			}
 		}
@@ -98,7 +98,7 @@ export default {
 				position: relative;
 				display: block;
 				width: 100%;
-				height: px2rem(200);
+				height: pxToRem(200);
 
 				img {
 					width: 100%;
@@ -114,30 +114,30 @@ export default {
 				padding: 5px;
 				background-color: rgba($darklighten, 0.5);
 				color: $enlighten;
-				font-size: px2rem(14);
+				font-size: pxToRem(14);
 				line-height: 1;
 			}
 
 			&__content {
 				display: flex;
 				flex-direction: column;
-				gap: px2rem(16);
+				gap: pxToRem(16);
 			}
 
 			&__artist {
-				font-size: px2rem(18);
-				line-height: px2rem(26);
+				font-size: pxToRem(18);
+				line-height: pxToRem(26);
 			}
 
 			&__name {
-				font-size: px2rem(16);
-				line-height: px2rem(24);
+				font-size: pxToRem(16);
+				line-height: pxToRem(24);
 				color: $dark-gray;
 			}
 
 			&__description {
-				font-size: px2rem(14);
-				line-height: px2rem(20);
+				font-size: pxToRem(14);
+				line-height: pxToRem(20);
 				color: $dark-gray;
 			}
 		}

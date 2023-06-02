@@ -60,14 +60,14 @@ export default {
 
 <style lang="scss" scoped>
 .current-atelier {
-	margin-bottom: px2rem(100);
+	margin-bottom: pxToRem(100);
 }
 
 .ateliers {
-	margin-bottom: px2rem(132);
+	margin-bottom: pxToRem(132);
 
 	&__item {
-		margin-bottom: px2rem(50);
+		margin-bottom: pxToRem(50);
 
 		&:last-child {
 			margin-bottom: 0;

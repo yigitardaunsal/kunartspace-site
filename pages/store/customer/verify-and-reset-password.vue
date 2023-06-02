@@ -150,10 +150,10 @@ export default {
 <style lang="scss" scoped>
 .counter {
 	display: flex;
-	gap: px2rem(4);
+	gap: pxToRem(4);
 
 	&__button {
-		margin-left: px2rem(10);
+		margin-left: pxToRem(10);
 	}
 }
 </style>

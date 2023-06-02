@@ -31,9 +31,9 @@ export default {
 	height: 100%;
 
 	&__title {
-		margin: 0 0 px2rem(100);
-		line-height: px2rem(84);
-		font-size: px2rem(56);
+		margin: 0 0 pxToRem(100);
+		line-height: pxToRem(84);
+		font-size: pxToRem(56);
 		font-weight: 600;
 	}
 
@@ -45,17 +45,17 @@ export default {
 
 	&__text {
 		display: block;
-		margin-bottom: px2rem(16);
+		margin-bottom: pxToRem(16);
 
 		&.--day {
-			line-height: px2rem(24);
-			font-size: px2rem(16);
+			line-height: pxToRem(24);
+			font-size: pxToRem(16);
 			color: $dark-gray;
 		}
 
 		&.--hour {
-			line-height: px2rem(45);
-			font-size: px2rem(30);
+			line-height: pxToRem(45);
+			font-size: pxToRem(30);
 			font-weight: 500;
 		}
 	}

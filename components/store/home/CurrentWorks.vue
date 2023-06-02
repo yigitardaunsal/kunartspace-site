@@ -58,7 +58,7 @@ export default {
 
 <style lang="scss" scoped>
 .current-works {
-	margin: 0 px2rem(-12);
+	margin: 0 pxToRem(-12);
 
 	&-slider {
 		position: relative;
@@ -68,8 +68,8 @@ export default {
 			top: 50%;
 			transform: translateY(-50%);
 			overflow: hidden;
-			width: px2rem(50);
-			height: px2rem(50);
+			width: pxToRem(50);
+			height: pxToRem(50);
 			border: none;
 			border-radius: 50%;
 			padding: 0;
@@ -77,7 +77,7 @@ export default {
 			color: $dark-gray;
 
 			&.--prev {
-				left: px2rem(25);
+				left: pxToRem(25);
 
 				svg {
 					margin-left: -2px;
@@ -85,7 +85,7 @@ export default {
 			}
 
 			&.--next {
-				right: px2rem(25);
+				right: pxToRem(25);
 
 				svg {
 					margin-right: -2px;

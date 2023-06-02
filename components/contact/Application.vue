@@ -100,9 +100,9 @@ export default {
 <style lang="scss" scoped>
 .application {
 	&__title {
-		margin: 0 0 px2rem(20);
-		line-height: px2rem(62);
-		font-size: px2rem(42);
+		margin: 0 0 pxToRem(20);
+		line-height: pxToRem(62);
+		font-size: pxToRem(42);
 		font-weight: 600;
 	}
 

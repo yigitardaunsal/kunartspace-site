@@ -92,7 +92,7 @@ export default {
 		-ms-user-select: none;
 
 		&__picture {
-			height: calc(100vh - 158px - px2rem(48) - px2rem(100));
+			height: calc(100vh - 158px - pxToRem(48) - pxToRem(100));
 
 			img {
 				pointer-events: none;
@@ -107,9 +107,9 @@ export default {
 		}
 
 		&__title {
-			margin: 0 0 px2rem(24);
-			line-height: px2rem(54);
-			font-size: px2rem(36);
+			margin: 0 0 pxToRem(24);
+			line-height: pxToRem(54);
+			font-size: pxToRem(36);
 			font-weight: 600;
 
 			span {
@@ -118,8 +118,8 @@ export default {
 		}
 
 		&__date {
-			line-height: px2rem(30);
-			font-size: px2rem(20);
+			line-height: pxToRem(30);
+			font-size: pxToRem(20);
 			color: $dark-gray;
 		}
 
@@ -131,9 +131,9 @@ export default {
 	&__nav {
 		position: absolute;
 		bottom: 0;
-		right: px2rem(12);
+		right: pxToRem(12);
 		display: flex;
-		gap: px2rem(25);
+		gap: pxToRem(25);
 
 		&-button {
 			border: none;

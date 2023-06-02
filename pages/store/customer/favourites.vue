@@ -38,6 +38,6 @@ export default {
 
 <style lang="scss" scoped>
 .order + .order {
-	margin-top: px2rem(25);
+	margin-top: pxToRem(25);
 }
 </style>

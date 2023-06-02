@@ -46,15 +46,15 @@ export default {
 
 <style lang="scss" scoped>
 .hero {
-	margin-top: px2rem(48);
-	margin-bottom: px2rem(100);
+	margin-top: pxToRem(48);
+	margin-bottom: pxToRem(100);
 }
 
 .current-works {
-	margin-bottom: px2rem(86);
+	margin-bottom: pxToRem(86);
 }
 
 .selected-artists {
-	margin-bottom: px2rem(92);
+	margin-bottom: pxToRem(92);
 }
 </style>

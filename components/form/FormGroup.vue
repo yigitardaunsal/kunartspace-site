@@ -10,6 +10,6 @@ export default {
 
 <style lang="scss" scoped>
 .form-group {
-	margin-bottom: px2rem(32);
+	margin-bottom: pxToRem(32);
 }
 </style>

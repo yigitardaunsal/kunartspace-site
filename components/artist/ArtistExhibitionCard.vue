@@ -23,13 +23,13 @@ export default {
 
 <style lang="scss" scoped>
 .exhibition {
-	margin-bottom: px2rem(25);
-	font-size: px2rem(14);
+	margin-bottom: pxToRem(25);
+	font-size: pxToRem(14);
 	font-weight: 400;
 
 	&__canvas {
-		margin-bottom: px2rem(28);
-		height: px2rem(300);
+		margin-bottom: pxToRem(28);
+		height: pxToRem(300);
 	}
 
 	&__picture {
@@ -39,18 +39,18 @@ export default {
 	}
 
 	&__name {
-		margin: 0 0 px2rem(4);
-		line-height: px2rem(33);
-		font-size: px2rem(18);
+		margin: 0 0 pxToRem(4);
+		line-height: pxToRem(33);
+		font-size: pxToRem(18);
 		font-weight: 500;
 	}
 
 	&__date {
-		line-height: px2rem(33);
+		line-height: pxToRem(33);
 	}
 
 	&__footer {
-		line-height: px2rem(21);
+		line-height: pxToRem(21);
 	}
 }
 </style>

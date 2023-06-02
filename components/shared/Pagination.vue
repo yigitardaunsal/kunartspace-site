@@ -83,14 +83,14 @@ export default {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	gap: px2rem(25);
+	gap: pxToRem(25);
 	list-style: none;
 	margin: 0;
 	padding: 0;
 
 	&__item {
-		font-size: px2rem(20);
-		line-height: px2rem(30);
+		font-size: pxToRem(20);
+		line-height: pxToRem(30);
 		color: $mild-gray;
 	}
 

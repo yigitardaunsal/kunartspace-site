@@ -73,19 +73,19 @@ export default {
 .nav {
 	display: flex;
 	flex-direction: column;
-	gap: px2rem(25);
-	margin-bottom: px2rem(52);
+	gap: pxToRem(25);
+	margin-bottom: pxToRem(52);
 
 	&__item {
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		border: 1px solid $darklighten;
-		border-radius: px2rem(4);
-		height: px2rem(65);
-		padding: 0 px2rem(15);
-		font-size: px2rem(18);
-		line-height: px2rem(26);
+		border-radius: pxToRem(4);
+		height: pxToRem(65);
+		padding: 0 pxToRem(15);
+		font-size: pxToRem(18);
+		line-height: pxToRem(26);
 		color: $darklighten;
 
 		&:hover,
@@ -97,37 +97,37 @@ export default {
 }
 
 .account {
-	margin-bottom: px2rem(35);
+	margin-bottom: pxToRem(35);
 
 	&__header {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		margin-bottom: px2rem(20);
+		margin-bottom: pxToRem(20);
 		border-bottom: 1px solid $graylighten;
-		height: px2rem(50);
-		padding-bottom: px2rem(24);
+		height: pxToRem(50);
+		padding-bottom: pxToRem(24);
 	}
 
 	&__title {
 		margin-bottom: 0;
-		font-size: px2rem(32);
+		font-size: pxToRem(32);
 		font-weight: 400;
 	}
 
 	&__body {
 		display: flex;
 		flex-direction: column;
-		gap: px2rem(20);
+		gap: pxToRem(20);
 	}
 
 	&__row {
-		line-height: px2rem(24);
+		line-height: pxToRem(24);
 		color: $dark-gray;
 
 		&.--title {
-			font-size: px2rem(14);
-			line-height: px2rem(21);
+			font-size: pxToRem(14);
+			line-height: pxToRem(21);
 			font-weight: 500;
 			text-decoration: underline;
 			color: $darklighten;
@@ -136,10 +136,10 @@ export default {
 }
 
 .change-password {
-	margin-bottom: px2rem(20);
+	margin-bottom: pxToRem(20);
 
 	&__link {
-		line-height: px2rem(24);
+		line-height: pxToRem(24);
 		text-decoration: underline;
 		color: $darklighten;
 
