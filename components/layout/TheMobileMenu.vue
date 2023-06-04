@@ -3,7 +3,7 @@
 		<div v-if="isOverlayShowing" class="mobile-menu">
 			<div class="mobile-menu__overlay" @click="isWrapperShowing = false"></div>
 			<transition name="slide" @after-leave="isOverlayShowing = false">
-				<div v-if="isWrapperShowing" class="mobile-menu__wrapper">wrapper</div>
+				<div v-if="isWrapperShowing" class="mobile-menu__wrapper"></div>
 			</transition>
 		</div>
 	</transition>

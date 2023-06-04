@@ -28,6 +28,7 @@ export default {
 	border: none;
 	padding: 0;
 	background-color: $enlighten;
+	color: $darklighten;
 
 	@include respond-to('x-large') {
 		display: none;
