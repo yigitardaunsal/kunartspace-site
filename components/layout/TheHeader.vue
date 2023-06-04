@@ -22,7 +22,6 @@
 		<div class="social">
 			<slot name="social" />
 		</div>
-		<TheMobileMenuButton />
 	</header>
 </template>
 
