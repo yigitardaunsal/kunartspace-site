@@ -58,7 +58,7 @@ export default {
 
 	&__title {
 		margin: 0 0 pxToRem(16);
-		font-size: px2trem(36);
+		font-size: pxToRem(36);
 		font-weight: 500;
 		line-height: pxToRem(54);
 	}

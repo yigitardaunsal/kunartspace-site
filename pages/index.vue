@@ -166,30 +166,26 @@ export default {
 	}
 
 	&__nav {
-		position: absolute;
-		bottom: pxToRem(20);
-		left: 50%;
-		transform: translateX(-50%);
-		display: grid;
-		grid-template-columns: repeat(2, pxToRem(40));
-		column-gap: pxToRem(15);
-
-		&-button {
-			border: none;
-			height: pxToRem(40);
-			background-color: transparent;
-			color: $dark-gray;
-
-			&:hover {
-				color: $darklighten;
-			}
-		}
+		display: none;
 
 		@include respond-to('large') {
+			position: absolute;
 			bottom: pxToRem(62);
-			left: unset;
 			right: pxToRem(12);
-			transform: translateX(0);
+			display: grid;
+			grid-template-columns: repeat(2, pxToRem(40));
+			column-gap: pxToRem(15);
+
+			&-button {
+				border: none;
+				height: pxToRem(40);
+				background-color: transparent;
+				color: $dark-gray;
+
+				&:hover {
+					color: $darklighten;
+				}
+			}
 		}
 	}
 }

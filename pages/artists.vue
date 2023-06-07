@@ -1,6 +1,6 @@
 <template>
 	<div class="artists container">
-		<div class="artists__exhibited">
+		<div v-if="exhibitedArtists.length" class="artists__exhibited">
 			<PageHeadline tag="h1">{{ $t('artistPage.exhibitedArtists') }}</PageHeadline>
 			<div class="row">
 				<div v-for="(artist, index) in exhibitedArtists" :key="index" class="col-md-4">
@@ -11,7 +11,9 @@
 		<div class="artists__list">
 			<PageHeadline tag="div">
 				<div class="artist-filter">
-					{{ $t('artists') }}
+					<div class="artist-title">
+						{{ $t('artists') }}
+					</div>
 					<div class="artist-search">
 						<input
 							type="text"
@@ -120,16 +122,31 @@ export default {
 
 	.artist-filter {
 		display: flex;
+		flex-wrap: wrap;
 		align-items: center;
+
+		@include respond-to('x-large') {
+			flex-wrap: nowrap;
+		}
+	}
+
+	.artist-title {
+		margin-right: 0;
+		width: 100%;
+
+		@include respond-to('x-large') {
+			width: auto;
+			margin-right: pxToRem(68);
+		}
 	}
 
 	.artist-search {
 		display: flex;
 		align-items: center;
-		margin-left: pxToRem(68);
+		margin-top: pxToRem(10);
 		border: 1px solid $mild-gray;
 		border-radius: 5px;
-		width: pxToRem(242);
+		width: 52%;
 		padding: 0 20px;
 
 		&__input {
@@ -153,6 +170,11 @@ export default {
 			width: pxToRem(30);
 			height: pxToRem(30);
 			line-height: 1;
+		}
+
+		@include respond-to('x-large') {
+			margin-top: 0;
+			width: pxToRem(242);
 		}
 	}
 

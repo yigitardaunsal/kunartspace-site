@@ -88,12 +88,20 @@ export default {
 	&__picture {
 		margin-bottom: pxToRem(52);
 		width: 100%;
-		height: 600px;
+		height: auto;
 
 		img {
 			width: 100%;
+			height: auto;
+		}
+
+		@include respond-to('x-large') {
 			height: 100%;
-			object-fit: cover;
+
+			img {
+				height: 600px;
+				object-fit: cover;
+			}
 		}
 	}
 

@@ -2,11 +2,13 @@
 	<div class="artist container">
 		<TabContainer :activeIndex="activeTab">
 			<TabPane :title="$t('artistPage.overview')">
-				<div class="row align-items-center">
+				<div class="row">
 					<div class="col-md-6">
-						<img :src="artist.image" :alt="artist.name" class="img-fluid" />
+						<div class="artist__picture">
+							<img :src="artist.image" :alt="artist.name" class="img-fluid" />
+						</div>
 					</div>
-					<div class="col-md-5 offset-1">
+					<div class="col-md-5 offset-md-1">
 						<h1 class="artist__name">{{ artist.name }}</h1>
 						<div class="artist__bio" v-html="artist.bio" />
 					</div>
@@ -66,6 +68,17 @@ export default {
 <style lang="scss" scoped>
 .artist {
 	margin-bottom: pxToRem(100);
+
+	&__picture {
+		position: sticky;
+		top: pxToRem(20);
+		margin-bottom: pxToRem(20);
+		text-align: center;
+
+		@include respond-to('x-large') {
+			margin-bottom: 0;
+		}
+	}
 
 	&__name {
 		margin: 0 0 20%;

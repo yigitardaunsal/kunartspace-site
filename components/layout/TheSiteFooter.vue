@@ -47,12 +47,14 @@ export default {
 	}
 
 	&__social {
-		text-align: right;
+		margin-bottom: pxToRem(20);
+		text-align: center;
 	}
 
 	&__texts {
 		display: flex;
 		justify-content: space-between;
+		margin-bottom: pxToRem(20);
 		font-size: pxToRem(12);
 		font-weight: 300;
 		line-height: pxToRem(20);
@@ -60,6 +62,9 @@ export default {
 	}
 
 	&__link {
+		display: block;
+		text-align: center;
+
 		&.--contact {
 			font-size: pxToRem(12);
 			font-weight: 400;
@@ -74,6 +79,22 @@ export default {
 
 	&__logo {
 		margin-bottom: pxToRem(20);
+	}
+
+	@include respond-to('x-large') {
+		&__social {
+			margin-bottom: 0;
+			text-align: right;
+		}
+
+		&__texts {
+			margin-bottom: 0;
+		}
+
+		&__link {
+			display: inline;
+			text-align: left;
+		}
 	}
 }
 </style>
