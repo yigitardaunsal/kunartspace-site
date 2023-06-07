@@ -29,15 +29,31 @@ export default {
 
 <style lang="scss" scoped>
 .social-media {
-	display: inline-grid;
-	grid-template-columns: repeat(3, pxToRem(24));
-	column-gap: pxToRem(18);
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
 
 	&__link {
+		line-height: 50px;
+		text-align: center;
 		color: $mild-gray;
 
 		&:hover {
 			color: $darklighten;
+		}
+	}
+
+	@include respond-to('x-large') {
+		display: inline-grid;
+		grid-template-columns: repeat(3, pxToRem(24));
+		column-gap: pxToRem(18);
+
+		&__link {
+			line-height: 1;
+			text-align: left;
+
+			&:hover {
+				color: $darklighten;
+			}
 		}
 	}
 }

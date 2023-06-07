@@ -7,17 +7,8 @@
 			<slot name="nav" />
 		</div>
 		<slot name="account" />
-		<div class="language" :class="{ last: !$slots.social }">
-			<button
-				v-for="(locale, index) in locales"
-				:key="index"
-				type="button"
-				class="language__item"
-				:class="{ active: currentLocale === locale }"
-				@click="changeLocale(locale)"
-			>
-				{{ locale.toLocaleUpperCase() }}
-			</button>
+		<div class="languages">
+			<TheLanguages :right-gap="!!$slots.social" />
 		</div>
 		<div class="social">
 			<slot name="social" />
@@ -33,19 +24,6 @@ export default {
 	name: 'TheHeader',
 	components: {
 		Logo
-	},
-	computed: {
-		currentLocale() {
-			return this.$i18n.locale
-		},
-		locales() {
-			return this.$i18n.localeCodes
-		}
-	},
-	methods: {
-		changeLocale(localeCode) {
-			this.$i18n.setLocale(localeCode)
-		}
 	}
 }
 </script>
@@ -86,31 +64,11 @@ export default {
 		}
 	}
 
-	.language {
+	.languages {
 		display: none;
 
 		@include respond-to('x-large') {
 			display: flex;
-			margin-right: pxToRem(50);
-
-			&.last {
-				margin-right: 0;
-			}
-
-			&__item {
-				border: none;
-				width: 30px;
-				line-height: 16px;
-				background: transparent;
-				font-size: pxToRem(12);
-				color: $mild-gray;
-				cursor: pointer;
-
-				&.active {
-					font-weight: 600;
-					color: $darklighten;
-				}
-			}
 		}
 	}
 

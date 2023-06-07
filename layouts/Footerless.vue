@@ -11,12 +11,17 @@
 		<main class="main">
 			<Nuxt />
 		</main>
-		<TheMobileMenu />
+		<TheMobileMenu>
+			<TheSiteNav />
+		</TheMobileMenu>
 	</div>
 </template>
 
 <script>
+import layout from '../mixins/layout'
+
 export default {
-	name: 'FooterlessLayout'
+	name: 'FooterlessLayout',
+	mixins: [layout]
 }
 </script>

@@ -3,15 +3,37 @@
 		<div v-if="isOverlayShowing" class="mobile-menu">
 			<div class="mobile-menu__overlay" @click="isWrapperShowing = false"></div>
 			<transition name="slide" @after-leave="isOverlayShowing = false">
-				<div v-if="isWrapperShowing" class="mobile-menu__wrapper"></div>
+				<div v-if="isWrapperShowing" class="mobile-menu__wrapper">
+					<div class="mobile-menu__header">
+						<nuxt-link :to="localePath('index')" tag="a" class="logo">
+							<Logo />
+						</nuxt-link>
+					</div>
+					<div class="mobile-menu__nav">
+						<slot />
+					</div>
+					<div class="mobile-menu__footer">
+						<div class="languages">
+							<TheLanguages />
+						</div>
+						<div class="social">
+							<SocialMedia />
+						</div>
+					</div>
+				</div>
 			</transition>
 		</div>
 	</transition>
 </template>
 
 <script>
+import Logo from '@/assets/svg/logo.svg'
+
 export default {
 	name: 'TheMobileMenu',
+	components: {
+		Logo
+	},
 	data() {
 		return {
 			isWrapperShowing: false
@@ -77,9 +99,29 @@ export default {
 		position: absolute;
 		top: 0;
 		right: 0;
+		display: flex;
+		flex-direction: column;
 		width: calc(100% - 50px);
 		height: 100%;
 		background-color: $enlighten;
+	}
+
+	&__header {
+		padding: pxToRem(20) pxToRem(25);
+		border-bottom: 1px solid $b-gray;
+
+		.logo {
+			color: $darklighten;
+		}
+	}
+
+	&__footer {
+		margin: auto 0 pxToRem(10);
+
+		.languages {
+			border-bottom: 1px solid $b-gray;
+			padding-bottom: pxToRem(10);
+		}
 	}
 
 	@include respond-to('x-large') {

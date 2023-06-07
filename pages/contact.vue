@@ -76,6 +76,7 @@
 							allowfullscreen=""
 							loading="lazy"
 							referrerpolicy="no-referrer-when-downgrade"
+							class="contact__map"
 						></iframe>
 					</div>
 				</div>
@@ -203,12 +204,12 @@ export default {
 <style lang="scss" scoped>
 .contact {
 	&__footer {
-		margin: pxToRem(145) 0 pxToRem(88);
+		margin: pxToRem(45) 0 pxToRem(20);
 
 		.row:not(:last-child) {
 			margin-bottom: pxToRem(40);
 			border-bottom: 1px solid $graylighten;
-			padding-bottom: pxToRem(70);
+			padding-bottom: pxToRem(30);
 		}
 	}
 
@@ -216,6 +217,11 @@ export default {
 		display: flex;
 		align-items: center;
 		gap: pxToRem(22);
+		margin-bottom: pxToRem(20);
+
+		@include respond-to('x-large') {
+			margin-bottom: 0;
+		}
 	}
 
 	&__content {
@@ -241,6 +247,26 @@ export default {
 			margin-right: pxToRem(20);
 			border-right: 1px solid $darklighten;
 			padding-right: pxToRem(25);
+		}
+	}
+
+	&__map {
+		margin-top: pxToRem(30);
+		height: pxToRem(400);
+	}
+
+	@include respond-to('x-large') {
+		&__footer {
+			margin: pxToRem(145) 0 pxToRem(88);
+
+			.row:not(:last-child) {
+				padding-bottom: pxToRem(70);
+			}
+		}
+
+		&__map {
+			height: 100%;
+			margin-top: 0;
 		}
 	}
 }

@@ -9,7 +9,7 @@
 				<img :src="exhibition.image" :alt="exhibition.name" class="img-fluid" />
 			</nuxt-link>
 		</div>
-		<div class="col-md-6 offset-1">
+		<div class="col-md-6 offset-md-1">
 			<div class="exhibition__content">
 				<h1 class="exhibition__title">
 					{{ exhibition.name
@@ -19,7 +19,7 @@
 				</h1>
 				<span class="exhibition__date">{{ exhibition.startDate }} - {{ exhibition.endDate }}</span>
 				<div class="exhibition__footer">
-					<p class="exhibition__text">{{ exhibition.description }}</p>
+					<p class="exhibition__text">{{ exhibition.description }}...</p>
 					<nuxt-link
 						:to="localePath({ name: 'exhibition', params: { slug: exhibition.link } })"
 						tag="a"
@@ -61,9 +61,9 @@ export default {
 
 	&__title {
 		margin: 0 0 pxToRem(12);
-		font-size: px2trem(36);
+		font-size: pxToRem(36);
 		font-weight: 600;
-		line-height: pxToRem(54);
+		line-height: 1.2;
 
 		span {
 			font-weight: 400;
@@ -76,15 +76,16 @@ export default {
 
 	&__footer {
 		display: flex;
+		flex-direction: column;
 		justify-content: space-between;
 		align-items: flex-end;
-		margin: auto 0 0;
+		margin: pxToRem(20) 0 0;
 		width: 100%;
 	}
 
 	&__text {
 		margin: 0;
-		width: pxToRem(420);
+		width: 100%;
 		line-height: pxToRem(22);
 	}
 
@@ -93,6 +94,21 @@ export default {
 		align-items: center;
 		gap: pxToRem(5);
 		height: pxToRem(22);
+	}
+
+	@include respond-to('x-large') {
+		&__title {
+			line-height: pxToRem(54);
+		}
+
+		&__footer {
+			flex-direction: row;
+			margin: auto 0 0;
+		}
+
+		&__text {
+			width: pxToRem(420);
+		}
 	}
 }
 </style>

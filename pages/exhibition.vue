@@ -6,7 +6,9 @@
 		</div>
 		<div class="exhibition__body row align-items-center">
 			<div class="col-md-6">
-				<img :src="exhibition.image" :alt="exhibition.title" class="img-fluid" />
+				<div class="exhibition__picture">
+					<img :src="exhibition.image" :alt="exhibition.title" class="img-fluid" />
+				</div>
 			</div>
 			<div class="col-md-6">
 				<div class="exhibition__content" v-html="exhibition.description" />
@@ -61,13 +63,13 @@ export default {
 <style lang="scss" scoped>
 .exhibition {
 	&__header {
-		margin: pxToRem(40) 0 pxToRem(72);
+		margin: 0 0 pxToRem(30);
 	}
 
 	&__title {
-		margin: 0;
-		line-height: pxToRem(84);
-		font-size: pxToRem(56);
+		margin: 0 0 pxToRem(10);
+		font-size: pxToRem(40);
+		line-height: 1.2;
 		font-weight: 600;
 	}
 
@@ -81,8 +83,12 @@ export default {
 		margin-bottom: pxToRem(66);
 	}
 
+	&__picture {
+		margin-bottom: pxToRem(30);
+	}
+
 	&__content {
-		padding-left: pxToRem(46);
+		padding-left: 0;
 		line-height: pxToRem(22);
 		font-size: pxToRem(14);
 		color: $dark-gray;
@@ -98,6 +104,26 @@ export default {
 
 	&__works {
 		margin-bottom: pxToRem(75);
+	}
+
+	@include respond-to('x-large') {
+		&__header {
+			margin: pxToRem(40) 0 pxToRem(72);
+		}
+
+		&__title {
+			margin: 0;
+			font-size: pxToRem(56);
+			line-height: pxToRem(84);
+		}
+
+		&__picture {
+			margin-bottom: 0;
+		}
+
+		&__content {
+			padding-left: pxToRem(46);
+		}
 	}
 }
 </style>
