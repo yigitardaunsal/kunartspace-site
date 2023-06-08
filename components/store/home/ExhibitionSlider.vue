@@ -124,7 +124,13 @@ export default {
 		}
 
 		&__link {
-			margin-top: auto;
+			margin-top: pxToRem(30);
+		}
+
+		@include respond-to('x-large') {
+			&__link {
+				margin-top: auto;
+			}
 		}
 	}
 
@@ -132,7 +138,7 @@ export default {
 		position: absolute;
 		bottom: 0;
 		right: pxToRem(12);
-		display: flex;
+		display: none;
 		gap: pxToRem(25);
 
 		&-button {
@@ -140,6 +146,10 @@ export default {
 			padding: 0;
 			background-color: transparent;
 			color: $dark-gray;
+		}
+
+		@include respond-to('x-large') {
+			display: flex;
 		}
 	}
 }

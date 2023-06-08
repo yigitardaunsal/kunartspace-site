@@ -46,8 +46,13 @@ export default {
 
 <style lang="scss" scoped>
 .hero {
-	margin-top: pxToRem(48);
-	margin-bottom: pxToRem(100);
+	margin-top: 0;
+	margin-bottom: pxToRem(20);
+
+	@include respond-to('x-large') {
+		margin-top: pxToRem(48);
+		margin-bottom: pxToRem(100);
+	}
 }
 
 .current-works {

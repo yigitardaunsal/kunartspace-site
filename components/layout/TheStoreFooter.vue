@@ -87,11 +87,13 @@ export default {
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
+		margin-bottom: pxToRem(20);
 		height: 100%;
 
 		&.--social {
-			align-items: flex-end;
-			justify-content: space-between;
+			display: block;
+			margin-bottom: 0;
+			text-align: center;
 		}
 
 		.newsletter {
@@ -99,6 +101,7 @@ export default {
 			flex-direction: column;
 			width: 100%;
 			margin-top: auto;
+			margin-bottom: pxToRem(20);
 
 			&__text {
 				margin-bottom: pxToRem(18);
@@ -188,6 +191,23 @@ export default {
 					grid-area: agence;
 					text-align: right;
 				}
+			}
+		}
+	}
+
+	@include respond-to('x-large') {
+		&__block {
+			margin-bottom: 0;
+
+			&.--social {
+				display: flex;
+				align-items: flex-end;
+				justify-content: space-between;
+				text-align: left;
+			}
+
+			.newsletter {
+				margin-bottom: 0;
 			}
 		}
 	}

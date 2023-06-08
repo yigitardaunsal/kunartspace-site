@@ -13,6 +13,9 @@
 		</main>
 		<TheStoreFooter />
 		<TheSearchModal />
+		<TheMobileMenu>
+			<TheStoreNav />
+		</TheMobileMenu>
 	</div>
 </template>
 
