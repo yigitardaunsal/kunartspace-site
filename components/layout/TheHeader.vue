@@ -38,9 +38,6 @@ export default {
 		openSearchModal() {
 			this.$store.commit('SET_IS_OPEN_SEARCH_MODAL', true)
 		}
-	},
-	created() {
-		console.log(this.$route)
 	}
 }
 </script>
