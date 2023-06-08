@@ -2,7 +2,13 @@
 	<Modal :is-open="isOpen" title="Ürün arama" @close="closeModal">
 		<Form @submit="search">
 			<FormRow>
-				<Textbox v-model="searchText" name="search" placeholder="Ürün veya sanatçı adı" rules="required" />
+				<Textbox
+					ref="searchInput"
+					v-model="searchText"
+					name="search"
+					placeholder="Ürün veya sanatçı adı"
+					rules="required"
+				/>
 			</FormRow>
 		</Form>
 	</Modal>
@@ -19,6 +25,17 @@ export default {
 	computed: {
 		isOpen() {
 			return this.$store.state.isOpenSearchModal
+		}
+	},
+	watch: {
+		isOpen() {
+			this.$nextTick(() => {
+				this.searchText = ''
+				const searchInput = this.$refs.searchInput
+				if (searchInput) {
+					searchInput.$el.querySelector('input').focus()
+				}
+			})
 		}
 	},
 	methods: {

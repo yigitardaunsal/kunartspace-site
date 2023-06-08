@@ -23,6 +23,7 @@ export default {
 <style lang="scss" scoped>
 .mobile-menu-button {
 	display: block;
+	margin-left: pxToRem(10);
 	min-width: pxToRem(40);
 	height: pxToRem(40);
 	border: none;

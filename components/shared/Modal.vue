@@ -69,8 +69,12 @@ export default {
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
-		width: 600px;
+		width: 90%;
 		background-color: $enlighten;
+
+		@include respond-to('x-large') {
+			width: 600px;
+		}
 	}
 
 	&__header {

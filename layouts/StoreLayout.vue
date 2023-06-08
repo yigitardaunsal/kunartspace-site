@@ -7,6 +7,9 @@
 			<template #account>
 				<TheAccountNav />
 			</template>
+			<template #search>
+				<SearchButton />
+			</template>
 		</TheHeader>
 		<main class="main">
 			<Nuxt />

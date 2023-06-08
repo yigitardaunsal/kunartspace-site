@@ -13,17 +13,34 @@
 		<div class="social">
 			<slot name="social" />
 		</div>
+		<button
+			v-if="$route.path.includes('magaza') || $route.path.includes('store')"
+			class="search"
+			@click="openSearchModal"
+		>
+			<SearchIcon width="25" height="25" />
+		</button>
 		<TheMobileMenuButton />
 	</header>
 </template>
 
 <script>
 import Logo from '@/assets/svg/logo.svg'
+import SearchIcon from '@/assets/svg/search.svg'
 
 export default {
 	name: 'TheHeader',
 	components: {
-		Logo
+		Logo,
+		SearchIcon
+	},
+	methods: {
+		openSearchModal() {
+			this.$store.commit('SET_IS_OPEN_SEARCH_MODAL', true)
+		}
+	},
+	created() {
+		console.log(this.$route)
 	}
 }
 </script>
@@ -35,14 +52,13 @@ export default {
 	align-items: center;
 	margin: 0 auto;
 	height: pxToRem(100);
-	gap: pxToRem(30);
 
 	@include respond-to('x-large') {
 		height: pxToRem(158);
-		gap: 0;
 	}
 
 	.logo {
+		margin-right: pxToRem(20);
 		width: 100%;
 		color: $darklighten;
 
@@ -51,6 +67,7 @@ export default {
 		}
 
 		@include respond-to('x-large') {
+			margin-right: 0;
 			width: pxToRem(350);
 		}
 	}
@@ -77,6 +94,20 @@ export default {
 
 		@include respond-to('x-large') {
 			display: block;
+		}
+	}
+
+	.search {
+		display: block;
+		border: none;
+		min-width: pxToRem(40);
+		height: pxToRem(40);
+		padding: 0;
+		background-color: transparent;
+		color: $darklighten;
+
+		@include respond-to('x-large') {
+			display: none;
 		}
 	}
 }
