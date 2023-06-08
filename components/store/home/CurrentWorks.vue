@@ -3,14 +3,7 @@
 		<PageHeadline :bordered="false" position="center">{{ $t('currentWorks') }}</PageHeadline>
 		<div class="current-works-slider">
 			<client-only>
-				<VueSlickCarousel
-					ref="currentWorksSlider"
-					:slides-to-show="4"
-					:arrows="false"
-					:dots="false"
-					:infinite="true"
-					:center-mode="works.length < 4"
-				>
+				<VueSlickCarousel ref="currentWorksSlider" v-bind="sliderSettings" :center-mode="works.length < 4">
 					<WorkCard v-for="(work, index) in works" :key="index" :work="work" />
 				</VueSlickCarousel>
 				<template v-if="works.length > 4">
@@ -45,6 +38,33 @@ export default {
 			required: true
 		}
 	},
+	data() {
+		return {
+			sliderSettings: {
+				slidesToShow: 3,
+				arrows: false,
+				dots: false,
+				infinite: true,
+				responsive: [
+					{
+						breakpoint: 975,
+						settings: {
+							slidesToShow: 1
+						}
+					}
+				]
+			}
+		}
+	},
+	computed: {
+		centerMode() {
+			if (window.innerWidth > 975 && this.works.length < 3) {
+				return true
+			}
+
+			return false
+		}
+	},
 	methods: {
 		prevSlide() {
 			this.$refs.currentWorksSlider.prev()
@@ -59,6 +79,8 @@ export default {
 <style lang="scss" scoped>
 .current-works {
 	margin: 0 pxToRem(-12);
+	max-width: 100%;
+	overflow: hidden;
 
 	&-slider {
 		position: relative;

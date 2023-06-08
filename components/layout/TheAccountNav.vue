@@ -77,7 +77,7 @@ export default {
 
 <style lang="scss" scoped>
 .account-nav {
-	display: flex;
+	display: none;
 	align-items: center;
 	gap: pxToRem(20);
 	margin-right: pxToRem(56);
@@ -118,6 +118,10 @@ export default {
 		&:hover {
 			color: $darklighten;
 		}
+	}
+
+	@include respond-to('x-large') {
+		display: flex;
 	}
 }
 </style>
