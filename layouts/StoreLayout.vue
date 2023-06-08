@@ -20,7 +20,10 @@
 </template>
 
 <script>
+import layout from '../mixins/layout'
+
 export default {
-	name: 'StoreLayout'
+	name: 'StoreLayout',
+	mixins: [layout]
 }
 </script>
