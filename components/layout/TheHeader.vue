@@ -13,13 +13,14 @@
 		<div class="social">
 			<slot name="social" />
 		</div>
-		<button
-			v-if="$route.path.includes('magaza') || $route.path.includes('store')"
-			class="search"
-			@click="openSearchModal"
-		>
-			<SearchIcon width="25" height="25" />
-		</button>
+		<template v-if="$route.path.includes('magaza') || $route.path.includes('store')">
+			<button class="mobile-button" @click="openSearchModal">
+				<SearchIcon width="25" height="25" />
+			</button>
+			<nuxt-link :to="localePath({ name: 'store-cart' })" class="mobile-button">
+				<BasketIcon width="25" height="25" />
+			</nuxt-link>
+		</template>
 		<TheMobileMenuButton />
 	</header>
 </template>
@@ -27,12 +28,14 @@
 <script>
 import Logo from '@/assets/svg/logo.svg'
 import SearchIcon from '@/assets/svg/search.svg'
+import BasketIcon from '@/assets/svg/cart.svg'
 
 export default {
 	name: 'TheHeader',
 	components: {
 		Logo,
-		SearchIcon
+		SearchIcon,
+		BasketIcon
 	},
 	methods: {
 		openSearchModal() {
@@ -94,8 +97,10 @@ export default {
 		}
 	}
 
-	.search {
-		display: block;
+	.mobile-button {
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		border: none;
 		min-width: pxToRem(40);
 		height: pxToRem(40);

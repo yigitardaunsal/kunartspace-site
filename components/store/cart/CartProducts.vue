@@ -64,7 +64,9 @@
 							</div>
 						</template>
 						<template v-else>
-							{{ product.quantity }}
+							<div class="product__amount">
+								<span class="product__amount-text">{{ $t('cartProducts.amount') }} :</span> {{ product.quantity }}
+							</div>
 						</template>
 					</div>
 					<div class="col-md-2">
@@ -134,6 +136,7 @@ export default {
 <style lang="scss" scoped>
 .products {
 	&__header {
+		display: none;
 		margin-bottom: pxToRem(48);
 		border-bottom: 1px solid $graylighten;
 		padding-bottom: pxToRem(52);
@@ -146,6 +149,13 @@ export default {
 
 		.product {
 			margin-bottom: pxToRem(46);
+			border-bottom: 1px solid $graylighten;
+			padding-bottom: pxToRem(46);
+
+			&:last-child {
+				border-bottom: none;
+				padding-bottom: 0;
+			}
 
 			&__picture {
 				display: block;
@@ -180,14 +190,32 @@ export default {
 				color: $dark-gray;
 			}
 
+			&__amount {
+				margin: pxToRem(20) 0;
+			}
+
 			&__price {
 				font-size: pxToRem(18);
 				line-height: pxToRem(26);
 			}
 
+			@include respond-to('x-large') {
+				border-bottom: none;
+				padding-bottom: 0;
+
+				&__amount {
+					margin: 0;
+
+					&-title {
+						display: none;
+					}
+				}
+			}
+
 			.amount {
 				display: flex;
 				align-items: center;
+				margin: pxToRem(20) 0;
 				border: 1px solid;
 				border-radius: pxToRem(4);
 				width: pxToRem(150);
@@ -227,12 +255,22 @@ export default {
 					flex: 1;
 					text-align: center;
 				}
+
+				@include respond-to('x-large') {
+					margin: 0;
+				}
 			}
 
 			.error {
 				font-size: pxToRem(14);
 				color: $alizarin;
 			}
+		}
+	}
+
+	@include respond-to('x-large') {
+		&__header {
+			display: block;
 		}
 	}
 }

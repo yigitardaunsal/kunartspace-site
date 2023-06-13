@@ -9,7 +9,9 @@ export default {
 		contact: 'İletişim',
 		store: 'Mağaza',
 		atelier: 'Atölye',
-		products: 'Ürünler'
+		products: 'Ürünler',
+		loginOrRegister: 'Giriş Yap veya Kaydol',
+		myAccount: 'Hesabım'
 	},
 	constantPageLinks: {
 		about: 'hakkimizda'

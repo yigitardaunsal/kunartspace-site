@@ -23,18 +23,26 @@
 			</div>
 		</main>
 		<TheStoreFooter />
+		<TheMobileMenu>
+			<TheStoreNav />
+		</TheMobileMenu>
 	</div>
 </template>
 
 <script>
+import layout from '../mixins/layout'
+
 export default {
 	name: 'CustomerLayout',
+	mixins: [layout],
 	middleware: ['session-control', 'auth']
 }
 </script>
 
 <style lang="scss" scoped>
 .customer {
-	padding-top: pxToRem(50);
+	@include respond-to('x-large') {
+		padding-top: pxToRem(50);
+	}
 }
 </style>

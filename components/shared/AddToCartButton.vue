@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import BasketIcon from '@/assets/svg/basket.svg'
+import BasketIcon from '@/assets/svg/cart.svg'
 
 export default {
 	name: 'AddToCartButton',

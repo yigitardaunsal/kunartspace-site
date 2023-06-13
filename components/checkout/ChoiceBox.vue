@@ -38,7 +38,7 @@ export default {
 <style lang="scss">
 .choiceBox {
 	display: flex;
-	gap: pxToRem(112);
+	gap: pxToRem(20);
 	margin-bottom: pxToRem(30);
 	border: 1px solid $b-gray;
 	border-radius: pxToRem(5);
@@ -46,6 +46,7 @@ export default {
 	cursor: pointer;
 
 	&__check {
+		flex-shrink: 0;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -94,6 +95,10 @@ export default {
 
 	&:last-child {
 		margin-bottom: 0;
+	}
+
+	@include respond-to('x-large') {
+		gap: pxToRem(112);
 	}
 }
 </style>

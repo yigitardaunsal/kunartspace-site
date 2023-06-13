@@ -56,7 +56,7 @@ export default {
 	$self: &;
 	display: flex;
 	align-items: center;
-	gap: pxToRem(16);
+	gap: pxToRem(10);
 	cursor: pointer;
 
 	&__input {
@@ -91,6 +91,10 @@ export default {
 		line-height: 1.3;
 		color: $mild-gray;
 		user-select: none;
+	}
+
+	@include respond-to('x-large') {
+		gap: pxToRem(16);
 	}
 }
 </style>

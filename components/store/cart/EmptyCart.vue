@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import BasketIcon from '@/assets/svg/basket.svg'
+import BasketIcon from '@/assets/svg/cart.svg'
 
 export default {
 	name: 'EmptyCart',
@@ -30,5 +30,9 @@ export default {
 	align-items: center;
 	gap: pxToRem(20);
 	margin-top: pxToRem(-45);
+
+	&__title {
+		text-align: center;
+	}
 }
 </style>

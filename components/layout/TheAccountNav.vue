@@ -8,7 +8,7 @@
 		</nuxt-link>
 		<div class="account-nav__item --basket" :class="{ '--open': isMiniBasketOpen, '--active': isMiniBasketOpen }">
 			<button class="account-nav__button" @click="toggleMiniBasketOpen">
-				<BasketIcon width="25" height="25" />
+				<BasketIcon width="23" height="23" />
 			</button>
 			<TheMiniBasket v-if="isMiniBasketOpen" />
 		</div>
@@ -18,7 +18,9 @@
 <script>
 import SearchIcon from '@/assets/svg/search.svg'
 import AccountIcon from '@/assets/svg/account.svg'
-import BasketIcon from '@/assets/svg/basket.svg'
+import BasketIcon from '@/assets/svg/cart.svg'
+
+import accountNav from '~/mixins/account-nav'
 
 export default {
 	name: 'TheAccountNav',
@@ -27,25 +29,10 @@ export default {
 		AccountIcon,
 		BasketIcon
 	},
+	mixins: [accountNav],
 	data() {
 		return {
 			isMiniBasketOpen: false
-		}
-	},
-	computed: {
-		customerUrl() {
-			if (this.inCustomerPages) {
-				return this.localePath({
-					name: 'store-customer-login'
-				})
-			}
-
-			return this.$store.getters.getIsAuthenticated
-				? this.localePath({ name: 'store-customer' })
-				: this.localePath({ name: 'store-customer-login', query: { returnUrl: this.$route.path } })
-		},
-		inCustomerPages() {
-			return this.$route.path.includes('customer')
 		}
 	},
 	mounted() {

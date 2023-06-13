@@ -245,7 +245,11 @@ export default {
 
 <style lang="scss" scoped>
 .address {
-	margin-top: pxToRem(25);
+	margin-top: pxToRem(50);
+
+	@include respond-to('x-large') {
+		margin-top: pxToRem(25);
+	}
 
 	&__header {
 		display: flex;

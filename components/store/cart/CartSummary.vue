@@ -76,7 +76,12 @@ export default {
 	&__info {
 		margin-top: pxToRem(42);
 		line-height: pxToRem(24);
+		text-align: right;
 		color: $mild-gray;
+
+		@include respond-to('x-large') {
+			text-align: left;
+		}
 	}
 }
 </style>

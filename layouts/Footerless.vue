@@ -1,5 +1,5 @@
 <template>
-	<div class="footerless-layout">
+	<div class="layout --footerless">
 		<TheHeader>
 			<template #nav>
 				<TheSiteNav />

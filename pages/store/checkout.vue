@@ -177,18 +177,20 @@
 						</Checkbox>
 					</div>
 					<div class="col-md-4">
-						<CartSummary>
-							<template #button>
-								<Button
-									size="lg"
-									block
-									:disabled="!didAcceptContracts || overstock"
-									:loading="isButtonLoading"
-									@click="orderNow"
-									>{{ $t('checkoutPage.placeOrder') }}</Button
-								>
-							</template>
-						</CartSummary>
+						<div class="checkout__summary">
+							<CartSummary>
+								<template #button>
+									<Button
+										size="lg"
+										block
+										:disabled="!didAcceptContracts || overstock"
+										:loading="isButtonLoading"
+										@click="orderNow"
+										>{{ $t('checkoutPage.placeOrder') }}</Button
+									>
+								</template>
+							</CartSummary>
+						</div>
 					</div>
 				</div>
 			</template>
@@ -428,6 +430,14 @@ export default {
 	&__contract {
 		line-height: pxToRem(24);
 		color: $dark-gray;
+	}
+
+	&__summary {
+		margin-top: pxToRem(40);
+
+		@include respond-to('x-large') {
+			margin-top: 0;
+		}
 	}
 }
 

@@ -1,5 +1,6 @@
 .customer-auth {
-  padding: pxToRem(50) 0;
+  padding-top: pxToRem(50);
+  padding-bottom: pxToRem(50);
 
   &__header {
     margin-bottom: pxToRem(44);
@@ -39,8 +40,13 @@
 .customer-page {
   &__header {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
     margin-bottom: pxToRem(44);
+
+    @include respond-to('x-large') {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
   }
 }

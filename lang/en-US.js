@@ -9,7 +9,9 @@ export default {
 		contact: 'Contact',
 		store: 'Store',
 		atelier: 'Atelier',
-		products: 'Products'
+		products: 'Products',
+		loginOrRegister: 'Login or Register',
+		myAccount: 'My Account'
 	},
 	constantPageLinks: {
 		about: 'about-us'

@@ -30,7 +30,7 @@
 						>{{ work.price | currency }} <template v-if="work.hasVat">(+{{ $t('vat') }})</template></span
 					>
 					<div class="work__buttons">
-						<AddToCartButton :loading="addToCartLoading" @click="addToCart" />
+						<AddToCartButton :loading="addToCartLoading" :disabled="work.stock === 0" @click="addToCart" />
 						<Button
 							variant="text"
 							class="work__favorite"
@@ -43,7 +43,7 @@
 						</Button>
 					</div>
 					<div class="work__buttons">
-						<Button block :disabled="addToCartLoading" @click="buyNow">{{ $t('buyNow') }}</Button>
+						<Button block :disabled="addToCartLoading || work.stock === 0" @click="buyNow">{{ $t('buyNow') }}</Button>
 					</div>
 					<div class="work__contact">
 						<a href="https://wa.me/905383883838" target="_blank" class="whatsapp">

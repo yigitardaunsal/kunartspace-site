@@ -70,6 +70,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.sidebar {
+	display: none;
+
+	@include respond-to('x-large') {
+		display: block;
+	}
+}
+
 .nav {
 	display: flex;
 	flex-direction: column;
