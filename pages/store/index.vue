@@ -26,10 +26,13 @@ export default {
 		}
 	},
 	async asyncData({ store, $api }) {
-		await store.dispatch('fetchExhibitionList')
-		const currentWorks = await $api.get('/fields/get/current-works')
-		const selectedArtists = await $api.get('/fields/get/selected-artists')
-		const selectedWorks = await $api.get('/fields/get/selected-works')
+		const [currentWorks, selectedArtists, selectedWorks] = await Promise.all([
+			$api.get('/fields/get/current-works'),
+			$api.get('/fields/get/selected-artists'),
+			$api.get('/fields/get/selected-works'),
+			store.dispatch('fetchExhibitionList')
+		])
+
 		return {
 			currentWorks: currentWorks.data.items,
 			selectedArtists: selectedArtists.data.items,
