@@ -1,16 +1,9 @@
 <template>
 	<Modal :is-open="isOpen" title="Ürün arama" @close="closeModal">
-		<Form @submit="search">
-			<FormRow>
-				<Textbox
-					ref="searchInput"
-					v-model="searchText"
-					name="search"
-					placeholder="Ürün veya sanatçı adı"
-					rules="required"
-				/>
-			</FormRow>
-		</Form>
+		<form @submit="search" class="search-form">
+			<Textbox ref="searchInput" v-model="searchText" name="search" placeholder="Ürün veya sanatçı adı" />
+			<Button variant="primary">Ara</Button>
+		</form>
 	</Modal>
 </template>
 
@@ -50,4 +43,14 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.search-form {
+	display: grid;
+	grid-template-rows: 1fr auto;
+	gap: pxToRem(5);
+
+	@include respond-to('x-large') {
+		grid-template-columns: 1fr auto;
+	}
+}
+</style>
