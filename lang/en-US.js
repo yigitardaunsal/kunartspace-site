@@ -39,7 +39,14 @@ export default {
 		currentAteliers: 'CURRENT ATELIERS',
 		pastAteliers: 'PAST ATELIERS',
 		instuctor: 'Instructor',
-		price: 'Participation Fee'
+		price: 'Participation Fee',
+		registerForm: {
+			name: 'Name',
+			surname: 'Surname',
+			email: 'E-mail Address',
+			phone: 'Phone',
+			question: 'Ask what you have in mind...'
+		}
 	},
 	view: 'View',
 	contactPage: {

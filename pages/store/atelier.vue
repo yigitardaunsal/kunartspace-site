@@ -16,7 +16,7 @@
 						{{ $t('atelierPage.price') }}: <strong>{{ atelier.price | currency }}</strong>
 					</div>
 					<div class="atelier__buttons">
-						<Button variant="secondary" block>Atölyeye Katıl</Button>
+						<Button variant="secondary" block @click="openRegisterModal">Atölyeye Katıl</Button>
 					</div>
 				</div>
 				<div class="col-md-6">
@@ -24,6 +24,34 @@
 				</div>
 			</div>
 		</div>
+		<Modal :is-open="registerModalIsOpen" variant="secondary" title="" @close="closeRegisterModal">
+			<ValidationObserver v-slot="{ handleSubmit }">
+				<form class="contact__form row" @submit.prevent="handleSubmit(sendMsg)">
+					<div class="col-md-6">
+						<FormGroup>
+							<Textbox
+								v-model="registerForm.name"
+								type="text"
+								name="name"
+								:placeholder="$t('atelierPage.registerForm.name')"
+								:rules="{ required: 'requied', regex: /^[a-zA-ZığĞüÜşŞiİöÖçÇ\s]*$/ }"
+							/>
+						</FormGroup>
+					</div>
+					<div class="col-md-6">
+						<FormGroup>
+							<Textbox
+								v-model="registerForm.surname"
+								type="text"
+								name="surname"
+								:placeholder="$t('atelierPage.registerForm.surname')"
+								:rules="{ required: 'requied', regex: /^[a-zA-ZığĞüÜşŞiİöÖçÇ\s]*$/ }"
+							/>
+						</FormGroup>
+					</div>
+				</form>
+			</ValidationObserver>
+		</Modal>
 	</div>
 </template>
 
@@ -58,6 +86,26 @@ export default {
 			}
 		} catch (err) {
 			error({ statusCode: err.response.status, message: err.message })
+		}
+	},
+	data() {
+		return {
+			registerModalIsOpen: true,
+			registerForm: {
+				name: '',
+				surname: '',
+				email: '',
+				phone: '',
+				question: ''
+			}
+		}
+	},
+	methods: {
+		openRegisterModal() {
+			this.registerModalIsOpen = true
+		},
+		closeRegisterModal() {
+			this.registerModalIsOpen = false
 		}
 	}
 }

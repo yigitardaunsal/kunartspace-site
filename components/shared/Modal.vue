@@ -1,5 +1,5 @@
 <template>
-	<div v-if="isOpen" class="modal">
+	<div v-if="isOpen" class="modal" :class="[`--${variant}`]">
 		<div class="modal__overlay" @click="$emit('close')"></div>
 		<div class="modal__wrapper">
 			<div class="modal__header">
@@ -27,6 +27,11 @@ export default {
 			required: true,
 			default: false
 		},
+		variant: {
+			type: String,
+			requied: false,
+			default: 'primary'
+		},
 		title: {
 			type: String,
 			required: false,
@@ -48,6 +53,7 @@ export default {
 
 <style lang="scss" scoped>
 .modal {
+	$self: &;
 	position: fixed;
 	z-index: 2;
 	top: 0;
@@ -61,7 +67,6 @@ export default {
 		right: 0;
 		bottom: 0;
 		left: 0;
-		background-color: rgba($darklighten, 0.5);
 	}
 
 	&__wrapper {
@@ -69,8 +74,9 @@ export default {
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
+		box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.15);
+		border-radius: pxToRem(10);
 		width: 90%;
-		background-color: $enlighten;
 
 		@include respond-to('x-large') {
 			width: 600px;
@@ -108,6 +114,31 @@ export default {
 		padding: 0 pxToRem(30) pxToRem(30);
 		max-height: calc(90vh - pxToRem(82));
 		overflow-y: scroll;
+	}
+
+	&.--primary {
+		#{$self} {
+			&__overlay {
+				background-color: rgba($darklighten, 0.5);
+			}
+
+			&__wrapper {
+				background-color: $enlighten;
+			}
+		}
+	}
+
+	&.--secondary {
+		#{$self} {
+			&__overlay {
+				background-color: rgba($enlighten, 0.25);
+				backdrop-filter: blur(5px);
+			}
+
+			&__wrapper {
+				background-color: $f3-light-gray;
+			}
+		}
 	}
 }
 </style>

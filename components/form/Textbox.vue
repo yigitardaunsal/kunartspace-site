@@ -83,6 +83,7 @@ export default {
 	border: 1px solid $dark-gray;
 	border-radius: pxToRem(5);
 	padding: 0 pxToRem(20);
+	background-color: transparent;
 	color: $dark-gray;
 
 	&::placeholder {

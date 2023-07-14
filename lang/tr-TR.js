@@ -39,7 +39,14 @@ export default {
 		currentAteliers: 'AKTİF ATÖLYELER',
 		pastAteliers: 'GEÇMİŞ ATÖLYELER',
 		instructor: 'Eğitmen',
-		price: 'Katılım Ücreti'
+		price: 'Katılım Ücreti',
+		registerForm: {
+			name: 'Ad',
+			surname: 'Soyad',
+			email: 'E-posta',
+			phone: 'Telefon',
+			question: 'Aklınızdakini sorun...'
+		}
 	},
 	view: 'Görüntüle',
 	contactPage: {
