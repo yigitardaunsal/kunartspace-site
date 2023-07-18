@@ -45,8 +45,12 @@ export default {
 			surname: 'Surname',
 			email: 'E-mail Address',
 			phone: 'Phone',
-			question: 'Ask what you have in mind...'
-		}
+			session: 'Select Time and  Date',
+			message: 'Ask what you have in mind...',
+			register: 'Register',
+			payAndRegister: 'Pay and Register'
+		},
+		successMessage: 'You have successfully registered for the workshop'
 	},
 	view: 'View',
 	contactPage: {

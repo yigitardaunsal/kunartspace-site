@@ -9,14 +9,16 @@
 		<div class="atelier__content">
 			<div class="row">
 				<div class="col-md-6">
-					<div class="atelier__picture">
-						<img :src="atelier.image" :alt="atelier.title" class="img-fluid" />
-					</div>
-					<div class="atelier__price">
-						{{ $t('atelierPage.price') }}: <strong>{{ atelier.price | currency }}</strong>
-					</div>
-					<div class="atelier__buttons">
-						<Button variant="secondary" block @click="openRegisterModal">Atölyeye Katıl</Button>
+					<div class="sticky">
+						<div class="atelier__picture">
+							<img :src="atelier.image" :alt="atelier.title" class="img-fluid" />
+						</div>
+						<div class="atelier__price">
+							{{ $t('atelierPage.price') }}: <strong>{{ atelier.price | currency }}</strong>
+						</div>
+						<div class="atelier__buttons">
+							<Button variant="secondary" block @click="openRegisterModal">Atölyeye Katıl</Button>
+						</div>
 					</div>
 				</div>
 				<div class="col-md-6">
@@ -25,8 +27,8 @@
 			</div>
 		</div>
 		<Modal :is-open="registerModalIsOpen" variant="secondary" title="" @close="closeRegisterModal">
-			<ValidationObserver v-slot="{ handleSubmit }">
-				<form class="contact__form row" @submit.prevent="handleSubmit(sendMsg)">
+			<ValidationObserver ref="registerForm">
+				<form class="row" @submit.prevent="register">
 					<div class="col-md-6">
 						<FormGroup>
 							<Textbox
@@ -48,6 +50,54 @@
 								:rules="{ required: 'requied', regex: /^[a-zA-ZığĞüÜşŞiİöÖçÇ\s]*$/ }"
 							/>
 						</FormGroup>
+					</div>
+					<div class="col-md-6">
+						<FormGroup>
+							<Textbox
+								v-model="registerForm.email"
+								type="email"
+								name="email"
+								:placeholder="$t('atelierPage.registerForm.email')"
+								rules="required|email"
+							/>
+						</FormGroup>
+					</div>
+					<div class="col-md-6">
+						<FormGroup>
+							<Textbox
+								v-model="registerForm.phone"
+								type="text"
+								name="phone"
+								:placeholder="$t('atelierPage.registerForm.phone')"
+								:rules="{ required: 'requied', regex: /^[0-9]*$/ }"
+							/>
+						</FormGroup>
+					</div>
+					<div class="col-md-12">
+						<FormGroup>
+							<Select
+								v-model="registerForm.session"
+								name="session"
+								:placeholder="$t('atelierPage.registerForm.session')"
+								:options="sessions"
+								rules="required"
+							/>
+						</FormGroup>
+					</div>
+					<div class="col-md-12">
+						<FormGroup>
+							<Textarea
+								v-model="registerForm.message"
+								name="message"
+								:placeholder="$t('atelierPage.registerForm.message')"
+								rows="5"
+							/>
+						</FormGroup>
+					</div>
+					<div class="col-md-12 text-end">
+						<Button type="button" variant="tertiary" size="sm" :loading="registerButtonLoading" @click="register">{{
+							$t('atelierPage.registerForm.register')
+						}}</Button>
 					</div>
 				</form>
 			</ValidationObserver>
@@ -79,10 +129,16 @@ export default {
 				}
 			}
 
+			const sessions = atelier.sessions.map((session) => ({
+				value: session._id,
+				label: `${$moment(session.date).locale(i18n.locale).format('DD MMMM YYYY')} - ${session.time}`
+			}))
+
 			return {
 				atelier,
 				nearestSessionDate: $moment(nearestSession.date).locale(i18n.locale).format('DD MMMM YYYY'),
-				nearestSessionTime: nearestSession.time.replaceAll(' ', '')
+				nearestSessionTime: nearestSession.time.replaceAll(' ', ''),
+				sessions
 			}
 		} catch (err) {
 			error({ statusCode: err.response.status, message: err.message })
@@ -90,14 +146,16 @@ export default {
 	},
 	data() {
 		return {
-			registerModalIsOpen: true,
+			registerModalIsOpen: false,
 			registerForm: {
 				name: '',
 				surname: '',
 				email: '',
 				phone: '',
-				question: ''
-			}
+				session: '',
+				message: ''
+			},
+			registerButtonLoading: false
 		}
 	},
 	methods: {
@@ -106,6 +164,35 @@ export default {
 		},
 		closeRegisterModal() {
 			this.registerModalIsOpen = false
+		},
+		async register() {
+			const isValid = await this.$refs.registerForm.validate().then((isValid) => isValid)
+
+			if (!isValid) return
+
+			this.registerButtonLoading = true
+
+			this.$api
+				.post('/ateliers/create-participant', this.registerForm)
+				.then(() => {
+					this.closeRegisterModal()
+					this.$toast.open({
+						message: this.$t('atelierPage.successMessage')
+					})
+				})
+				.catch(({ response }) => {
+					let message = this.$t('messages.general')
+
+					if (response.data?.showUser) {
+						message = response.data?.message
+					}
+
+					this.$toast.open({
+						message,
+						type: 'error'
+					})
+				})
+				.finally(() => (this.registerButtonLoading = false))
 		}
 	}
 }
@@ -159,5 +246,10 @@ export default {
 		line-height: pxToRem(20);
 		color: $dark-gray;
 	}
+}
+
+.sticky {
+	position: sticky;
+	top: pxToRem(10);
 }
 </style>

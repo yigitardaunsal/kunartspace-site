@@ -45,8 +45,12 @@ export default {
 			surname: 'Soyad',
 			email: 'E-posta',
 			phone: 'Telefon',
-			question: 'Aklınızdakini sorun...'
-		}
+			session: 'Tarih ve saat seçin',
+			message: 'Aklınızdakini sorun...',
+			register: 'Kaydol',
+			payAndRegister: 'Öde ve Kaydol'
+		},
+		successMessage: 'Atölyeye başarıyla kaydoldunuz'
 	},
 	view: 'Görüntüle',
 	contactPage: {

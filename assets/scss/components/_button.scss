@@ -21,7 +21,7 @@
   }
 
   &.--primary {
-    border: none;
+    border: 1px solid $darklighten;
     background-color: $darklighten;
     color: $enlighten;
 
