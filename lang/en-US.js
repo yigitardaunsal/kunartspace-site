@@ -46,11 +46,21 @@ export default {
 			email: 'E-mail Address',
 			phone: 'Phone',
 			session: 'Select Time and  Date',
-			message: 'Ask what you have in mind...',
-			register: 'Register',
-			payAndRegister: 'Pay and Register'
+			message: 'Ask what you have in mind...'
 		},
-		successMessage: 'You have successfully registered for the workshop'
+		billingForm: {
+			identityNumber: 'Identity Number',
+			billingFullName: 'Full Name',
+			address: 'Address',
+			city: 'City',
+			district: 'District'
+		},
+		payStatus: 'I want to pay now',
+		register: 'Register',
+		payAndRegister: 'Pay and Register',
+		successMessage: 'You have successfully registered for the workshop',
+		successMessageWithoutPayment:
+			'You have successfully registered for the workshop, but there was a problem receiving payment!'
 	},
 	view: 'View',
 	contactPage: {

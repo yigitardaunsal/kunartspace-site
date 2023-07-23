@@ -45,7 +45,7 @@
 						<div class="customer-auth__form-row">
 							<Textbox
 								v-model="identityNumber"
-								type="password"
+								type="text"
 								:name="$t('customer.register.form.identityNumber')"
 								:placeholder="$t('customer.register.form.identityNumber')"
 								rules="required|digits:11|identity"

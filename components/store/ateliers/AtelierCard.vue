@@ -27,7 +27,7 @@
 						tag="a"
 						class="atelier__link btn --secondary --sm"
 					>
-						<span>{{ $t('view') }}</span> <ArrowRightSvg width="17" />
+						<span>{{ $t('view') }}</span>
 					</nuxt-link>
 				</div>
 			</div>

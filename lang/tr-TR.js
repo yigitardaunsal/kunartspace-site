@@ -46,11 +46,20 @@ export default {
 			email: 'E-posta',
 			phone: 'Telefon',
 			session: 'Tarih ve saat seçin',
-			message: 'Aklınızdakini sorun...',
-			register: 'Kaydol',
-			payAndRegister: 'Öde ve Kaydol'
+			message: 'Aklınızdakini sorun...'
 		},
-		successMessage: 'Atölyeye başarıyla kaydoldunuz'
+		billingForm: {
+			identityNumber: 'T.C. Kimlik No',
+			billingFullName: 'Ad Soyad',
+			address: 'Adres',
+			city: 'İl',
+			district: 'İlçe'
+		},
+		payStatus: 'Şimdi ödeme yapmak istiyorum',
+		register: 'Kaydol',
+		payAndRegister: 'Öde ve Kaydol',
+		successMessage: 'Atölyeye başarıyla kaydoldunuz',
+		successMessageWithoutPayment: 'Atölyeye başarıyla kaydoldunuz fakat ödeme alınırken bir sorun oluştu!'
 	},
 	view: 'Görüntüle',
 	contactPage: {

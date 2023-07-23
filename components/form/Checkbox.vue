@@ -67,6 +67,7 @@ export default {
 		&:checked + #{$self}__square {
 			border-color: $darklighten;
 			background-color: $darklighten;
+			color: $enlighten;
 		}
 	}
 
@@ -79,7 +80,7 @@ export default {
 		border-radius: 3px;
 		width: pxToRem(18);
 		height: pxToRem(18);
-		color: $enlighten;
+		color: transparent;
 
 		&.--invalid {
 			border-color: $alizarin;

@@ -27,8 +27,8 @@
 			</div>
 		</div>
 		<Modal :is-open="registerModalIsOpen" variant="secondary" title="" @close="closeRegisterModal">
-			<ValidationObserver ref="registerForm">
-				<form class="row" @submit.prevent="register">
+			<ValidationObserver v-slot="{ handleSubmit }">
+				<form class="row" @submit.prevent="handleSubmit(onSubmit)">
 					<div class="col-md-6">
 						<FormGroup>
 							<Textbox
@@ -94,10 +94,74 @@
 							/>
 						</FormGroup>
 					</div>
+					<div class="col-md-12">
+						<FormGroup>
+							<Checkbox v-model="payStatus" name="pay" placeholder="payStatus">{{
+								$t('atelierPage.payStatus')
+							}}</Checkbox>
+						</FormGroup>
+					</div>
+					<template v-if="payStatus">
+						<div class="col-md-6">
+							<FormGroup>
+								<Textbox
+									v-model="billingForm.identityNumber"
+									type="text"
+									:name="$t('atelierPage.billingForm.identityNumber')"
+									:placeholder="$t('atelierPage.billingForm.identityNumber')"
+									rules="digits:11|identity"
+								/>
+							</FormGroup>
+						</div>
+						<div class="col-md-6">
+							<FormGroup>
+								<Textbox
+									v-model="billingForm.billingFullName"
+									type="text"
+									:name="$t('atelierPage.billingForm.billingFullName')"
+									:placeholder="$t('atelierPage.billingForm.billingFullName')"
+									:rules="{ required: 'requied', regex: /^[a-zA-ZığĞüÜşŞiİöÖçÇ\s]*$/ }"
+								/>
+							</FormGroup>
+						</div>
+						<div class="col-md-6">
+							<FormGroup>
+								<Textbox
+									v-model="billingForm.city"
+									type="text"
+									:name="$t('atelierPage.billingForm.city')"
+									:placeholder="$t('atelierPage.billingForm.city')"
+									:rules="{ required: 'requied', regex: /^[a-zA-ZığĞüÜşŞiİöÖçÇ\s]*$/ }"
+								/>
+							</FormGroup>
+						</div>
+						<div class="col-md-6">
+							<FormGroup>
+								<Textbox
+									v-model="billingForm.district"
+									type="text"
+									:name="$t('atelierPage.billingForm.district')"
+									:placeholder="$t('atelierPage.billingForm.district')"
+									:rules="{ required: 'requied', regex: /^[a-zA-ZığĞüÜşŞiİöÖçÇ\s]*$/ }"
+								/>
+							</FormGroup>
+						</div>
+						<div class="col-md-12">
+							<FormGroup>
+								<Textbox
+									v-model="billingForm.address"
+									type="text"
+									:name="$t('atelierPage.billingForm.address')"
+									:placeholder="$t('atelierPage.billingForm.address')"
+									rules="required"
+								/>
+							</FormGroup>
+						</div>
+					</template>
 					<div class="col-md-12 text-end">
-						<Button type="button" variant="tertiary" size="sm" :loading="registerButtonLoading" @click="register">{{
-							$t('atelierPage.registerForm.register')
-						}}</Button>
+						<Button variant="tertiary" size="sm" :loading="buttonLoading">
+							{{ submitButton }}
+						</Button>
 					</div>
 				</form>
 			</ValidationObserver>
@@ -141,7 +205,7 @@ export default {
 				sessions
 			}
 		} catch (err) {
-			error({ statusCode: err.response.status, message: err.message })
+			error({ statusCode: err.response?.status, message: err.message })
 		}
 	},
 	data() {
@@ -155,7 +219,20 @@ export default {
 				session: '',
 				message: ''
 			},
-			registerButtonLoading: false
+			billingForm: {
+				identityNumber: '',
+				billingFullName: '',
+				address: '',
+				city: '',
+				district: ''
+			},
+			payStatus: false,
+			buttonLoading: false
+		}
+	},
+	computed: {
+		submitButton() {
+			return this.payStatus ? this.$t('atelierPage.payAndRegister') : this.$t('atelierPage.register')
 		}
 	},
 	methods: {
@@ -165,17 +242,39 @@ export default {
 		closeRegisterModal() {
 			this.registerModalIsOpen = false
 		},
-		async register() {
-			const isValid = await this.$refs.registerForm.validate().then((isValid) => isValid)
+		onSubmit() {
+			this.buttonLoading = true
 
-			if (!isValid) return
+			if (!this.payStatus) {
+				this.register()
+				return
+			}
 
-			this.registerButtonLoading = true
-
+			this.payAndRegister()
+		},
+		register() {
 			this.$api
 				.post('/ateliers/create-participant', this.registerForm)
 				.then(() => {
 					this.closeRegisterModal()
+
+					this.registerForm = {
+						name: '',
+						surname: '',
+						email: '',
+						phone: '',
+						session: '',
+						message: ''
+					}
+
+					this.billingForm = {
+						identityNumber: '',
+						billingFullName: '',
+						address: '',
+						city: '',
+						district: ''
+					}
+
 					this.$toast.open({
 						message: this.$t('atelierPage.successMessage')
 					})
@@ -192,8 +291,51 @@ export default {
 						type: 'error'
 					})
 				})
-				.finally(() => (this.registerButtonLoading = false))
+				.finally(() => (this.buttonLoading = false))
+		},
+		payAndRegister() {
+			const payload = {
+				...this.registerForm,
+				...this.billingForm
+			}
+
+			this.$api
+				.post('/payment/atelier', payload)
+				.then(({ data }) => {
+					window.location.replace(data.paymentPageUrl)
+				})
+				.catch(({ response }) => {
+					let message = this.$t('messages.general')
+
+					if (response.data?.showUser) {
+						message = response.data?.message
+					}
+
+					this.$toast.open({
+						message,
+						type: 'error'
+					})
+				})
+				.finally(() => (this.buttonLoading = false))
 		}
+	},
+	mounted() {
+		const hasPaymentQuery = Object.hasOwn(this.$route.query, 'payment')
+
+		if (!hasPaymentQuery) return
+
+		if (this.$route.query.payment === 'false') {
+			this.$toast.open({
+				message: this.$t('atelierPage.successMessageWithoutPayment'),
+				type: 'warning'
+			})
+
+			return
+		}
+
+		this.$toast.open({
+			message: this.$t('atelierPage.successMessage')
+		})
 	}
 }
 </script>
