@@ -15,11 +15,11 @@
 			<div class="col-md-3">
 				<div class="footer__block">
 					<h6 class="footer__title">Kun Art Space</h6>
-					<a href="#" class="footer__link">Kişisel Verilerin Korunması</a>
-					<a href="#" class="footer__link">Mesafeli Satış Sözleşmesi</a>
-					<a href="#" class="footer__link">Gizlilik ve Güvenlik İlkeleri</a>
-					<a href="#" class="footer__link">İptal ve İade Prosedürü</a>
-					<a href="#" class="footer__link">Çerezler</a>
+					<nuxt-link to="/kisisel-verilerin-korunmasi" class="footer__link">Kişisel Verilerin Korunması</nuxt-link>
+					<nuxt-link to="/mesafeli-satis-sozlesmesi" class="footer__link">Mesafeli Satış Sözleşmesi</nuxt-link>
+					<nuxt-link to="/gizlilik-ve-guvenlik-ilkeleri" class="footer__link">Gizlilik ve Güvenlik İlkeleri</nuxt-link>
+					<nuxt-link to="/iptal-ve-iade-proseduru" class="footer__link">İptal ve İade Prosedürü</nuxt-link>
+					<nuxt-link to="/cerez-politikasi" class="footer__link">Çerezler</nuxt-link>
 				</div>
 			</div>
 			<div class="col-md-4 offset-md-1">
